@@ -1,3 +1,4 @@
+/*
 module.exports = {
   sayHelloInEnglish: function() {
     return "HELLO";
@@ -7,3 +8,4 @@ module.exports = {
     return "Hola";
   }
 };
+*/
