@@ -1,0 +1,29 @@
+{
+  "name": "sustainability-tower-defense",
+  "version": "1.0.0",
+  "description": "Defender Game (of Earth?)",
+  "main": "index.html",
+  "scripts": {
+    "build": "webpack --progress --colors",
+    "watch": "webpack --progress --colors --watch",
+    "server": "webpack-dev-server --progress --colors",
+    "lint": "eslint src/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gios-asu/sustainability-tower-defense.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gios-asu/sustainability-tower-defense/issues"
+  },
+  "homepage": "https://github.com/gios-asu/sustainability-tower-defense#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "eslint": "^3.0.1",
+    "jquery": "^3.1.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
