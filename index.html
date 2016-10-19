@@ -1,17 +1,41 @@
+
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/styles.css"/>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-  </head>
-  <body>
-    <h1 class="game-title">this is the game</h1>
-    <div class="hello_text"></div>
+<head>
 
-    <img src="img/nailed-it.gif" alt="bingo"/>
+<link rel="stylesheet" type="text/css" href="design.css">
 
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="build/bundle.js" charset="utf-8"></script>
-  </body>
+
+</head>
+
+<body>
+  <div id="points"  ></div>
+   
+  <button id="clicker" class="earth"></button>
+  
+  	<button id="purchaseTree1" class="button1">Unlock after 3</button>
+    
+    <button id="purchaseCar1" class="button1">Electric Cars: Unlock after 50</button>
+    
+    <button id="purchaseSolar1" class="button1">Solar Panels: Unlock after 150</button>
+    
+    <button id="purchaseFarm1" class="button1">Farms: Unlock after 300</button>
+    
+    <button id="purchaseGas1" class="button1">Green Gas: Unlock after 500</button>
+    
+    <button id="purchaseCapture1" class="button1">Carbon Catcher: Unlock after 1000</button>
+
+ <div id="newsfeed">
+	Scientists predict that life as we know it may cease to exist later this year!
+</div>
+    
+    <div id="pollution" class="pollution">
+    <img style="height:auto; width:auto; max-height:400px; max-width:400px" src="1.png" class="image" />
+	</div>
+    
+    <div class="scrolling-limit"></div>
+    
+    <script src="Game.js"></script>
+    
+</body>
+
 </html>
