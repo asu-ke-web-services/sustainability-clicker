@@ -1,10 +1,14 @@
+var $ = require("jquery");
+// var game_state = require("./game_state.js");
+
+
 var carbNum = 0;
 var adder = 1;
 
 var element = {   
-	clicker:document.getElementById("clicker"),
-	points:document.getElementById("points"),
-	purchaseTree1 : document.getElementById("purchaseTree1"),  
+  clicker:document.getElementById("clicker"),
+  points:document.getElementById("points"),
+  purchaseTree1 : document.getElementById("purchaseTree1"),  
 };
 
 element.clicker.onclick = function() { updatePoints(); };
