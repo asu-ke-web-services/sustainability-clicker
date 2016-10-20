@@ -11,7 +11,7 @@ Cookie Clicker Variant with a Sustainability Theme
 * > npm install
 * > npm run build - to build the app once
 * > npm run watch - to build the app every time you hit save
-* > npm server - to start a live reloading server on [http://localhost:8080/webpack-dev-server/](http://localhost:8080/webpack-dev-server/) (note it does not update the files on disk in build)
+* > npm run server - to start a live reloading server on [http://localhost:8080/webpack-dev-server/](http://localhost:8080/webpack-dev-server/) (note it does not update the files on disk in build)
 
 # Testing/Linting
 * > npm run lint - to run Javascript Linter (ESLint)
