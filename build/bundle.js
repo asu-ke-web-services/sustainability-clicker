@@ -49,9 +49,9 @@
 
 	var totalNumberOfCarbons;
 
-	var carbNum = 0.00;
+	var carbNum = 1000.00;
 	var purchaseLevel = 1;
-	var treeBasePrice = 10.00;
+	var treeBasePrice = 1000.00;
 
 
 	var auto_adder = {
@@ -106,6 +106,7 @@
 
 	setInterval(function(){ 
 	    
+	    
 	  if(auto_adder.tree > 0)
 	  {
 	     timer.tree += 1; 
@@ -116,12 +117,15 @@
 
 
 	function autoTreeCarbNum () //timer for auto adition of the numbers of carbons  
-	{
+	{   
+	    var carbNumftm;
 	    
 	    if(timer.tree == 3) 
 	    {
+	        
 	       carbNum = carbNum + auto_adder.tree;
-	       element.points.innerHTML = "Number Of Carbons: " + carbNum;
+	       carbNumftm = game_state.addCommas(carbNum)
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 	       timer.tree = 0;
 	    }
 	    if(carbNum >= treeBasePrice)
