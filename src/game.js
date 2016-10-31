@@ -24,11 +24,11 @@ function updatePoints()
     var carbNumftm;
     
  carbNum = carbNum + adder;
- carbNumftm = game_state.addCommas(carbNum)
+    carbNumftm = game_state.addCommas(carbNum)
  element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
     
-if(carbNum >= treePurchaseLevel)
-    {
+    if(carbNum >= treePurchaseLevel)
+        {
               document.getElementById("purchaseTree1").disabled = false;
         }
 }
@@ -43,7 +43,7 @@ function up()
     {
         purchaseLevel++;
      carbNum =  carbNum - treePurchaseLevel;
-     carb NumFormating = game_state.addCommas(carbNum);
+     carbNumFormating = game_state.addCommas(carbNum);
         element.points.innerHTML = "Number Of Carbons: " + carbNumFormating;
   adder = treePurchaseLevel;
         treePurchaseLevel = purchaseLevel*(treePurchaseLevel);
