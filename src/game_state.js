@@ -23,5 +23,5 @@ addCommas: function(value) //source http://stackoverflow.com/
         newValue = shortValue+suffixes[suffixNum];
     }
     return newValue;
-}
+ }
 };
