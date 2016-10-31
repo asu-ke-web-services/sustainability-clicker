@@ -30,8 +30,10 @@ calcPrice: function(nOwned, baseCost)
     var temp;
     var numberOwned = nOwned;
     var value = Math.pow(1.15, numberOwned);
-    temp = baseCost * value;
+    temp = Math.round(baseCost * value);
     return temp;
-},    
-    
+},  
+
 };
+
+

@@ -1,59 +1,62 @@
 // var $ = require("jquery");
 var game_state = require("./game_state.js");
 
+var totalNumberOfCarbons;
 
-var carbNum = 0;
-var adder = 1;
+var carbNum = 0.00;
 var purchaseLevel = 1;
-var treePurchaseLevel = 3;
+var treeBasePrice = 10.00;
 
 var element = {  
     
   clicker:document.getElementById("clicker"),
   points:document.getElementById("points"),
   purchaseTree1 : document.getElementById("purchaseTree1"),  
+
 };
 
-element.clicker.onclick = function() { updatePoints(); };
-element.purchaseTree1.onclick = function() { up(); };
+element.clicker.onclick = function() { mainClicker(); };
+element.purchaseTree1.onclick = function() { treePriceCalc(); };
 
-element.purchaseTree1.innerHTML = "Tree : unlock on " + treePurchaseLevel;
+element.purchaseTree1.innerHTML = "Tree : unlock on " + treeBasePrice;
 
-function updatePoints()
+function mainClicker()
 {
     var carbNumftm;
     
- carbNum = carbNum + adder;
-    carbNumftm = game_state.addCommas(carbNum)
+ carbNum = carbNum + 1;
+ carbNumftm = game_state.addCommas(carbNum)
  element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-    
-    if(carbNum >= treePurchaseLevel)
-        {
-              document.getElementById("purchaseTree1").disabled = false;
-        }
+
+if(carbNum >= treeBasePrice)
+ {
+    document.getElementById("purchaseTree1").disabled = false;
+ }
+
 }
 
 
-function up()
+function treePriceCalc()
 {
-    treePurchaseLevel;
-    var treePurchaseLevelFormating;
-    var carbNumFormating;
-    var price;
-  if (carbNum >= treePurchaseLevel)
+    var formatPrice;
+    var formatCarb;
+
+    if (carbNum >= treeBasePrice)
     {
-        purchaseLevel++;
-        carbNum =  carbNum - treePurchaseLevel;
-        carbNumFormating = game_state.addCommas(carbNum);
-        element.points.innerHTML = "Number Of Carbons: " + carbNumFormating;
         
-        price = game_state.calcPrice(purchaseLevel, 3);
-        //adder = treePurchaseLevel;
-        //treePurchaseLevel = purchaseLevel*(treePurchaseLevel);
-        treePurchaseLevelFormating = game_state.addCommas(price);
-        element.purchaseTree1.innerHTML = "Tree : unlock on " + treePurchaseLevelFormating;
+        purchaseLevel++;
+        
+        //update total number of carbons
+        carbNum =  carbNum - treeBasePrice;
+        formatCarb = game_state.addCommas(carbNum);
+        element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+        
+        //update number of carbons needed to buy tree 
+        treeBasePrice = game_state.calcPrice(purchaseLevel, treeBasePrice);
+        formatPrice = game_state.addCommas(treeBasePrice);
+        element.purchaseTree1.innerHTML = "Tree : unlock on " + formatPrice;
       
-        if(carbNum <= treePurchaseLevel)
+        if(carbNum < treeBasePrice)
           {
               document.getElementById("purchaseTree1").disabled = true;
           }
