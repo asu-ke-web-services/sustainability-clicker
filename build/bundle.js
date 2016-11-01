@@ -49,9 +49,9 @@
 
 	var totalNumberOfCarbons;
 
-	var carbNum = 1000.00;
+	var carbNum = 0.00;
 	var purchaseLevel = 1;
-	var treeBasePrice = 1000.00;
+	var treeBasePrice = 100.00;
 
 
 	var auto_adder = {
