@@ -85,17 +85,21 @@
 	    treePurchaseLevel;
 	    var treePurchaseLevelFormating;
 	    var carbNumFormating;
+	    var price;
 	  if (carbNum >= treePurchaseLevel)
 	    {
 	        purchaseLevel++;
-	     carbNum =  carbNum - treePurchaseLevel;
-	     carbNumFormating = game_state.addCommas(carbNum);
+	        carbNum =  carbNum - treePurchaseLevel;
+	        carbNumFormating = game_state.addCommas(carbNum);
 	        element.points.innerHTML = "Number Of Carbons: " + carbNumFormating;
-	  adder = treePurchaseLevel;
-	        treePurchaseLevel = purchaseLevel*(treePurchaseLevel);
-	        treePurchaseLevelFormating = game_state.addCommas(treePurchaseLevel);
-	         element.purchaseTree1.innerHTML = "Tree : unlock on " + treePurchaseLevelFormating;
-	      if(carbNum <= treePurchaseLevel)
+	        
+	        price = game_state.calcPrice(purchaseLevel, 3);
+	        //adder = treePurchaseLevel;
+	        //treePurchaseLevel = purchaseLevel*(treePurchaseLevel);
+	        treePurchaseLevelFormating = game_state.addCommas(price);
+	        element.purchaseTree1.innerHTML = "Tree : unlock on " + treePurchaseLevelFormating;
+	      
+	        if(carbNum <= treePurchaseLevel)
 	          {
 	              document.getElementById("purchaseTree1").disabled = true;
 	          }
@@ -133,7 +137,17 @@
 	        newValue = shortValue+suffixes[suffixNum];
 	    }
 	    return newValue;
-	}
+	},
+
+	calcPrice: function(nOwned, baseCost) 
+	{
+	    var temp;
+	    var numberOwned = nOwned;
+	    var value = Math.pow(1.15, numberOwned);
+	    temp = baseCost * value;
+	    return temp;
+	},    
+	    
 	};
 
 

@@ -23,5 +23,15 @@ addCommas: function(value) //source http://stackoverflow.com/
         newValue = shortValue+suffixes[suffixNum];
     }
     return newValue;
-}
+},
+
+calcPrice: function(nOwned, baseCost) 
+{
+    var temp;
+    var numberOwned = nOwned;
+    var value = Math.pow(1.15, numberOwned);
+    temp = baseCost * value;
+    return temp;
+},    
+    
 };
