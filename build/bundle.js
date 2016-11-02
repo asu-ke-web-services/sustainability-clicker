@@ -125,7 +125,7 @@
 	        
 	       carbNum = carbNum + auto_adder.tree;
 	       carbNumftm = game_state.addCommas(carbNum)
-	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
+	       element.points.innerHTML = "" + carbNumftm;
 	       timer.tree = 0;
 	    }
 	    if(carbNum >= treeBasePrice)
@@ -150,7 +150,7 @@
 	        //update total number of carbons
 	        carbNum =  carbNum - treeBasePrice;
 	        formatCarb = game_state.addCommas(carbNum);
-	        element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	        element.points.innerHTML = "" + formatCarb;
 	        
 	        
 	        //update number of carbons needed to buy tree 

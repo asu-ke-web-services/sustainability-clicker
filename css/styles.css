@@ -1,5 +1,27 @@
 /** CSS styles */
-div.scrolling-limit
+
+body {
+  background: url('../img/3.jpg');
+  background-size: 1000px;
+}
+.score {
+  text-align: center;
+  font: 300% 'Trebuchet MS', cursive;
+  color: #fff;
+  text-shadow: 
+    0 0 10px #fff, 
+    0 0 30px #fff, 
+    0 0 50px #e3e98e, 
+    0 0 70px #e3e98e,
+    0 0 90px #e3e98e;
+}
+
+.button-to-buy {
+  width: 150px;
+  height: 30px;
+}
+
+/*div.scrolling-limit
 {
   width: 1400px;
   height: 30px;
@@ -12,22 +34,8 @@ div.scrolling-limit
     margin-right: 0px;
 }
 
-body {
-  background: url('../img/3.jpg');
-  background-size: 1000px;
-}
 
-#points {
-  text-align: center;
-  font: 300% 'Trebuchet MS', cursive;
-  color: #fff;
-  text-shadow: 
-    0 0 10px #fff, 
-    0 0 30px #fff, 
-    0 0 50px #e3e98e, 
-    0 0 70px #e3e98e,
-    0 0 90px #e3e98e;
-}
+
 
 #purchaseTree1
 {  
@@ -100,6 +108,8 @@ body {
   height: 50px;
     cursor: pointer;
 }
+*/
+
 
 #pollution
 {  
