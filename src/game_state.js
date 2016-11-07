@@ -34,6 +34,7 @@ calcPrice: function(nOwned, baseCost)
     return temp;
 },  
 
+
 };
 
 
