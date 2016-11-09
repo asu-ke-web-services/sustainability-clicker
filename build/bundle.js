@@ -42,10 +42,10 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	// var $ = require("jquery");
-	var game_state = __webpack_require__(1);
+	//var $ = require("jquery");
+	//var game_state = require("./game_state.js");
 
 
 	var carbNum = 0;
@@ -53,31 +53,33 @@
 	var purchaseLevel = 1;
 	var treePurchaseLevel = 3;
 
-	var element = {  
-	    
+	var element =
+	{  
 	  clicker:document.getElementById("clicker"),
 	  points:document.getElementById("points"),
-	  purchaseTree1 : document.getElementById("purchaseTree1"),  
+	  purchaseTree1 : document.getElementById("purchaseTree1")  
 	};
-
-	element.clicker.onclick = function() { updatePoints(); };
-	element.purchaseTree1.onclick = function() { up(); };
-
-	element.purchaseTree1.innerHTML = "Tree : unlock on " + treePurchaseLevel;
 
 	function updatePoints()
 	{
 	    var carbNumftm;
 	    
-	 carbNum = carbNum + adder;
+	    carbNum = carbNum + adder;
 	    carbNumftm = game_state.addCommas(carbNum)
-	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
+	    element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 	    
 	    if(carbNum >= treePurchaseLevel)
 	        {
 	              document.getElementById("purchaseTree1").disabled = false;
 	        }
 	}
+
+
+	element.clicker.onclick = function() { updatePoints(); };
+	element.purchaseTree1.onclick = function() { up(); };
+
+	element.purchaseTree1.innerHTML = "Tree : unlock on " + treePurchaseLevel;
+
 
 
 	function up()
@@ -102,39 +104,6 @@
 	        
 	    }
 	}
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  sayHelloInEnglish: function() {
-	    return "HELLO";
-	  },
-
-	  sayHelloInSpanish: function() {
-	    return "Hola";
-	  },
-	    
-	addCommas: function(value) //source http://stackoverflow.com/
-	{
-	    var newValue = value;
-	    if (value >= 1000) {
-	        var suffixes = ["", "k", "m", "b","t"];
-	        var suffixNum = Math.floor( (""+value).length/3 );
-	        var shortValue = '';
-	        for (var precision = 2; precision >= 1; precision--) {
-	            shortValue = parseFloat( (suffixNum != 0 ? (value / Math.pow(1000,suffixNum) ) : value).toPrecision(precision));
-	            var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g,'');
-	            if (dotLessShortValue.length <= 2) { break; }
-	        }
-	        if (shortValue % 1 != 0)  shortNum = shortValue.toFixed(1);
-	        newValue = shortValue+suffixes[suffixNum];
-	    }
-	    return newValue;
-	}
-	};
 
 
 /***/ }

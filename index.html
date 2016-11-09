@@ -5,30 +5,60 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body>
-<div id="points"  ></div>
-   
-    <button id="clicker" class="earth"></button>
-  
-    <button id="purchaseTree1" class="button1" disabled></button>
-    
-    <button id="purchaseCar1" class="button1" disabled>Electric Cars: Unlock after 50</button>
-    
-    <button id="purchaseSolar1" class="button1" disabled>Solar Panels: Unlock after 150</button>
-    
-    <button id="purchaseFarm1" class="button1" disabled>Farms: Unlock after 300</button>
-    
-    <button id="purchaseGas1" class="button1" disabled>Green Gas: Unlock after 500</button>
-    
-    <button id="purchaseCapture1" class="button1" disabled>Carbon Catcher: Unlock after 1000</button>
 
- <div id="newsfeed">
-  Scientists predict that life as we know it may cease to exist later this year!
-</div>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="center">
+            <div class="col-md-12">
+
+                <div class="points"> Number Of Carbons: <div id="points"  ></div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4"> 
+                 
+                <button id="purchaseTree1" class="btn button-to-buy" disabled>Trees: Unlock after 10</button>
     
-    <div id="pollution" class="pollution">
-    <img style="height:auto; width:auto; max-height:400px; max-width:400px" src="img/1.png" class="image" />
+                 <button id="purchaseCar1" class="btn button-to-buy" disabled>Electric Cars: Unlock after 50</button>
+    
+                 <button id="purchaseSolar1" class="btn button-to-buy" disabled>Solar Panels: Unlock after 150</button>
+            </div>
+                
+            <div class="col-md-4">     
+            
+                <button id="clicker" class="earth"></button>
+              
+                 <div id="pollution " class="pollution">
+
+                 <img style="height:auto; width:auto; max-height:400px; max-width:400px" src="img/1.png" class="image" /></div>
+            </div>
+    
+             <div class="col-md-4"> 
+                  
+                <button id="purchaseFarm1" class="btn button-to-buy" disabled>Farms: Unlock after 300</button>
+
+                <button id="purchaseGas1" class="btn button-to-buy" disabled>Green Gas: Unlock after 500</button>
+
+                <button id="purchaseCapture1" class="btn button-to-buy" disabled>Carbon Catcher: Unlock after 1000</button>
+
+             </div>
+
+    <div class="col-9d-12">
+
+      <div id="newsfeed">
+
+        Scientists predict that life as we know it may cease to exist later this year!
+
+      </div>
+
+    </div>
+    </div>
+    </div>
+
   </div>
-    
+
     <div class="scrolling-limit"></div>
     <script type="text/javascript" src="build/bundle.js" charset="utf-8"></script>
 
