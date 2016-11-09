@@ -143,10 +143,18 @@ function treePriceCalc()
         element.purchaseTree1.innerHTML = "Tree : unlock on " + formatPrice;
         
         
-        if(carbNum < treeBasePrice)
-          {
-              document.getElementById("purchaseTree1").disabled = true;
-          }
+            if(carbNum < solarBasePrice)
+                {
+                    document.getElementById("purchaseSolar1").disabled = true;
+                }
+            if(carbNum < carBasePrice)
+                {
+                    document.getElementById("purchaseCar1").disabled = true;
+                }
+             if(carbNum < treeBasePrice)
+                {
+                    document.getElementById("purchaseTree1").disabled = true;
+                }
         
     }
 }
@@ -159,7 +167,7 @@ function carPriceClac ()
     
     if (carbNum >= carBasePrice)
         {
-            purchaseLevel++;
+            carPurchaseLevel++;
             carbNum = carbNum - carBasePrice;
             formatCarb = game_state.addCommas(carbNum);
             element.points.innerHTML = "Number Of Carbons: " + formatCarb;
@@ -168,9 +176,17 @@ function carPriceClac ()
             formatPrice = game_state.addCommas(carBasePrice);
             document.getElementById("purchaseCar1").innerHTML = "Car : unlock on " + formatPrice;
             
-            if(carbNum < carBasePrice)
+             if(carbNum < solarBasePrice)
+                {
+                    document.getElementById("purchaseSolar1").disabled = true;
+                }
+             if(carbNum < carBasePrice)
                 {
                     document.getElementById("purchaseCar1").disabled = true;
+                }
+             if(carbNum < treeBasePrice)
+                {
+                    document.getElementById("purchaseTree1").disabled = true;
                 }
         }
     
@@ -196,6 +212,14 @@ function solarPriceClac ()
             if(carbNum < solarBasePrice)
                 {
                     document.getElementById("purchaseSolar1").disabled = true;
+                }
+             if(carbNum < carBasePrice)
+                {
+                    document.getElementById("purchaseCar1").disabled = true;
+                }
+             if(carbNum < treeBasePrice)
+                {
+                    document.getElementById("purchaseTree1").disabled = true;
                 }
         }
     
