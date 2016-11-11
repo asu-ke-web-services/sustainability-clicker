@@ -58,7 +58,6 @@
 	var gasPurchaseLevel = 0;
 	var capturePurchaseLevel = 0;
 
-
 	var treeBasePrice = 1.00;
 	var carBasePrice = 2.00;
 	var solarBasePrice = 3.00;
@@ -83,13 +82,20 @@
 	  purchaseTree1 : document.getElementById("purchaseTree1"), 
 	  purchaseCar1 : document.getElementById("purchaseCar1"),
 	  purchaseSolar1 : document.getElementById("purchaseSolar1"),
+	  purchaseFarm1 : document.getElementById("purchaseFarm1"),
+	  purchaseGas1 : document.getElementById("purchaseGas1"),
+	  purchaseCapture1 : document.getElementById("purchaseCapture1"),
 
 	};
 
 	element.clicker.onclick = function() { mainClicker(); };
 	element.purchaseCar1.onclick = function() { carPriceClac(); };
-	element.purchaseSolar1.onclick = function () {solarPriceClac();};
+	element.purchaseSolar1.onclick = function() { solarPriceClac();};
+	element.purchaseFarm1.onclick = function() {farmPricCalc();};
+	element.purchaseGas1.onclick = function() {gasPriceCalc();};
+	element.purchaseCapture1.onclick = function() {capturePriceCalc();};
 	element.purchaseTree1.onclick = function() {  
+	  
 	    if(auto_adder.tree == 0) 
 	    {
 	        auto_adder.tree = 1;
@@ -102,9 +108,17 @@
 	    treePriceCalc();
 	};
 
-	element.purchaseTree1.innerHTML = "Tree : unlock on " + treeBasePrice;
-	element.purchaseCar1.innerHTML = "Car : unluck on " + carBasePrice;
-	element.purchaseSolar1.innerHTML = "Solar : unluck on " + solarBasePrice;
+	element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + treeBasePrice;
+
+	element.purchaseCar1.innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + carBasePrice;
+
+	element.purchaseSolar1.innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + solarBasePrice;
+
+	element.purchaseFarm1.innerHTML = "|" + farmPurchaseLevel + "|" + " Farm : unlock on " + farmBasePrice;
+
+	element.purchaseGas1.innerHTML = "|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + gasBasePrice;
+
+	element.purchaseCapture1.innerHTML = "|" + capturePurchaseLevel + "|" + " Carbon Catcher : unlock on " + captureBasePrice;
 
 	function mainClicker()
 	{
@@ -114,10 +128,10 @@
 	 carbNumftm = game_state.addCommas(carbNum)
 	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 
-	if(carbNum >= treeBasePrice)
-	 {
-	    document.getElementById("purchaseTree1").disabled = false;
-	 }
+	 if(carbNum >= treeBasePrice)
+	     {
+	         document.getElementById("purchaseTree1").disabled = false;
+	     }
 
 	    
 	 if (carbNum >= carBasePrice)
@@ -129,9 +143,20 @@
 	 if(carbNum >= solarBasePrice)
 	     {
 	         document.getElementById("purchaseSolar1").disabled = false;
-	     }
-	  
+	     } 
 	    
+	     if(carbNum >= farmBasePrice)
+	     {
+	         document.getElementById("purchaseFarm1").disabled = false;
+	     } 
+	         if(carbNum >= gasBasePrice)
+	     {
+	         document.getElementById("purchaseGas1").disabled = false;
+	     } 
+	            if(carbNum >= captureBasePrice)
+	     {
+	         document.getElementById("purchaseCapture1").disabled = false;
+	     } 
 	}
 
 	setInterval(function(){ 
@@ -186,7 +211,7 @@
 	        //update number of carbons needed to buy tree 
 	        treeBasePrice = game_state.calcPrice(purchaseLevel, treeBasePrice);
 	        formatPrice = game_state.addCommas(treeBasePrice);
-	        element.purchaseTree1.innerHTML = "Tree : unlock on " + formatPrice;
+	        element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + formatPrice;
 	        
 	        
 	            if(carbNum < solarBasePrice)
@@ -201,7 +226,18 @@
 	                {
 	                    document.getElementById("purchaseTree1").disabled = true;
 	                }
-	        
+	            if(carbNum >= farmBasePrice)
+	             {
+	                    document.getElementById("purchaseFarm1").disabled = false;
+	             }
+	                 if(carbNum >= gasBasePrice)
+	     {
+	         document.getElementById("purchaseGas1").disabled = false;
+	     } 
+	               if(carbNum < captureBasePrice)
+	                {
+	                    document.getElementById("purchaseCapture1").disabled = true;
+	                }
 	    }
 	}
 
@@ -218,9 +254,9 @@
 	            formatCarb = game_state.addCommas(carbNum);
 	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
 	            
-	            carBasePrice = game_state.calcPrice(carPurchaseLevel, basePrice);
+	            carBasePrice = game_state.calcPrice(carPurchaseLevel, carBasePrice);
 	            formatPrice = game_state.addCommas(carBasePrice);
-	            document.getElementById("purchaseCar1").innerHTML = "Car : unlock on " + formatPrice;
+	            document.getElementById("purchaseCar1").innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + formatPrice;
 	            
 	             if(carbNum < solarBasePrice)
 	                {
@@ -234,8 +270,20 @@
 	                {
 	                    document.getElementById("purchaseTree1").disabled = true;
 	                }
+	                 if(carbNum >= farmBasePrice)
+	     {
+	         document.getElementById("purchaseFarm1").disabled = false;
+	     }
+	                     if(carbNum >= gasBasePrice)
+	     {
+	         document.getElementById("purchaseGas1").disabled = false;
+	     } 
+	            
+	                   if(carbNum < captureBasePrice)
+	                {
+	                    document.getElementById("purchaseCapture1").disabled = true;
+	                }
 	        }
-	    
 	}
 
 	function solarPriceClac ()
@@ -253,7 +301,7 @@
 	            
 	            solarBasePrice = game_state.calcPrice(solarPurchaseLevel, solarBasePrice);
 	            formatPrice = game_state.addCommas(solarBasePrice);
-	            document.getElementById("purchaseSolar1").innerHTML = "Solar : unlock on " + formatPrice;
+	            document.getElementById("purchaseSolar1").innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + formatPrice;
 	            
 	            if(carbNum < solarBasePrice)
 	                {
@@ -267,14 +315,175 @@
 	                {
 	                    document.getElementById("purchaseTree1").disabled = true;
 	                }
+	                 if(carbNum >= farmBasePrice)
+	     {
+	         document.getElementById("purchaseFarm1").disabled = false;
+	     }
+	                     if(carbNum >= gasBasePrice)
+	     {
+	         document.getElementById("purchaseGas1").disabled = false;
+	     } 
+	            
+	                   if(carbNum < captureBasePrice)
+	                {
+	                    document.getElementById("purchaseCapture1").disabled = true;
+	                }
 	        }
 	    
 	}
 
+	function farmPricCalc ()
+	{
+	  
+	    var formatPrice;
+	    var formatCarb;
+	    
+	    if (carbNum >= farmBasePrice)
+	        {
+	            farmPurchaseLevel++;
+	            carbNum = carbNum - farmBasePrice;
+	            formatCarb = game_state.addCommas(carbNum);
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	            
+	            farmBasePrice = game_state.calcPrice(farmPurchaseLevel, farmBasePrice);
+	            formatPrice = game_state.addCommas(farmBasePrice);
+	            document.getElementById("purchaseFarm1").innerHTML = "|" + farmPurchaseLevel + "|" +  " Farm : unlock on " + formatPrice;
+	            
+	            if(carbNum < farmBasePrice)
+	                {
+	                    document.getElementById("purchaseFarm1").disabled = true;
+	                }
+	            
+	            if(carbNum < solarBasePrice)
+	                {
+	                    document.getElementById("purchaseSolar1").disabled = true;
+	                }
+	             if(carbNum < carBasePrice)
+	                {
+	                    document.getElementById("purchaseCar1").disabled = true;
+	                }
+	             if(carbNum < treeBasePrice)
+	                {
+	                    document.getElementById("purchaseTree1").disabled = true;
+	                }
+	                     if(carbNum >= gasBasePrice)
+	     {
+	         document.getElementById("purchaseGas1").disabled = false;
+	     } 
+	            
+	                   if(carbNum < captureBasePrice)
+	                {
+	                    document.getElementById("purchaseCapture1").disabled = true;
+	                }
+	        }
+	    
+	}
 
+	function gasPriceCalc ()
+	{
+	  
+	    var formatPrice;
+	    var formatCarb;
+	    
+	    if (carbNum >= gasBasePrice)
+	        {
+	            gasPurchaseLevel++;
+	            carbNum = carbNum - gasBasePrice;
+	            formatCarb = game_state.addCommas(carbNum);
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	            
+	            gasBasePrice = game_state.calcPrice(gasPurchaseLevel, gasBasePrice);
+	            formatPrice = game_state.addCommas(gasBasePrice);
+	            document.getElementById("purchaseGas1").innerHTML ="|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + formatPrice;
+	            
+	            if(carbNum < gasBasePrice)
+	                {
+	                    document.getElementById("purchaseGas1").disabled = true;
+	                }
+	            
+	            
+	            if(carbNum < farmBasePrice)
+	                {
+	                    document.getElementById("purchaseFarm1").disabled = true;
+	                }
+	            
+	            if(carbNum < solarBasePrice)
+	                {
+	                    document.getElementById("purchaseSolar1").disabled = true;
+	                }
+	             if(carbNum < carBasePrice)
+	                {
+	                    document.getElementById("purchaseCar1").disabled = true;
+	                }
+	             if(carbNum < treeBasePrice)
+	                {
+	                    document.getElementById("purchaseTree1").disabled = true;
+	                }
+	                     if(carbNum >= gasBasePrice)
+	     {
+	         document.getElementById("purchaseGas1").disabled = false;
+	     } 
+	            
+	                   if(carbNum < captureBasePrice)
+	                {
+	                    document.getElementById("purchaseCapture1").disabled = true;
+	                }
+	        }
+	    
+	} 
 
-
-
+	function capturePriceCalc()
+	{
+	  
+	    var formatPrice;
+	    var formatCarb;
+	    
+	    if (carbNum >= captureBasePrice)
+	        {
+	            capturePurchaseLevel++;
+	            carbNum = carbNum - captureBasePrice;
+	            formatCarb = game_state.addCommas(carbNum);
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	            
+	            captureBasePrice = game_state.calcPrice(capturePurchaseLevel, captureBasePrice);
+	            formatPrice = game_state.addCommas(captureBasePrice);
+	            document.getElementById("purchaseCapture1").innerHTML = "|" + capturePurchaseLevel + "|" +  " Carbon Catcher : unlock on " + formatPrice;
+	            
+	            if(carbNum < gasBasePrice)
+	                {
+	                    document.getElementById("purchaseGas1").disabled = true;
+	                }
+	            
+	            
+	            if(carbNum < farmBasePrice)
+	                {
+	                    document.getElementById("purchaseFarm1").disabled = true;
+	                }
+	            
+	            if(carbNum < solarBasePrice)
+	                {
+	                    document.getElementById("purchaseSolar1").disabled = true;
+	                }
+	             if(carbNum < carBasePrice)
+	                {
+	                    document.getElementById("purchaseCar1").disabled = true;
+	                }
+	             if(carbNum < treeBasePrice)
+	                {
+	                    document.getElementById("purchaseTree1").disabled = true;
+	                }
+	                     if(carbNum >= gasBasePrice)
+	     {
+	         document.getElementById("purchaseGas1").disabled = false;
+	     } 
+	        }
+	       if(carbNum < captureBasePrice)
+	                {
+	                    document.getElementById("purchaseCapture1").disabled = true;
+	                }
+	            
+	    
+	} 
 
 /***/ },
 /* 1 */
