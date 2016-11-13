@@ -59,22 +59,24 @@
 	var capturePurchaseLevel = 0;
 
 
-	var treeBasePrice = 1.00;
-	var carBasePrice = 2.00;
-	var solarBasePrice = 3.00;
+	var treeBasePrice = 3.00;
+	var carBasePrice = 6.00;
+	var solarBasePrice = 9.00;
 	var farmBasePrice = 4.00;
 	var gasBasePrice = 5.00;
 	var captureBasePrice = 6.00;
 
+	var timer = 0;
+	var opacity = 1.0;
+	var opactiy_counter = 0;
+
 	var auto_adder = {
 	    tree:0,
-	    electric_car:0
+	    electric_car:0,
+	    solar:0
 	};
 
-	var timer = {
-	    tree:0,
-	    electric_car:0
-	};
+
 
 	var element = {  
 	    
@@ -83,12 +85,47 @@
 	  purchaseTree1 : document.getElementById("purchaseTree1"), 
 	  purchaseCar1 : document.getElementById("purchaseCar1"),
 	  purchaseSolar1 : document.getElementById("purchaseSolar1"),
+	  pollution :  document.getElementById("pollution"),
 
 	};
 
-	element.clicker.onclick = function() { mainClicker(); };
-	element.purchaseCar1.onclick = function() { carPriceClac(); };
-	element.purchaseSolar1.onclick = function () {solarPriceClac();};
+	element.clicker.onclick = function() { 
+	    
+	    mainClicker(); 
+	    button_check();
+	   };
+
+	//ADDER FOR CAR. Increment by 2 every 6 seconds
+	element.purchaseCar1.onclick = function() 
+	{ 
+	    if(auto_adder.electric_car == 0) 
+	    {
+	        auto_adder.electric_car = 2;
+	    }
+	    else
+	    {
+	        auto_adder.electric_car += auto_adder.electric_car;
+	    }
+	    carPriceClac();
+	    button_check();
+	};
+
+	//ADDER FOR SOLAR. Increment by 4 every 9 seconds
+	element.purchaseSolar1.onclick = function () 
+	{ 
+	    if(auto_adder.solar == 0) 
+	    {
+	        auto_adder.solar = 4;
+	    }
+	    else
+	    {
+	        auto_adder.solar += auto_adder.solar;
+	    }
+	    solarPriceClac();
+	    button_check();
+	};
+
+	//ADDER FOR TREE. Increment by 1 every 3 seconds
 	element.purchaseTree1.onclick = function() {  
 	    if(auto_adder.tree == 0) 
 	    {
@@ -98,13 +135,13 @@
 	    {
 	        auto_adder.tree += auto_adder.tree;
 	    }
-	    
 	    treePriceCalc();
+	    button_check();
 	};
 
 	element.purchaseTree1.innerHTML = "Tree : unlock on " + treeBasePrice;
-	element.purchaseCar1.innerHTML = "Car : unluck on " + carBasePrice;
-	element.purchaseSolar1.innerHTML = "Solar : unluck on " + solarBasePrice;
+	element.purchaseCar1.innerHTML = "Car : unlock on " + carBasePrice;
+	element.purchaseSolar1.innerHTML = "Solar : unlock on " + solarBasePrice;
 
 	function mainClicker()
 	{
@@ -112,36 +149,32 @@
 	    
 	 carbNum = carbNum + 1;
 	 carbNumftm = game_state.addCommas(carbNum)
-	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-
-	if(carbNum >= treeBasePrice)
-	 {
-	    document.getElementById("purchaseTree1").disabled = false;
-	 }
-
-	    
-	 if (carbNum >= carBasePrice)
-	     {
-	         document.getElementById("purchaseCar1").disabled = false;
-	     }
-
-	    
-	 if(carbNum >= solarBasePrice)
-	     {
-	         document.getElementById("purchaseSolar1").disabled = false;
-	     }
-	  
+	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm;    
 	    
 	}
 
 	setInterval(function(){ 
 	    
-	    
 	  if(auto_adder.tree > 0)
 	  {
-	     timer.tree += 1; 
 	     autoTreeCarbNum();
 	  }
+	  if(auto_adder.electric_car > 0) 
+	  {
+	      
+	      autoCarCarbNum();
+	  }
+	  if(auto_adder.solar > 0) 
+	  {
+	      
+	      autoSolarCarbNum();
+	  }
+	  
+	  button_check();
+	  cloud_opacity();
+	 
+
+	  timer += 1;
 	    
 	 }, 1000);
 
@@ -150,20 +183,38 @@
 	{   
 	    var carbNumftm;
 	    
-	    if(timer.tree == 3) 
+	    if(timer % 3 == 0) 
 	    {
 	        
 	       carbNum = carbNum + auto_adder.tree;
 	       carbNumftm = game_state.addCommas(carbNum)
 	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	       timer.tree = 0;
 	    }
-	    if(carbNum >= treeBasePrice)
+	}
+
+	function autoCarCarbNum () //timer for auto adition of the numbers of carbons  
+	{   
+	    var carbNumftm;
+	    
+	    if(timer % 5 == 0) 
 	    {
-	              document.getElementById("purchaseTree1").disabled = false; //these two dont work
+	        
+	       carbNum = carbNum + auto_adder.electric_car;
+	       carbNumftm = game_state.addCommas(carbNum)
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 	    }
-	    else {
-	              document.getElementById("purchaseTree1").disabled = true;
+	}
+
+	function autoSolarCarbNum () //timer for auto adition of the numbers of carbons  
+	{   
+	    var carbNumftm;
+	    
+	    if(timer % 9 == 0) 
+	    {
+	        
+	       carbNum = carbNum + auto_adder.solar;
+	       carbNumftm = game_state.addCommas(carbNum)
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 	    }
 	}
 
@@ -188,14 +239,10 @@
 	        formatPrice = game_state.addCommas(treeBasePrice);
 	        element.purchaseTree1.innerHTML = "Tree : unlock on " + formatPrice;
 	        
-	        
-	        if(carbNum < treeBasePrice)
-	          {
-	              document.getElementById("purchaseTree1").disabled = true;
-	          }
-	        
+	       
 	    }
 	}
+
 
 	function carPriceClac ()
 	{
@@ -204,22 +251,17 @@
 	    var formatCarb;
 	    
 	    if (carbNum >= carBasePrice)
-	        {
-	            purchaseLevel++;
+	    {
+	            carPurchaseLevel++;
 	            carbNum = carbNum - carBasePrice;
 	            formatCarb = game_state.addCommas(carbNum);
 	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
 	            
-	            carBasePrice = game_state.calcPrice(carPurchaseLevel, basePrice);
+	            carBasePrice = game_state.calcPrice(carPurchaseLevel, carBasePrice);
 	            formatPrice = game_state.addCommas(carBasePrice);
-	            document.getElementById("purchaseCar1").innerHTML = "Car : unlock on " + formatPrice;
-	            
-	            if(carbNum < carBasePrice)
-	                {
-	                    document.getElementById("purchaseCar1").disabled = true;
-	                }
-	        }
-	    
+	            document.getElementById("purchaseCar1").innerHTML = "Car : unlock on " + formatPrice; 
+	         
+	    }
 	}
 
 	function solarPriceClac ()
@@ -229,7 +271,7 @@
 	    var formatCarb;
 	    
 	    if (carbNum >= solarBasePrice)
-	        {
+	    {
 	            solarPurchaseLevel++;
 	            carbNum = carbNum - solarBasePrice;
 	            formatCarb = game_state.addCommas(carbNum);
@@ -238,14 +280,75 @@
 	            solarBasePrice = game_state.calcPrice(solarPurchaseLevel, solarBasePrice);
 	            formatPrice = game_state.addCommas(solarBasePrice);
 	            document.getElementById("purchaseSolar1").innerHTML = "Solar : unlock on " + formatPrice;
-	            
-	            if(carbNum < solarBasePrice)
-	                {
-	                    document.getElementById("purchaseSolar1").disabled = true;
-	                }
-	        }
+	           
+	    }
 	    
 	}
+	function button_check(){
+	  
+	 if(carbNum >= treeBasePrice)
+	  {
+	        document.getElementById("purchaseTree1").disabled = false;
+	  }
+	  else {
+	        document.getElementById("purchaseTree1").disabled = true;
+	  }
+	  if(carbNum >= carBasePrice)
+	  {
+	        document.getElementById("purchaseCar1").disabled = false;
+	  }
+	  else{
+	        document.getElementById("purchaseCar1").disabled = true;
+	  } 
+	  if(carbNum >= solarBasePrice)
+	  {
+	        document.getElementById("purchaseSolar1").disabled = false;
+	  }
+	  else{
+	        document.getElementById("purchaseSolar1").disabled = true;
+	  }   
+	    
+	};
+	function cloud_opacity(){
+	    if(carbNum >= 5 && carbNum < 10 && opactiy_counter == 0)
+	    {
+	            opacity -= .2
+	            opactiy_counter += 1;
+	    }
+	     if(carbNum >= 10 && carbNum < 15 && opactiy_counter == 1)
+	    {
+	            opacity -= .2
+	            opactiy_counter += 1;
+	    }
+	     if(carbNum >= 15 && carbNum < 20 && opactiy_counter == 2)
+	    {
+	            opacity -= .2
+	            opactiy_counter += 1;
+	    }
+	     if(carbNum >= 20 && carbNum < 25 && opactiy_counter == 3)
+	    {
+	            opacity -= .2
+	            opactiy_counter += 1;
+	    }
+	    if(carbNum >= 25 && carbNum < 30 && opactiy_counter == 4)
+	    {
+	            opacity -= .2
+	            opactiy_counter += 1;
+	    }
+	    if(carbNum >= 30 && carbNum < 35 && opactiy_counter == 5)
+	    {
+	            opacity -= .2
+	            opactiy_counter += 1;
+	    }
+	    if(carbNum >= 35 && carbNum < 45 && opactiy_counter == 6)
+	    {
+	            opacity -= .2
+	            opactiy_counter += 1;
+	    }
+	   
+	        
+	    element.pollution.style.opacity = opacity;
+	};
 
 
 
@@ -291,7 +394,6 @@
 	    temp = Math.round(baseCost * value);
 	    return temp;
 	},  
-
 
 	};
 
