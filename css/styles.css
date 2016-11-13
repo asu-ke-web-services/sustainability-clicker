@@ -107,7 +107,7 @@ body {
     margin-bottom: 0px;
     margin-left: 480px;
     margin-right: 0px;
-  pointer-events:none;
+    pointer-events:none;
 }
 
 #clicker {
