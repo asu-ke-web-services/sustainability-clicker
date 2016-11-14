@@ -23,6 +23,7 @@ var captureBasePrice = 6.00;
 var timer = 0;
 var opacity = 1.0;
 var opactiy_counter = 0;
+var prize = 0;
 
 var auto_adder = {
     tree:0,
@@ -40,6 +41,7 @@ var element = {
   purchaseCar1 : document.getElementById("purchaseCar1"),
   purchaseSolar1 : document.getElementById("purchaseSolar1"),
   pollution :  document.getElementById("pollution"),
+  prize1 :  document.getElementById("prize1")
 
 };
 
@@ -47,6 +49,7 @@ element.clicker.onclick = function() {
     
     mainClicker(); 
     button_check();
+
    };
 
 //ADDER FOR CAR. Increment by 2 every 6 seconds
@@ -126,6 +129,7 @@ setInterval(function(){
   
   button_check();
   cloud_opacity();
+  check_achievements()
  
 
   timer += 1;
@@ -304,6 +308,14 @@ function cloud_opacity(){
     element.pollution.style.opacity = opacity;
 };
 
+function check_achievements(){
+    if(carbNum >= 20 && carbNum < 25 && prize == 0)
+    {
+        setTimeout(function () { element.prize1.classList.toggle('show');}, 3000);
+        element.prize1.classList.toggle('show');
+        prize += 1;
+    }
+}
 
 
 
