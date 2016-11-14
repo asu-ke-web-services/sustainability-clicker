@@ -65,15 +65,19 @@
 	var gasBasePrice = 5.00;
 	var captureBasePrice = 6.00;
 
+	var opactiy_counter = 0;
+	var opacity = 1;
+
 	var auto_adder = {
 	    tree:0,
-	    electric_car:0
+	    electric_car:0,
+	    solar:0,
+	    farm:0,
+	    gas:0,
+	    capture:0
 	};
 
-	var timer = {
-	    tree:0,
-	    electric_car:0
-	};
+	var timer = 1;
 
 	var element = {  
 	    
@@ -85,15 +89,75 @@
 	  purchaseFarm1 : document.getElementById("purchaseFarm1"),
 	  purchaseGas1 : document.getElementById("purchaseGas1"),
 	  purchaseCapture1 : document.getElementById("purchaseCapture1"),
+	  pollution :  document.getElementById("pollution")    
 
 	};
 
-	element.clicker.onclick = function() { mainClicker(); };
-	element.purchaseCar1.onclick = function() { carPriceClac(); };
-	element.purchaseSolar1.onclick = function() { solarPriceClac();};
-	element.purchaseFarm1.onclick = function() {farmPricCalc();};
-	element.purchaseGas1.onclick = function() {gasPriceCalc();};
-	element.purchaseCapture1.onclick = function() {capturePriceCalc();};
+	element.clicker.onclick = function() { 
+	    mainClicker();
+	    button_check();
+	};
+	element.purchaseCar1.onclick = function() { 
+	    if(auto_adder.electric_car == 0) 
+	    {
+	        auto_adder.electric_car = 2;
+	    }
+	    else
+	    {
+	        auto_adder.electric_car += auto_adder.electric_car;
+	    }
+	    carPriceClac(); 
+	    button_check();
+	};
+	element.purchaseSolar1.onclick = function() { 
+	   
+	    if(auto_adder.solar == 0) 
+	    {
+	        auto_adder.solar = 4;
+	    }
+	    else
+	    {
+	        auto_adder.solar += auto_adder.solar;
+	    }
+	    solarPriceClac();
+	    button_check();
+	};
+	element.purchaseFarm1.onclick = function() {
+	    if(auto_adder.farm == 0) 
+	    {
+	        auto_adder.farm = 5;
+	    }
+	    else
+	    {
+	        auto_adder.farm += auto_adder.farm;
+	    }
+	    farmPricCalc();
+	    button_check();
+	};
+	element.purchaseGas1.onclick = function() {
+	    if(auto_adder.gas == 0) 
+	    {
+	        auto_adder.gas = 6;
+	    }
+	    else
+	    {
+	        auto_adder.gas += auto_adder.gas;
+	    }
+	    gasPriceCalc();
+	    button_check();
+	};
+	element.purchaseCapture1.onclick = function() {
+	    if(auto_adder.capture == 0) 
+	    {
+	        auto_adder.capture = 8;
+	    }
+	    else
+	    {
+	        auto_adder.capture += auto_adder.capture;
+	    }
+	    capturePriceCalc();
+	    button_check();
+	};
 	element.purchaseTree1.onclick = function() {  
 	  
 	    if(auto_adder.tree == 0) 
@@ -104,8 +168,8 @@
 	    {
 	        auto_adder.tree += auto_adder.tree;
 	    }
-	    
 	    treePriceCalc();
+	    button_check();
 	};
 
 	element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + treeBasePrice;
@@ -128,45 +192,42 @@
 	 carbNumftm = game_state.addCommas(carbNum)
 	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 
-	 if(carbNum >= treeBasePrice)
-	     {
-	         document.getElementById("purchaseTree1").disabled = false;
-	     }
-
-	    
-	 if (carbNum >= carBasePrice)
-	     {
-	         document.getElementById("purchaseCar1").disabled = false;
-	     }
-
-	    
-	 if(carbNum >= solarBasePrice)
-	     {
-	         document.getElementById("purchaseSolar1").disabled = false;
-	     } 
-	    
-	     if(carbNum >= farmBasePrice)
-	     {
-	         document.getElementById("purchaseFarm1").disabled = false;
-	     } 
-	         if(carbNum >= gasBasePrice)
-	     {
-	         document.getElementById("purchaseGas1").disabled = false;
-	     } 
-	            if(carbNum >= captureBasePrice)
-	     {
-	         document.getElementById("purchaseCapture1").disabled = false;
-	     } 
 	}
 
 	setInterval(function(){ 
 	    
 	    
-	  if(auto_adder.tree > 0)
+	 if(auto_adder.tree > 0)
 	  {
-	     timer.tree += 1; 
 	     autoTreeCarbNum();
 	  }
+	  if(auto_adder.electric_car > 0) 
+	  {
+	      
+	      autoCarCarbNum();
+	  }
+	  if(auto_adder.solar > 0) 
+	  {
+	      
+	      autoSolarCarbNum();
+	  }
+	 
+	 if(auto_adder.farm > 0) 
+	  {
+	      autoFarmCarbNum();
+	  }
+	  if(auto_adder.gas > 0) 
+	  {
+	      autoGasCarbNum();
+	  }
+	  if(auto_adder.capture > 0) 
+	  {
+	      autoCaptureCarbNum();
+	  } 
+	  
+	  button_check();
+	  cloud_opacity();
+	  timer += 1;
 	    
 	 }, 1000);
 
@@ -175,20 +236,74 @@
 	{   
 	    var carbNumftm;
 	    
-	    if(timer.tree == 3) 
+	    if(timer % 3 == 0) 
 	    {
 	        
 	       carbNum = carbNum + auto_adder.tree;
-	       carbNumftm = game_state.addCommas(carbNum)
+	       carbNumftm = game_state.addCommas(carbNum);
 	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	       timer.tree = 0;
 	    }
-	    if(carbNum >= treeBasePrice)
+	}
+
+	function autoCarCarbNum () //timer for auto adition of the numbers of carbons  
+	{   
+	    var carbNumftm;
+	    
+	    if(timer % 5 == 0) 
 	    {
-	              document.getElementById("purchaseTree1").disabled = false; //these two dont work
+	        
+	       carbNum = carbNum + auto_adder.electric_car;
+	       carbNumftm = game_state.addCommas(carbNum);
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 	    }
-	    else {
-	              document.getElementById("purchaseTree1").disabled = true;
+	}
+
+	function autoSolarCarbNum ()   
+	{   
+	    var carbNumftm;
+	    
+	    if(timer % 9 == 0) 
+	    {
+	        
+	       carbNum = carbNum + auto_adder.solar;
+	       carbNumftm = game_state.addCommas(carbNum);
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
+	    }
+	}
+	function autoFarmCarbNum ()   
+	{   
+	    var carbNumftm;
+	    
+	    if(timer % 7 == 0) 
+	    {
+	        
+	       carbNum = carbNum + auto_adder.farm;
+	       carbNumftm = game_state.addCommas(carbNum);
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
+	    }
+	}
+	function autoGasCarbNum ()   
+	{   
+	    var carbNumftm;
+	    
+	    if(timer % 11 == 0) 
+	    {
+	        
+	       carbNum = carbNum + auto_adder.gas;
+	       carbNumftm = game_state.addCommas(carbNum);
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
+	    }
+	}
+	function autoCaptureCarbNum ()  
+	{   
+	    var carbNumftm;
+	    
+	    if(timer % 13 == 0) 
+	    {
+	        
+	       carbNum = carbNum + auto_adder.capture;
+	       carbNumftm = game_state.addCommas(carbNum);
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 	    }
 	}
 
@@ -212,33 +327,7 @@
 	        treeBasePrice = game_state.calcPrice(purchaseLevel, treeBasePrice);
 	        formatPrice = game_state.addCommas(treeBasePrice);
 	        element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + formatPrice;
-	        
-	        
-	            if(carbNum < solarBasePrice)
-	                {
-	                    document.getElementById("purchaseSolar1").disabled = true;
-	                }
-	            if(carbNum < carBasePrice)
-	                {
-	                    document.getElementById("purchaseCar1").disabled = true;
-	                }
-	             if(carbNum < treeBasePrice)
-	                {
-	                    document.getElementById("purchaseTree1").disabled = true;
-	                }
-	            if(carbNum < farmBasePrice)
-	             {
-	                    document.getElementById("purchaseFarm1").disabled = true;
-	             }
-	                 if(carbNum < gasBasePrice)
-	     {
-	         document.getElementById("purchaseGas1").disabled = true;
-	     } 
-	               if(carbNum < captureBasePrice)
-	                {
-	                    document.getElementById("purchaseCapture1").disabled = true;
-	                }
-	    }
+	    }     
 	}
 
 	function carPriceClac ()
@@ -257,33 +346,7 @@
 	            carBasePrice = game_state.calcPrice(carPurchaseLevel, carBasePrice);
 	            formatPrice = game_state.addCommas(carBasePrice);
 	            document.getElementById("purchaseCar1").innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + formatPrice;
-	            
-	             if(carbNum < solarBasePrice)
-	                {
-	                    document.getElementById("purchaseSolar1").disabled = true;
-	                }
-	             if(carbNum < carBasePrice)
-	                {
-	                    document.getElementById("purchaseCar1").disabled = true;
-	                }
-	             if(carbNum < treeBasePrice)
-	                {
-	                    document.getElementById("purchaseTree1").disabled = true;
-	                }
-	                 if(carbNum < farmBasePrice)
-	     {
-	         document.getElementById("purchaseFarm1").disabled = true;
-	     }
-	                     if(carbNum < gasBasePrice)
-	     {
-	         document.getElementById("purchaseGas1").disabled = true;
-	     } 
-	            
-	                   if(carbNum < captureBasePrice)
-	                {
-	                    document.getElementById("purchaseCapture1").disabled = true;
-	                }
-	        }
+	        }        
 	}
 
 	function solarPriceClac ()
@@ -293,7 +356,7 @@
 	    var formatCarb;
 	    
 	    if (carbNum >= solarBasePrice)
-	        {
+	    {
 	            solarPurchaseLevel++;
 	            carbNum = carbNum - solarBasePrice;
 	            formatCarb = game_state.addCommas(carbNum);
@@ -302,34 +365,7 @@
 	            solarBasePrice = game_state.calcPrice(solarPurchaseLevel, solarBasePrice);
 	            formatPrice = game_state.addCommas(solarBasePrice);
 	            document.getElementById("purchaseSolar1").innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + formatPrice;
-	            
-	            if(carbNum < solarBasePrice)
-	                {
-	                    document.getElementById("purchaseSolar1").disabled = true;
-	                }
-	             if(carbNum < carBasePrice)
-	                {
-	                    document.getElementById("purchaseCar1").disabled = true;
-	                }
-	             if(carbNum < treeBasePrice)
-	                {
-	                    document.getElementById("purchaseTree1").disabled = true;
-	                }
-	                 if(carbNum < farmBasePrice)
-	     {
-	         document.getElementById("purchaseFarm1").disabled = true;
-	     }
-	                     if(carbNum < gasBasePrice)
-	     {
-	         document.getElementById("purchaseGas1").disabled = true;
-	     } 
-	            
-	                   if(carbNum < captureBasePrice)
-	                {
-	                    document.getElementById("purchaseCapture1").disabled = true;
-	                }
-	        }
-	    
+	    }
 	}
 
 	function farmPricCalc ()
@@ -348,35 +384,7 @@
 	            farmBasePrice = game_state.calcPrice(farmPurchaseLevel, farmBasePrice);
 	            formatPrice = game_state.addCommas(farmBasePrice);
 	            document.getElementById("purchaseFarm1").innerHTML = "|" + farmPurchaseLevel + "|" +  " Farm : unlock on " + formatPrice;
-	            
-	            if(carbNum < farmBasePrice)
-	                {
-	                    document.getElementById("purchaseFarm1").disabled = true;
-	                }
-	            
-	            if(carbNum < solarBasePrice)
-	                {
-	                    document.getElementById("purchaseSolar1").disabled = true;
-	                }
-	             if(carbNum < carBasePrice)
-	                {
-	                    document.getElementById("purchaseCar1").disabled = true;
-	                }
-	             if(carbNum < treeBasePrice)
-	                {
-	                    document.getElementById("purchaseTree1").disabled = true;
-	                }
-	                     if(carbNum < gasBasePrice)
-	     {
-	         document.getElementById("purchaseGas1").disabled = true;
-	     } 
-	            
-	                   if(carbNum < captureBasePrice)
-	                {
-	                    document.getElementById("purchaseCapture1").disabled = true;
-	                }
-	        }
-	    
+	        }   
 	}
 
 	function gasPriceCalc ()
@@ -396,38 +404,7 @@
 	            formatPrice = game_state.addCommas(gasBasePrice);
 	            document.getElementById("purchaseGas1").innerHTML ="|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + formatPrice;
 	            
-	            if(carbNum < gasBasePrice)
-	                {
-	                    document.getElementById("purchaseGas1").disabled = true;
-	                }
 	            
-	            
-	            if(carbNum < farmBasePrice)
-	                {
-	                    document.getElementById("purchaseFarm1").disabled = true;
-	                }
-	            
-	            if(carbNum < solarBasePrice)
-	                {
-	                    document.getElementById("purchaseSolar1").disabled = true;
-	                }
-	             if(carbNum < carBasePrice)
-	                {
-	                    document.getElementById("purchaseCar1").disabled = true;
-	                }
-	             if(carbNum < treeBasePrice)
-	                {
-	                    document.getElementById("purchaseTree1").disabled = true;
-	                }
-	                     if(carbNum < gasBasePrice)
-	     {
-	         document.getElementById("purchaseGas1").disabled = true;
-	     } 
-	            
-	                   if(carbNum < captureBasePrice)
-	                {
-	                    document.getElementById("purchaseCapture1").disabled = true;
-	                }
 	        }
 	    
 	} 
@@ -448,45 +425,94 @@
 	            captureBasePrice = game_state.calcPrice(capturePurchaseLevel, captureBasePrice);
 	            formatPrice = game_state.addCommas(captureBasePrice);
 	            document.getElementById("purchaseCapture1").innerHTML = "|" + capturePurchaseLevel + "|" +  " Carbon Catcher : unlock on " + formatPrice;
-	            
-	            if(carbNum < gasBasePrice)
-	                {
-	                    document.getElementById("purchaseGas1").disabled = true;
-	                }
-	            
-	            
-	            if(carbNum < farmBasePrice)
-	                {
-	                    document.getElementById("purchaseFarm1").disabled = true;
-	                }
-	            
-	            if(carbNum < solarBasePrice)
-	                {
-	                    document.getElementById("purchaseSolar1").disabled = true;
-	                }
-	            
-	             if(carbNum < carBasePrice)
-	                {
-	                    document.getElementById("purchaseCar1").disabled = true;
-	                }
-	            
-	             if(carbNum < treeBasePrice)
-	                {
-	                    document.getElementById("purchaseTree1").disabled = true;
-	                }
-	            
-	             if(carbNum >= gasBasePrice)
-	                {
-	                    document.getElementById("purchaseGas1").disabled = false;
-	                } 
-	        
-	            if(carbNum < captureBasePrice)
-	                {
-	                    document.getElementById("purchaseCapture1").disabled = true;
-	                }
-	            
 	        } 
 	} 
+
+
+	/*button check and opacity*/
+	function button_check(){
+	  
+	 if(carbNum >= treeBasePrice)
+	  {
+	        document.getElementById("purchaseTree1").disabled = false;
+	  }
+	  else {
+	        document.getElementById("purchaseTree1").disabled = true;
+	  }
+	  if(carbNum >= carBasePrice)
+	  {
+	        document.getElementById("purchaseCar1").disabled = false;
+	  }
+	  else{
+	        document.getElementById("purchaseCar1").disabled = true;
+	  } 
+	  if(carbNum >= solarBasePrice)
+	  {
+	        document.getElementById("purchaseSolar1").disabled = false;
+	  }
+	  else{
+	        document.getElementById("purchaseSolar1").disabled = true;
+	  } 
+	  if(carbNum >= farmBasePrice)
+	  {
+	        document.getElementById("purchaseFarm1").disabled = false;  
+	  }
+	  else {
+	        document.getElementById("purchaseFarm1").disabled = true;          
+	  }
+	  if(carbNum >= gasBasePrice)
+	  {
+	       document.getElementById("purchaseGas1").disabled = false;  
+	  }
+	  else {
+	       document.getElementById("purchaseGas1").disabled = true;   
+	  }
+	  if(carbNum >= captureBasePrice)
+	  {
+	        document.getElementById("purchaseCapture1").disabled = false;    
+	  }
+	  else {
+	        document.getElementById("purchaseCapture1").disabled = true;  
+	  }
+	};
+	function cloud_opacity(){
+	    if(carbNum >= 5 && carbNum < 10 && opactiy_counter == 0)
+	    {
+	            opacity -= .1;
+	            opactiy_counter += 1;
+	    }
+	     if(carbNum >= 10 && carbNum < 15 && opactiy_counter == 1)
+	    {
+	            opacity -= .1;
+	            opactiy_counter += 1;
+	    }
+	     if(carbNum >= 15 && carbNum < 20 && opactiy_counter == 2)
+	    {
+	            opacity -= .1
+	            opactiy_counter += 1;
+	    }
+	     if(carbNum >= 20 && carbNum < 25 && opactiy_counter == 3)
+	    {
+	            opacity -= .1
+	            opactiy_counter += 1;
+	    }
+	    if(carbNum >= 25 && carbNum < 30 && opactiy_counter == 4)
+	    {
+	            opacity -= .1;
+	            opactiy_counter += 1;
+	    }
+	    if(carbNum >= 30 && carbNum < 35 && opactiy_counter == 5)
+	    {
+	            opacity -= .1;
+	            opactiy_counter += 1;
+	    }
+	    if(carbNum >= 35 && carbNum < 45 && opactiy_counter == 6)
+	    {
+	            opacity -= .1;
+	            opactiy_counter += 1;
+	    }
+	    element.pollution.style.opacity = opacity;
+	};
 
 /***/ },
 /* 1 */
