@@ -226,13 +226,13 @@
 	                {
 	                    document.getElementById("purchaseTree1").disabled = true;
 	                }
-	            if(carbNum >= farmBasePrice)
+	            if(carbNum < farmBasePrice)
 	             {
-	                    document.getElementById("purchaseFarm1").disabled = false;
+	                    document.getElementById("purchaseFarm1").disabled = true;
 	             }
-	                 if(carbNum >= gasBasePrice)
+	                 if(carbNum < gasBasePrice)
 	     {
-	         document.getElementById("purchaseGas1").disabled = false;
+	         document.getElementById("purchaseGas1").disabled = true;
 	     } 
 	               if(carbNum < captureBasePrice)
 	                {
@@ -270,13 +270,13 @@
 	                {
 	                    document.getElementById("purchaseTree1").disabled = true;
 	                }
-	                 if(carbNum >= farmBasePrice)
+	                 if(carbNum < farmBasePrice)
 	     {
-	         document.getElementById("purchaseFarm1").disabled = false;
+	         document.getElementById("purchaseFarm1").disabled = true;
 	     }
-	                     if(carbNum >= gasBasePrice)
+	                     if(carbNum < gasBasePrice)
 	     {
-	         document.getElementById("purchaseGas1").disabled = false;
+	         document.getElementById("purchaseGas1").disabled = true;
 	     } 
 	            
 	                   if(carbNum < captureBasePrice)
@@ -315,13 +315,13 @@
 	                {
 	                    document.getElementById("purchaseTree1").disabled = true;
 	                }
-	                 if(carbNum >= farmBasePrice)
+	                 if(carbNum < farmBasePrice)
 	     {
-	         document.getElementById("purchaseFarm1").disabled = false;
+	         document.getElementById("purchaseFarm1").disabled = true;
 	     }
-	                     if(carbNum >= gasBasePrice)
+	                     if(carbNum < gasBasePrice)
 	     {
-	         document.getElementById("purchaseGas1").disabled = false;
+	         document.getElementById("purchaseGas1").disabled = true;
 	     } 
 	            
 	                   if(carbNum < captureBasePrice)
@@ -366,9 +366,9 @@
 	                {
 	                    document.getElementById("purchaseTree1").disabled = true;
 	                }
-	                     if(carbNum >= gasBasePrice)
+	                     if(carbNum < gasBasePrice)
 	     {
-	         document.getElementById("purchaseGas1").disabled = false;
+	         document.getElementById("purchaseGas1").disabled = true;
 	     } 
 	            
 	                   if(carbNum < captureBasePrice)
@@ -419,9 +419,9 @@
 	                {
 	                    document.getElementById("purchaseTree1").disabled = true;
 	                }
-	                     if(carbNum >= gasBasePrice)
+	                     if(carbNum < gasBasePrice)
 	     {
-	         document.getElementById("purchaseGas1").disabled = false;
+	         document.getElementById("purchaseGas1").disabled = true;
 	     } 
 	            
 	                   if(carbNum < captureBasePrice)
@@ -464,25 +464,28 @@
 	                {
 	                    document.getElementById("purchaseSolar1").disabled = true;
 	                }
+	            
 	             if(carbNum < carBasePrice)
 	                {
 	                    document.getElementById("purchaseCar1").disabled = true;
 	                }
+	            
 	             if(carbNum < treeBasePrice)
 	                {
 	                    document.getElementById("purchaseTree1").disabled = true;
 	                }
-	                     if(carbNum >= gasBasePrice)
-	     {
-	         document.getElementById("purchaseGas1").disabled = false;
-	     } 
-	        }
-	       if(carbNum < captureBasePrice)
+	            
+	             if(carbNum >= gasBasePrice)
+	                {
+	                    document.getElementById("purchaseGas1").disabled = false;
+	                } 
+	        
+	            if(carbNum < captureBasePrice)
 	                {
 	                    document.getElementById("purchaseCapture1").disabled = true;
 	                }
 	            
-	    
+	        } 
 	} 
 
 /***/ },
