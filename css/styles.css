@@ -1,25 +1,13 @@
 /** CSS styles */
-/*
-div.scrolling-limit
-{
-  width: 1400px;
-  height: 30px;
-  background-color: red;
-    overflow:hidden;
-  white-space:nowrap;
-   margin-top: -35px;
-    margin-bottom: 0px;
-    margin-left: -10px;
-    margin-right: 0px;
-}
-*/
 
-body {
+body 
+{
   background: url('../img/3.jpg');
   background-size: 1000px;
 }
 
-.points {
+.points 
+{
   text-align: center;
   font: 300% 'Trebuchet MS', cursive;
   color: #fff;
@@ -31,75 +19,110 @@ body {
     0 0 90px #e3e98e;
 }
 
-.center
-{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .button-to-buy
 {
-    width: 150px;
+    width: 250px;
     height: 50px;
+    cursor: pointer;
+    margin-top: 10%;
 }
 
-#purchaseTree1
-{  
- cursor: pointer;
- margin-right: auto;
- margin-top: 50px;
-    
- display: block;
-}
-
-#purchaseCar1
-{  
- display: block;
- margin-right: auto;
- margin-top: 25px;  
- cursor: pointer;
-}
-
-#purchaseSolar1
-{  
- display: block;
- margin-right: auto;
- margin-top: 25px;
- cursor: pointer;
-}
-
-#purchaseFarm1
-{  
- display: block;
- margin-left: auto;
- cursor: pointer;
-}
-
-#purchaseGas1
-{  
- display: block;
- margin-top: 25px;
- margin-left: auto;
- cursor: pointer;
-}
-
-#purchaseCapture1
-{  
- display: block;
- margin-top: 25px;
- margin-left: auto;
- cursor: pointer;
+.img-overlay 
+{
+    position: relative;
+    max-width: 250px; 
+    z-index: inherit;
 }
 
 #pollution
 {  
-  margin-left: 40%;
-  margin-right:40%;
+  margin-left: 20%;
+  margin-right: 20%;
   pointer-events:none;
+  position: absolute;
+  z-index: 2;
 }
 
-#clicker {
+.btn-outline 
+{
+    background-color: transparent;
+    color: inherit;
+    border-color: inherit;
+    transition: all .5s;
+}
+
+
+.btn-blue.btn-outline 
+{
+    color: #428bca;
+    border-color: #428bca;
+}
+.btn-blue.btn-outline:hover
+{
+    color: #fff;
+    background-color: #428bca;
+}
+
+.btn-green.btn-outline 
+{
+    color: #5cb85c;
+    border-color: #5cb85c;
+}
+.btn-green.btn-outline:hover
+{
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.btn-orange.btn-outline 
+{
+    color: #f0ad4e;
+    border-color: #f0ad4e;
+}
+.btn-orange.btn-outline:hover
+{
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.btn-red.btn-outline
+{
+    color: #d9534f;
+    border-color: #d9534f;
+}
+.btn-red.btn-outline:hover
+{
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.btn-purp.btn-outline 
+{
+    color: #bc37e3;
+    border-color: #bc37e3;
+}
+.btn-purp.btn-outline:hover
+{
+    color: #fff;
+    background-color: #bc37e3;
+}
+
+.btn-yellow.btn-outline 
+{
+    color: #ede12e;
+    border-color: #ede12e;
+}
+.btn-yellow.btn-outline:hover
+{
+    color: #fff;
+    background-color: #ede12e;
+}
+
+#clicker 
+{
+  margin-top: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
   width: 250px;
   height: 250px;
   background: url('../img/2.jpg');
@@ -110,10 +133,9 @@ body {
   animation-name: rotate;
   animation-duration: 20s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  margin-left: 40%;
-  margin-right:40%;
-    
+  animation-timing-function: linear; 
+  position: absolute;
+  z-index: -1;
 }
 
 @keyframes rotate 
@@ -122,20 +144,31 @@ body {
   to { background-position-x: 500px; }
 }
 
-#newsfeed {
-  width: 1400px;
-  height: 30px;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-   position: relative;
-  -webkit-animation: scroll 20s infinite linear;;
-  -moz-animation: scroll 20s infinite linear;
-  -o-animation: scroll 20s infinite linear;
-  animation: scroll 20s infinite linear;
+#marqueeEdit
+{
+    color: red;
+    font-size: 20px;
+    font-family: monospace;
+    margin-bottom: 1%;
+    margin-top: -20px;
 }
 
-@keyframes scroll{
-    0%   {left: 500px;}
-    100% {left: -950px;}
+#listStats
+{
+    color: white;
+    font-size: 15px;
+}
+
+#bottomHeaders
+{
+    margin-bottom: 1%;
+    font-size: 20px;
+    color: #fff;
+    font: 'Trebuchet MS', cursive;
+    text-shadow: 
+    0 0 10px #fff, 
+    0 0 30px #fff, 
+    0 0 50px #e3e98e, 
+    0 0 70px #e3e98e,
+    0 0 90px #e3e98e;   
 }
