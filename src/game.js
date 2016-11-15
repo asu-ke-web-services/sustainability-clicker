@@ -1,4 +1,4 @@
-// var $ = require("jquery");
+var $ = require("jquery");
 var game_state = require("./game_state.js");
 
 var totalNumberOfCarbons;
