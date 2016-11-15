@@ -20,7 +20,6 @@ var gasBasePrice = 5.00;
 var captureBasePrice = 6.00;
 
 var opactiy_counter = 0;
-var opacity = 1;
 
 var auto_adder = {
     tree:0,
@@ -430,40 +429,55 @@ function button_check(){
   }
 };
 function cloud_opacity(){
-    if(carbNum >= 5 && carbNum < 10 && opactiy_counter == 0)
+    if(carbNum >= 10 && carbNum < 100 && opactiy_counter == 0)
     {
-            opacity -= .1;
-            opactiy_counter += 1;
+            element.pollution.style.opacity = .90;
+            opactiy_counter = 1;
     }
-     if(carbNum >= 10 && carbNum < 15 && opactiy_counter == 1)
+     if(carbNum >= 100 && carbNum < 200 && opactiy_counter == 1)
     {
-            opacity -= .1;
-            opactiy_counter += 1;
+            element.pollution.style.opacity = .80;
+            opactiy_counter = 2;
     }
-     if(carbNum >= 15 && carbNum < 20 && opactiy_counter == 2)
+     if(carbNum >= 200 && carbNum < 300 && opactiy_counter == 2)
     {
-            opacity -= .1
-            opactiy_counter += 1;
+            element.pollution.style.opacity = .70;
+            opactiy_counter = 3;
     }
-     if(carbNum >= 20 && carbNum < 25 && opactiy_counter == 3)
+     if(carbNum >= 300 && carbNum < 400 && opactiy_counter == 3)
     {
-            opacity -= .1
-            opactiy_counter += 1;
+            element.pollution.style.opacity = .60;
+            opactiy_counter = 4;
     }
-    if(carbNum >= 25 && carbNum < 30 && opactiy_counter == 4)
+    if(carbNum >= 400 && carbNum < 500 && opactiy_counter == 4)
     {
-            opacity -= .1;
-            opactiy_counter += 1;
+            element.pollution.style.opacity = .50;
+            opactiy_counter = 5;
     }
-    if(carbNum >= 30 && carbNum < 35 && opactiy_counter == 5)
+    if(carbNum >= 500 && carbNum < 600 && opactiy_counter == 5)
     {
-            opacity -= .1;
-            opactiy_counter += 1;
+            element.pollution.style.opacity = .40;
+            opactiy_counter = 6;
     }
-    if(carbNum >= 35 && carbNum < 45 && opactiy_counter == 6)
+    if(carbNum >= 600 && carbNum < 700 && opactiy_counter == 6)
     {
-            opacity -= .1;
-            opactiy_counter += 1;
+            element.pollution.style.opacity = .30;
+            opactiy_counter = 7;
     }
-    element.pollution.style.opacity = opacity;
+     if(carbNum >= 700 && carbNum < 800 && opactiy_counter == 7)
+    {
+            element.pollution.style.opacity = .20;
+            opactiy_counter = 8;
+    }
+     if(carbNum >= 800 && carbNum < 900 && opactiy_counter == 8)
+    {
+            element.pollution.style.opacity = .10;
+            opactiy_counter = 9;
+    }
+    if(carbNum >= 1000 && carbNum < 1100 && opactiy_counter == 9)
+    {
+            element.pollution.style.opacity = 0;
+            opactiy_counter = 10;
+    }
+    
 };
