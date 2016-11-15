@@ -567,8 +567,6 @@
 	    temp = Math.round(baseCost * value);
 	    return temp;
 	},  
-
-
 	};
 
 
