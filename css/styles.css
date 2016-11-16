@@ -153,11 +153,20 @@ body
     margin-top: -20px;
 }
 
-#listStats
+#listStyle
 {
     color: white;
     font-size: 15px;
+    font-family: monospace;
 }
+
+#mustEarn
+{
+    color: gray;
+    font-size: 15px;
+    font-family: monospace; 
+}
+
 
 #bottomHeaders
 {
@@ -171,4 +180,14 @@ body
     0 0 50px #e3e98e, 
     0 0 70px #e3e98e,
     0 0 90px #e3e98e;   
+}
+
+.treePic
+{
+    color:firebrick;
+}
+
+.carPic
+{
+    color: blueviolet;
 }
