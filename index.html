@@ -7,12 +7,11 @@
   <body>
 
     <div class="container-fluid">
-
         <div class="row">
                 <div class="col-md-12">
 
-                <div class="points"> Number Of Carbons: 
-                    <div id="points"  >
+                <div class="points"> 
+                    <div id="points" >
                     </div>
                 </div>
 
@@ -29,13 +28,12 @@
             </div>
                 
             <div class="col-md-4 .img-overlay">   
-                <button id="clicker" class="earth"></button>            
+                
+                  <div id="pollution" class="pollution"></div>  
+                <button id="clicker" class="earth"></button>          
                
-                <div id="pollution " class="pollution">
-                 <img style="height:auto; width:auto; max-height:400px; max-width:400px;" src="img/1.png" class="image" />
-                </div>
-                
-                
+              
+                           
             </div>
     
              <div class="col-md-4 text-center"> 
@@ -56,11 +54,16 @@
 
     </div>
             
-          <div class="col-md-6 text-center"> 
-              <div id="bottomHeaders">
+          <div class="col-md-6"> 
+              <div id="bottomHeaders" class= "text-center">
                   Inventory
               </div> 
-              
+              <ul>
+                  <li><div id="treeInventory">  
+                   <span style="font-size:5.5em" class="treePic glyphicon glyphicon-tree-deciduous treePic">
+                    </span> 
+                      </div></li>
+              </ul>
             </div>
             
             <div class="col-md-6 text-center"> 
@@ -96,7 +99,6 @@
     </div>
   </div>
     <script type="text/javascript" src="build/bundle.js" charset="utf-8"></script>
-
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
