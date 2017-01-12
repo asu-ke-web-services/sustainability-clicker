@@ -480,3 +480,6 @@ function cloud_opacity(){
             opactiy_counter = 10;
     }
 };
+
+
+//test
