@@ -34,7 +34,11 @@ body
     z-index: inherit;
 }
 
-
+#inventory
+{
+      margin-left: 11.5%;
+    margin-bottom: 12.5%;
+}
 
 
 
