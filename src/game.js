@@ -1,6 +1,15 @@
 var $ = require("jquery");
 var game_state = require("./game_state.js");
 
+ document.getElementById("game").style.display = "none";
+
+
+
+$("#buttonStart").click(function() {
+  game_state.clickFunc();
+});
+
+
 var totalNumberOfCarbons;
 
 var carbNum = 0.00;

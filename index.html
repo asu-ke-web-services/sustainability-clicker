@@ -5,8 +5,17 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body>
+      
+    <h1 class="game-title">Carbon Clicker</h1>
+      
+     <div id = "bgimg"> 
+        <div id="startEarth" class="startEarth"></div>
+      <button class ="button" id = "buttonStart"> <span>Start</span></button>
+          
+      <button class ="button" id = "buttonInfo"> <span>Tutorial</span></button>  
+      </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="game">
         <div class="row">
                 <div class="col-md-12">
 
@@ -27,7 +36,7 @@
                 </ul>
             </div>
                 
-            <div class="col-md-4 .img-overlay">   
+            <div class="col-md-4 .img-overlay" id="thisIsTheEarth">   
                 
                   <div id="pollution" class="pollution"></div>  
                 <button id="clicker" class="earth"></button>          

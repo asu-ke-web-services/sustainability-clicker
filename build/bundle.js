@@ -47,6 +47,15 @@
 	var $ = __webpack_require__(1);
 	var game_state = __webpack_require__(2);
 
+	 document.getElementById("game").style.display = "none";
+
+
+
+	$("#buttonStart").click(function() {
+	  game_state.clickFunc();
+	});
+
+
 	var totalNumberOfCarbons;
 
 	var carbNum = 0.00;
@@ -10807,6 +10816,15 @@
 	    temp = Math.round(baseCost * value);
 	    return temp;
 	},  
+	    
+	    clickFunc: function() {
+	    // draw first level path design
+	    document.getElementById("bgimg").style.display = "none";
+	    document.getElementById("game").style.display = "block";
+
+	   
+
+	  }
 	};
 
 /***/ }
