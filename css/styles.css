@@ -93,20 +93,28 @@ body
 
 
 
-
+button:focus {outline:0;}
 #clicker 
 {
   background: url('../img/1.png');    
-  margin-top: 10%;
+  margin-top: 12%;
   margin-left: 21.5%;
   margin-right: 50%;
-  height: 250px;
-  width: 250px;
-  background-position: -40px -30px;
+  height: 330px;
+  width: 330px;
+  background-position: -10px -30px;
   background-size: 330px;
+  border: none;
+  background-repeat: no-repeat;
   
 }
-
+#clicker:hover{
+    transform: scale(1.2);
+}
+#clicker:active{
+    transform: scale(0.95);
+   
+}
 
 #pollution
 {  
