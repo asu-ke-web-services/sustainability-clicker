@@ -5,8 +5,17 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body>
+      
+    <h1 class="game-title">Carbon Clicker</h1>
+      
+     <div id = "bgimg"> 
+        <div id="startEarth" class="startEarth"></div>
+      <button class ="button" id = "buttonStart"> <span>Start</span></button>
+          
+      <button class ="button" id = "buttonInfo"> <span>Tutorial</span></button>  
+      </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="game">
         <div class="row">
                 <div class="col-md-12">
 
@@ -27,7 +36,7 @@
                 </ul>
             </div>
                 
-            <div class="col-md-4 .img-overlay">   
+            <div class="col-md-4 .img-overlay" id="thisIsTheEarth">   
                 
                   <div id="pollution" class="pollution"></div>  
                 <button id="clicker" class="earth"></button>          
@@ -59,9 +68,20 @@
                   Inventory
               </div> 
               <ul>
-                  <li><div id="treeInventory">  
-                   <span style="font-size:5.5em" class="treePic glyphicon glyphicon-tree-deciduous treePic">
-                    </span> 
+                  <li><div id="Inventory">
+                      
+                      <span style="font-size:4.5em" class="treePic glyphicon glyphicon-tree-deciduous treePic"> <div id="treeInventoryNum" class="num" style=" text-align: center">0</div></span> 
+                      
+                       <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="carInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="solarInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="farmInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="greengasInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="carbonCatcherInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
                       </div></li>
               </ul>
             </div>

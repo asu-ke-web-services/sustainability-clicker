@@ -1,6 +1,15 @@
 var $ = require("jquery");
 var game_state = require("./game_state.js");
 
+ document.getElementById("game").style.display = "none";
+
+
+
+$("#buttonStart").click(function() {
+  game_state.clickFunc();
+});
+
+
 var totalNumberOfCarbons;
 
 var carbNum = 0.00;
@@ -42,7 +51,13 @@ var element = {
   purchaseFarm1 : document.getElementById("purchaseFarm1"),
   purchaseGas1 : document.getElementById("purchaseGas1"),
   purchaseCapture1 : document.getElementById("purchaseCapture1"),
-  pollution :  document.getElementById("pollution")    
+  pollution : document.getElementById("pollution"),
+  treeInventory: document.getElementById("treeInventoryNum"),
+  carInventory: document.getElementById("carInventoryNum"),
+  farmInventory : document.getElementById("farmInventoryNum"),
+  greengasInventory : document.getElementById("greengasInventoryNum"),
+  solarInventory : document.getElementById("solarInventoryNum"),
+  carbonCatcherInventory : document.getElementById("carbonCatcherInventoryNum")
 
 };
 
@@ -136,6 +151,8 @@ element.purchaseFarm1.innerHTML = "|" + farmPurchaseLevel + "|" + " Farm : unloc
 element.purchaseGas1.innerHTML = "|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + gasBasePrice;
 
 element.purchaseCapture1.innerHTML = "|" + capturePurchaseLevel + "|" + " Carbon Catcher : unlock on " + captureBasePrice;
+
+
 
 function mainClicker()
 {
@@ -280,6 +297,7 @@ function treePriceCalc()
         treeBasePrice = game_state.calcPrice(purchaseLevel, treeBasePrice);
         formatPrice = game_state.addCommas(treeBasePrice);
         element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + formatPrice;
+        element.treeInventory.innerHTML = purchaseLevel;
     }     
 }
 
@@ -299,6 +317,7 @@ function carPriceClac ()
             carBasePrice = game_state.calcPrice(carPurchaseLevel, carBasePrice);
             formatPrice = game_state.addCommas(carBasePrice);
             document.getElementById("purchaseCar1").innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + formatPrice;
+            element.carInventory.innerHTML = carPurchaseLevel;
         }        
 }
 
@@ -318,6 +337,7 @@ function solarPriceClac ()
             solarBasePrice = game_state.calcPrice(solarPurchaseLevel, solarBasePrice);
             formatPrice = game_state.addCommas(solarBasePrice);
             document.getElementById("purchaseSolar1").innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + formatPrice;
+            element.solarInventory.innerHTML = solarPurchaseLevel;
     }
 }
 
@@ -337,6 +357,7 @@ function farmPricCalc ()
             farmBasePrice = game_state.calcPrice(farmPurchaseLevel, farmBasePrice);
             formatPrice = game_state.addCommas(farmBasePrice);
             document.getElementById("purchaseFarm1").innerHTML = "|" + farmPurchaseLevel + "|" +  " Farm : unlock on " + formatPrice;
+            element.farmInventory.innerHTML = farmPurchaseLevel;
         }   
 }
 
@@ -356,6 +377,7 @@ function gasPriceCalc ()
             gasBasePrice = game_state.calcPrice(gasPurchaseLevel, gasBasePrice);
             formatPrice = game_state.addCommas(gasBasePrice);
             document.getElementById("purchaseGas1").innerHTML ="|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + formatPrice;
+            element.greengasInventory.innerHTML = gasPurchaseLevel;
             
             
         }
@@ -378,6 +400,7 @@ function capturePriceCalc()
             captureBasePrice = game_state.calcPrice(capturePurchaseLevel, captureBasePrice);
             formatPrice = game_state.addCommas(captureBasePrice);
             document.getElementById("purchaseCapture1").innerHTML = "|" + capturePurchaseLevel + "|" +  " Carbon Catcher : unlock on " + formatPrice;
+            element.carbonCatcherInventory.innerHTML = capturePurchaseLevel;
         } 
 } 
 
@@ -480,6 +503,3 @@ function cloud_opacity(){
             opactiy_counter = 10;
     }
 };
-
-
-//test

@@ -33,4 +33,13 @@ calcPrice: function(nOwned, baseCost)
     temp = Math.round(baseCost * value);
     return temp;
 },  
+    
+    clickFunc: function() {
+    // draw first level path design
+    document.getElementById("bgimg").style.display = "none";
+    document.getElementById("game").style.display = "block";
+
+   
+
+  }
 };
