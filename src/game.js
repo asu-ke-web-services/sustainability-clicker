@@ -28,7 +28,8 @@ var farmBasePrice = 4.00;
 var gasBasePrice = 5.00;
 var captureBasePrice = 6.00;
 
-var opactiy_counter = 0;
+var goal = 10;
+var opacity_counter = .90;
 
 var auto_adder = {
     tree:0,
@@ -452,54 +453,11 @@ function button_check(){
   }
 };
 function cloud_opacity(){
-   if(carbNum >= 10 && carbNum < 1000 && opactiy_counter == 0)
+   if(carbNum >= goal)
     {
-            element.clicker.style.opacity = .90;
-            opactiy_counter = 1;
+            element.clicker.style.opacity = opacity_counter;
+            goal = goal*10;
+            opacity_counter -= .1;
     }
-     if(carbNum >= 1000 && carbNum < 2000 && opactiy_counter == 1)
-    {
-            element.clicker.style.opacity = .80;
-            opactiy_counter = 2;
-    }
-     if(carbNum >= 2000 && carbNum < 3000 && opactiy_counter == 2)
-    {
-            element.clicker.style.opacity = .70;
-            opactiy_counter = 3;
-    }
-     if(carbNum >= 3000 && carbNum < 4000 && opactiy_counter == 3)
-    {
-            element.clicker.style.opacity = .60;
-            opactiy_counter = 4;
-    }
-    if(carbNum >= 4000 && carbNum < 5000 && opactiy_counter == 4)
-    {
-            element.clicker.style.opacity = .50;
-            opactiy_counter = 5;
-    }
-    if(carbNum >= 5000 && carbNum < 6000 && opactiy_counter == 5)
-    {
-            element.clicker.style.opacity = .40;
-            opactiy_counter = 6;
-    }
-    if(carbNum >= 6000 && carbNum < 7000 && opactiy_counter == 6)
-    {
-            element.clicker.style.opacity = .30;
-            opactiy_counter = 7;
-    }
-     if(carbNum >= 7000 && carbNum < 8000 && opactiy_counter == 7)
-    {
-            element.clicker.style.opacity = .20;
-            opactiy_counter = 8;
-    }
-     if(carbNum >= 8000 && carbNum < 9000 && opactiy_counter == 8)
-    {
-            element.clicker.style.opacity = .10;
-            opactiy_counter = 9;
-    }
-    if(carbNum >= 10000 && carbNum < 11000 && opactiy_counter == 9)
-    {
-            element.clicker.style.opacity = 0;
-            opactiy_counter = 10;
-    }
+   
 };
