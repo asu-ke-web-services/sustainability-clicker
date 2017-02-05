@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// var $ = require("jquery");
-	var game_state = __webpack_require__(1);
+	var game_state = __webpack_require__(2);
 
 	var totalNumberOfCarbons;
 
@@ -529,7 +529,8 @@
 	};
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ function(module, exports) {
 
 	module.exports = {
