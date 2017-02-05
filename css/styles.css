@@ -115,6 +115,7 @@ button:focus {outline:0;}
    
 }
 
+
 #pollution
 {  
   margin-top: 10%;
@@ -248,3 +249,105 @@ button:focus {outline:0;}
     0 0 70px #e3e98e,
     0 0 90px #e3e98e;   
 }
+a[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+a[data-tooltip]:before,
+a[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position t */
+a[data-tooltip]:before {
+  position: absolute;
+  bottom: -300%;
+  right: 110%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  height: 50px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: lightgoldenrodyellow;
+  color: black;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+a[data-tooltip]:after {
+  position: absolute;
+  bottom: -230%;
+  left: -15%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 15px solid #000;
+  border-top: 15px solid lightgoldenrodyellow;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+a[data-tooltip]:hover:before,
+a[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+
+
+a[data-tooltip][data-placement="right"]:before {
+  position: absolute;
+  bottom: -300%;
+  left: 144%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  height: 50px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: lightgoldenrodyellow;
+  color: black;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+a[data-tooltip][data-placement="right"]:after {
+  position: absolute;
+  bottom: -230%;
+  left: 109%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 15px solid #000;
+  border-top: 15px solid lightgoldenrodyellow;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
