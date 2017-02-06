@@ -90,6 +90,8 @@
 
 	var element = {  
 	    
+	  tutClicker:document.getElementById("tutorial-title"),
+	  tutTree:document.getElementById("tutorial-title-tree"),
 	  clicker:document.getElementById("clicker"),
 	  points:document.getElementById("points"),
 	  purchaseTree1 : document.getElementById("purchaseTree1"), 
@@ -105,6 +107,7 @@
 	  greengasInventory : document.getElementById("greengasInventoryNum"),
 	  solarInventory : document.getElementById("solarInventoryNum"),
 	  carbonCatcherInventory : document.getElementById("carbonCatcherInventoryNum")
+
 
 	};
 
@@ -189,15 +192,15 @@
 
 	element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + treeBasePrice;
 
-	element.purchaseCar1.innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + carBasePrice;
+	element.purchaseCar1.innerHTML = "???";
 
-	element.purchaseSolar1.innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + solarBasePrice;
+	element.purchaseSolar1.innerHTML = "???";
 
-	element.purchaseFarm1.innerHTML = "|" + farmPurchaseLevel + "|" + " Farm : unlock on " + farmBasePrice;
+	element.purchaseFarm1.innerHTML = "???";
 
-	element.purchaseGas1.innerHTML = "|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + gasBasePrice;
+	element.purchaseGas1.innerHTML = "???";
 
-	element.purchaseCapture1.innerHTML = "|" + capturePurchaseLevel + "|" + " Carbon Catcher : unlock on " + captureBasePrice;
+	element.purchaseCapture1.innerHTML = "???";
 
 
 
@@ -208,6 +211,12 @@
 	 carbNum = carbNum + 1;
 	 carbNumftm = game_state.addCommas(carbNum)
 	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
+
+	            if(carbNum == 10)
+	        {
+	            element.tutClicker.innerHTML = "";
+	        }
+
 
 	}
 
@@ -345,6 +354,21 @@
 	        formatPrice = game_state.addCommas(treeBasePrice);
 	        element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + formatPrice;
 	        element.treeInventory.innerHTML = purchaseLevel;
+	        
+	        if(formatPrice = 1)
+	            {
+	                element.tutTree.innerHTML = "";
+	                element.purchaseCar1.innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + carBasePrice;
+
+	                element.purchaseSolar1.innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + solarBasePrice;
+
+	                element.purchaseFarm1.innerHTML = "|" + farmPurchaseLevel + "|" + " Farm : unlock on " + farmBasePrice;
+
+	                element.purchaseGas1.innerHTML = "|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + gasBasePrice;
+
+	                element.purchaseCapture1.innerHTML = "|" + capturePurchaseLevel + "|" + " Carbon Catcher : unlock on " + captureBasePrice;
+	            }
+	        
 	    }     
 	}
 
@@ -498,6 +522,7 @@
 	        document.getElementById("purchaseCapture1").disabled = true;  
 	  }
 	};
+
 	function cloud_opacity(){
 	   if(carbNum >= goal)
 	    {
