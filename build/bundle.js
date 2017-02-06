@@ -192,6 +192,8 @@
 
 	element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + treeBasePrice;
 
+	element.tutTree.innerHTML = "???";
+
 	element.purchaseCar1.innerHTML = "???";
 
 	element.purchaseSolar1.innerHTML = "???";
@@ -215,6 +217,7 @@
 	            if(carbNum == 10)
 	        {
 	            element.tutClicker.innerHTML = "";
+	            element.tutTree.innerHTML = "Now buy a Tree to help capture more Carbons"
 	        }
 
 
