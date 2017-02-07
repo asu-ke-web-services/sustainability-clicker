@@ -352,3 +352,203 @@ a[data-tooltip][data-placement="right"]:after {
 }
 
 
+a[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+a[data-tooltip]:before,
+a[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position t */
+a[data-tooltip]:before {
+  position: absolute;
+  bottom: -300%;
+  right: 110%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  height: 50px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: lightgoldenrodyellow;
+  color: black;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+a[data-tooltip]:after {
+  position: absolute;
+  bottom: -230%;
+  left: -15%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 15px solid #000;
+  border-top: 15px solid lightgoldenrodyellow;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+a[data-tooltip]:hover:before,
+a[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+
+
+a[data-tooltip][data-placement="right"]:before {
+  position: absolute;
+  bottom: -300%;
+  left: 144%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  height: 50px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: lightgoldenrodyellow;
+  color: black;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+a[data-tooltip][data-placement="right"]:after {
+  position: absolute;
+  bottom: -230%;
+  left: 109%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 15px solid #000;
+  border-top: 15px solid lightgoldenrodyellow;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+#speech {
+  font: 110% 'Trebuchet MS', cursive;
+  position: relative;
+  top: -10px;
+  left: 300px;
+  width: 300px;
+  height: 60px;
+  text-align:center;
+  line-height: 50px;
+  background-color: lightgoldenrodyellow;
+  border: 5px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 4px #888;
+  -moz-box-shadow: 2px 2px 4px #888;
+  box-shadow: 2px 2px 4px #888;
+}
+
+#speech:after {
+  content:"";
+  position:absolute;
+  bottom:-30px; /* value = - border-top-width - border-bottom-width */
+  left:50px; /* controls horizontal position */
+  border-width:20px 0 0 20px; /* vary these values to change the angle of the vertex */
+  border-style:solid;
+  border-color:lightgoldenrodyellow transparent;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+#speech:after {
+  top:-20px; /* value = - border-top-width - border-bottom-width */
+  right:50px; /* controls horizontal position */
+  bottom:auto;
+  left:auto;
+  border-width:20px 20px 0 0; /* vary these values to change the angle of the vertex */
+  border-color:transparent lightgoldenrodyellow;
+}
+
+/* creates the smaller triangle */
+#speech:after {
+  top:30px;
+  left:-30px; /* value = - border-left-width - border-right-width */
+  bottom:auto;
+  border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
+  border-color:transparent lightgoldenrodyellow;
+}
+
+#speech2 {
+  font: 110% 'Trebuchet MS', cursive;
+ visibility:hidden;
+  position: relative;
+  top: 70px;
+  left: 500px;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+  line-height: 40px;
+  background-color: lightgoldenrodyellow;
+  border: 5px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 4px #888;
+  -moz-box-shadow: 2px 2px 4px #888;
+  box-shadow: 2px 2px 4px #888;
+}
+
+#speech2:after {
+  content:"";
+  position:absolute;
+  bottom:-30px; /* value = - border-top-width - border-bottom-width */
+  left:50px; /* controls horizontal position */
+  border-width:20px 0 0 20px; /* vary these values to change the angle of the vertex */
+  border-style:solid;
+  border-color:lightgoldenrodyellow transparent;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+#speech2:after {
+  top:-20px; /* value = - border-top-width - border-bottom-width */
+  right:50px; /* controls horizontal position */
+  bottom:auto;
+  left:auto;
+  border-width:20px 20px 0 0; /* vary these values to change the angle of the vertex */
+  border-color:transparent lightgoldenrodyellow;
+}
+
+/* creates the smaller triangle */
+#speech2:after {
+  top:30px;
+  left:-30px; /* value = - border-left-width - border-right-width */
+  bottom:auto;
+  border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
+  border-color:transparent lightgoldenrodyellow;
+}
+

@@ -56,6 +56,8 @@
 	});
 
 
+	var enter = 0;
+
 	var totalNumberOfCarbons;
 
 	var carbNum = 0.00;
@@ -113,6 +115,15 @@
 	element.clicker.onclick = function() { 
 	    mainClicker();
 	    button_check();
+	    
+	    if (carbNum >= 10 && enter == 0)
+	    {
+	        document.getElementById("speech").style.visibility = "hidden";
+	        
+	        document.getElementById("speech2").style.visibility = "visible";
+	        enter = 1;
+	    }
+	    
 	};
 	element.purchaseCar1.onclick = function() { 
 	    if(auto_adder.electric_car == 0) 
@@ -177,6 +188,8 @@
 	};
 	element.purchaseTree1.onclick = function() {  
 	  
+	    document.getElementById("speech2").style.visibility= "hidden";
+	    
 	    if(auto_adder.tree == 0) 
 	    {
 	        auto_adder.tree = 1;
@@ -508,6 +521,9 @@
 	    }
 	   
 	};
+
+
+
 
 
 /***/ },
