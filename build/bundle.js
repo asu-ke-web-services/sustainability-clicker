@@ -67,12 +67,12 @@
 	var gasPurchaseLevel = 0;
 	var capturePurchaseLevel = 0;
 
-	var treeBasePrice = 1.00;
-	var carBasePrice = 2.00;
-	var solarBasePrice = 3.00;
-	var farmBasePrice = 4.00;
-	var gasBasePrice = 5.00;
-	var captureBasePrice = 6.00;
+	var treeBasePrice = 10.00;
+	var carBasePrice = 20.00;
+	var solarBasePrice = 30.00;
+	var farmBasePrice = 40.00;
+	var gasBasePrice = 50.00;
+	var captureBasePrice = 60.00;
 
 	var goal = 10;
 	var opacity_counter = .90;
@@ -90,8 +90,7 @@
 
 	var element = {  
 	    
-	  tutClicker:document.getElementById("tutorial-title"),
-	  tutTree:document.getElementById("tutorial-title-tree"),
+
 	  clicker:document.getElementById("clicker"),
 	  points:document.getElementById("points"),
 	  purchaseTree1 : document.getElementById("purchaseTree1"), 
@@ -191,19 +190,11 @@
 	};
 
 	element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + treeBasePrice;
-
-	element.tutTree.innerHTML = "???";
-
-	element.purchaseCar1.innerHTML = "???";
-
-	element.purchaseSolar1.innerHTML = "???";
-
-	element.purchaseFarm1.innerHTML = "???";
-
-	element.purchaseGas1.innerHTML = "???";
-
-	element.purchaseCapture1.innerHTML = "???";
-
+	element.purchaseCar1.innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + carBasePrice;
+	element.purchaseFarm1.innerHTML = "|" + farmPurchaseLevel + "|" + " Farm : unlock on " + farmBasePrice;
+	element.purchaseGas1.innerHTML = "|" + gasPurchaseLevel + "|" + " Gas : unlock on " + gasBasePrice;
+	element.purchaseSolar1.innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + solarBasePrice;
+	element.purchaseCapture1.innerHTML = "|" + capturePurchaseLevel + "|" + " Carbon Catcher : unlock on " + captureBasePrice;
 
 
 	function mainClicker()
@@ -214,13 +205,7 @@
 	 carbNumftm = game_state.addCommas(carbNum)
 	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 
-	            if(carbNum == 10)
-	        {
-	            element.tutClicker.innerHTML = "";
-	            element.tutTree.innerHTML = "Now buy a Tree to help capture more Carbons"
-	        }
-
-
+	           
 	}
 
 	setInterval(function(){ 
@@ -358,19 +343,7 @@
 	        element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + formatPrice;
 	        element.treeInventory.innerHTML = purchaseLevel;
 	        
-	        if(formatPrice = 1)
-	            {
-	                element.tutTree.innerHTML = "";
-	                element.purchaseCar1.innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + carBasePrice;
-
-	                element.purchaseSolar1.innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + solarBasePrice;
-
-	                element.purchaseFarm1.innerHTML = "|" + farmPurchaseLevel + "|" + " Farm : unlock on " + farmBasePrice;
-
-	                element.purchaseGas1.innerHTML = "|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + gasBasePrice;
-
-	                element.purchaseCapture1.innerHTML = "|" + capturePurchaseLevel + "|" + " Carbon Catcher : unlock on " + captureBasePrice;
-	            }
+	       
 	        
 	    }     
 	}
