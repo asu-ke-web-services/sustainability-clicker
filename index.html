@@ -5,99 +5,33 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body>
-
-    <div class="container-fluid">
-        <div class="row">
-                <div class="col-md-12">
-
-                <div class="points"> Number Of Carbons: 
-                    <div id="points" >
-                    </div>
-                </div>
-
-                </div>
-
-            <div class="col-md-4 text-center"> 
-                <ul> 
-                    <li><button id="purchaseTree1" class="btn btn-red btn-outline button-to-buy" disabled>Trees: Unlock after              3</button></li>
+<div id="points"  ></div>
+   
+  <button id="clicker" class="earth"></button>
+  
+    <button id="purchaseTree1" class="button1">Unlock after 3</button>
     
-                    <li><button id="purchaseCar1" class="btn btn-orange btn-outline button-to-buy" disabled>Electric Cars: Unlock after 50</button></li>
+    <button id="purchaseCar1" class="button1">Electric Cars: Unlock after 50</button>
     
-                    <li><button id="purchaseSolar1" class="btn btn-yellow btn-outline button-to-buy" disabled>Solar Panels: Unlock after 150</button></li>
-                </ul>
-            </div>
-                
-            <div class="col-md-4 .img-overlay">   
-                <button id="clicker" class="earth"></button>            
-               
-                <div id="pollution " class="pollution">
-                 <img style="height:auto; width:auto; max-height:400px; max-width:400px;" src="img/1.png" class="image" />
-                </div>                
-            </div>
+    <button id="purchaseSolar1" class="button1">Solar Panels: Unlock after 150</button>
     
-             <div class="col-md-4 text-center"> 
-                  <ul>
-                      <li><button id="purchaseFarm1" class="btn btn-green btn-outline button-to-buy" disabled>Farms: Unlock after 300</button></li>
+    <button id="purchaseFarm1" class="button1">Farms: Unlock after 300</button>
+    
+    <button id="purchaseGas1" class="button1">Green Gas: Unlock after 500</button>
+    
+    <button id="purchaseCapture1" class="button1">Carbon Catcher: Unlock after 1000</button>
 
-                      <li><button id="purchaseGas1" class="btn btn-blue btn-outline button-to-buy" disabled>Green Gas: Unlock after 500</button></li>
-
-                      <li><button id="purchaseCapture1" class="btn btn-purp btn-outline button-to-buy" disabled>Carbon Catcher: Unlock after 1000</button></li>
-                 </ul>
-             </div>
-
-    <div class="col-md-12">
-
-      <marquee id= "marqueeEdit">
-               Scientists predict that life as we know it may cease to exist later this year!
-      </marquee>
-
-    </div>
-            
-          <div class="col-md-6"> 
-              <div id="bottomHeaders" class= "text-center">
-                  Inventory
-              </div> 
-              <ul>
-                  <li><div id="treeInventory">  
-                   <span style="font-size:5.5em" class="treePic glyphicon glyphicon-tree-deciduous treePic">
-                    </span> 
-                      </div></li>
-              </ul>
-            </div>
-            
-            <div class="col-md-6 text-center"> 
-              <div id="bottomHeaders">
-                  Stats
-              </div> 
-                <div id="listStyle">
-                    <ul style="list-style-type: none;">
-                        <li>Total Carbons Collected (All Time):</li>
-                        <li>Total Carbons Sold: </li>
-                    <li>Carbons Currently Collected per Second: </li>
-                    <li>Carbons Currently Collected per Click: </li>
-                    <li>Hand-Picked Carbons: </li>
-                    </ul>
-              </div>
-                
-                 <div id="bottomHeaders">
-                  Achievements
-              </div>
-                 <div id="mustEarn">
-                     <ul style="list-style-type: none;">
-                     <li>Bragging Rights (capture 10,000)</li>
-                     <li>Free Groceries for a Month (capture 100,000)</li>
-                     <li>Honarary Degree from Harvard (capture 500,000)</li>
-                     <li>Brand New Mansion in the Bahamas (capture 1,000,000)</li>
-                     <li>Gold Statue made in your image (capture 3,000,000)</li>
-                     <li>New Holiday created in your honor (capture 5,000,000)</li>
-                     </ul>
-                </div>
-                
-            </div>
-            
-    </div>
+ <div id="newsfeed">
+  Scientists predict that life as we know it may cease to exist later this year!
+</div>
+    
+    <div id="pollution" class="pollution">
+    <img style="height:auto; width:auto; max-height:400px; max-width:400px" src="img/1.png" class="image" />
   </div>
+    
+    <div class="scrolling-limit"></div>
     <script type="text/javascript" src="build/bundle.js" charset="utf-8"></script>
+
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>

@@ -1,13 +1,23 @@
 /** CSS styles */
-
-body 
+div.scrolling-limit
 {
+  width: 1400px;
+  height: 30px;
+  background-color: red;
+    overflow:hidden;
+  white-space:nowrap;
+   margin-top: -35px;
+    margin-bottom: 0px;
+    margin-left: -10px;
+    margin-right: 0px;
+}
+
+body {
   background: url('../img/3.jpg');
   background-size: 1000px;
 }
 
-.points 
-{
+#points {
   text-align: center;
   font: 300% 'Trebuchet MS', cursive;
   color: #fff;
@@ -19,110 +29,88 @@ body
     0 0 90px #e3e98e;
 }
 
-.button-to-buy
-{
-    width: 250px;
-    height: 50px;
+#purchaseTree1
+{  
+ display: block;
+    margin-top: -230px;
+    margin-bottom: 0px;
+    margin-left: 300px;
+    margin-right: 0px;
+  width: 150px;
+  height: 50px;
     cursor: pointer;
-    margin-top: 10%;
 }
 
-.img-overlay 
-{
-    position: relative;
-    max-width: 250px; 
-    z-index: inherit;
+#purchaseCar1
+{  
+ display: block;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    margin-left: 300px;
+    margin-right: 0px;
+  width: 150px;
+  height: 50px;
+    cursor: pointer;
+}
+
+#purchaseSolar1
+{  
+ display: block;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    margin-left: 300px;
+    margin-right: 0px;
+  width: 150px;
+  height: 50px;
+    cursor: pointer;
+}
+
+#purchaseFarm1
+{  
+ display: block;
+    margin-top: -200px;
+    margin-bottom: 0px;
+    margin-left: 900px;
+    margin-right: 0px;
+  width: 150px;
+  height: 50px;
+    cursor: pointer;
+}
+
+#purchaseGas1
+{  
+ display: block;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    margin-left: 900px;
+    margin-right: 0px;
+  width: 150px;
+  height: 50px;
+    cursor: pointer;
+}
+
+#purchaseCapture1
+{  
+ display: block;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    margin-left: 900px;
+    margin-right: 0px;
+  width: 150px;
+  height: 50px;
+    cursor: pointer;
 }
 
 #pollution
 {  
-  margin-left: 20%;
-  margin-right: 20%;
+    margin-top: -320px;
+    margin-bottom: 0px;
+    margin-left: 480px;
+    margin-right: 0px;
   pointer-events:none;
-  position: absolute;
-  z-index: 2;
 }
 
-.btn-outline 
-{
-    background-color: transparent;
-    color: inherit;
-    border-color: inherit;
-    transition: all .5s;
-}
-
-
-.btn-blue.btn-outline 
-{
-    color: #428bca;
-    border-color: #428bca;
-}
-.btn-blue.btn-outline:hover
-{
-    color: #fff;
-    background-color: #428bca;
-}
-
-.btn-green.btn-outline 
-{
-    color: #5cb85c;
-    border-color: #5cb85c;
-}
-.btn-green.btn-outline:hover
-{
-    color: #fff;
-    background-color: #5cb85c;
-}
-
-.btn-orange.btn-outline 
-{
-    color: #f0ad4e;
-    border-color: #f0ad4e;
-}
-.btn-orange.btn-outline:hover
-{
-    color: #fff;
-    background-color: #f0ad4e;
-}
-
-.btn-red.btn-outline
-{
-    color: #d9534f;
-    border-color: #d9534f;
-}
-.btn-red.btn-outline:hover
-{
-    color: #fff;
-    background-color: #d9534f;
-}
-
-.btn-purp.btn-outline 
-{
-    color: #bc37e3;
-    border-color: #bc37e3;
-}
-.btn-purp.btn-outline:hover
-{
-    color: #fff;
-    background-color: #bc37e3;
-}
-
-.btn-yellow.btn-outline 
-{
-    color: #ede12e;
-    border-color: #ede12e;
-}
-.btn-yellow.btn-outline:hover
-{
-    color: #fff;
-    background-color: #ede12e;
-}
-
-#clicker 
-{
-  margin-top: 10%;
-  margin-left: 20%;
-  margin-right: 20%;
+#clicker {
   width: 250px;
   height: 250px;
   background: url('../img/2.jpg');
@@ -133,61 +121,37 @@ body
   animation-name: rotate;
   animation-duration: 20s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear; 
-  position: absolute;
-  z-index: -1;
+  animation-timing-function: linear;
+   margin-top: 40px;
+    margin-bottom: 0px;
+    margin-left: 553px;
+    margin-right: 0px;
 }
 
-@keyframes rotate 
-{
+@keyframes rotate {
   from { background-position-x: 0px; }
-  to { background-position-x: 500px; }
+  to { background-position-x: 210px; }
 }
 
-#marqueeEdit
-{
-    color: red;
-    font-size: 20px;
-    font-family: monospace;
-    margin-bottom: 1%;
-    margin-top: -20px;
+#newsfeed {
+  width: 1400px;
+  height: 30px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 0px;
+  margin-left: 300px;
+    margin-right: 0px;
+  
+   position: relative;
+  -webkit-animation: scroll 20s infinite linear;;
+  -moz-animation: scroll 20s infinite linear;
+  -o-animation: scroll 20s infinite linear;
+  animation: scroll 20s infinite linear;
 }
 
-#listStyle
-{
-    color: white;
-    font-size: 15px;
-    font-family: monospace;
-}
-
-#mustEarn
-{
-    color: gray;
-    font-size: 15px;
-    font-family: monospace; 
-}
-
-
-#bottomHeaders
-{
-    margin-bottom: 1%;
-    font-size: 20px;
-    color: #fff;
-    font: 'Trebuchet MS', cursive;
-    text-shadow: 
-    0 0 10px #fff, 
-    0 0 30px #fff, 
-    0 0 50px #e3e98e, 
-    0 0 70px #e3e98e,
-    0 0 90px #e3e98e;   
-}
-
-.treePic
-{
-    color:firebrick;
-}
-
-.carPic
-{
-    color: blueviolet;
+@keyframes scroll{
+    0%   {left: 500px;}
+    100% {left: -950px;}
 }
