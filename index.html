@@ -5,9 +5,22 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body>
+      
+    
+      
+     <div id = "bgimg"> 
+         <h1 class="game-title">Carbon Clicker</h1>
+        <div id="startEarth" class="startEarth"></div>
+      <button class ="button" id = "buttonStart"> <span>Start</span></button>
+          
+      <button class ="button" id = "buttonInfo"> <span>Tutorial</span></button>  
+      </div>
 
-    <div class="container-fluid">
+    
+      
+    <div class="container-fluid" id="game">
         <div class="row">
+                
                 <div class="col-md-12">
 
                 <div class="points"> 
@@ -18,18 +31,22 @@
                 </div>
 
             <div class="col-md-4 text-center"> 
+                <div id="speech2">Purchase a tree!</div>
                 <ul> 
-                    <li><button id="purchaseTree1" class="btn btn-red btn-outline button-to-buy" disabled>Trees: Unlock after              3</button></li>
+                    
+                    <li><a data-tooltip="descripton"><button id="purchaseTree1"  class="btn btn-red btn-outline button-to-buy" disabled></button></a></li>
     
-                    <li><button id="purchaseCar1" class="btn btn-orange btn-outline button-to-buy" disabled>Electric Cars: Unlock after 50</button></li>
+                    <li><a data-tooltip="descripton"><button id="purchaseCar1"  class="btn btn-orange btn-outline button-to-buy" disabled>Electric Cars: Unlock after 50</button></a></li>
     
-                    <li><button id="purchaseSolar1" class="btn btn-yellow btn-outline button-to-buy" disabled>Solar Panels: Unlock after 150</button></li>
+                    <li><a data-tooltip="descripton"><button id="purchaseSolar1" class="btn btn-yellow btn-outline button-to-buy" disabled>Solar Panels: Unlock after 150</button></a></li>
                 </ul>
             </div>
+            
+           
+            <div class="col-md-4 .img-overlay" id="thisIsTheEarth">   
                 
-            <div class="col-md-4 .img-overlay">   
-                
-                  <div id="pollution" class="pollution"></div>  
+                 
+                <div id="pollution" class="pollution"><div id="speech"> Capture 10 Carbons!</div>></div>  
                 <button id="clicker" class="earth"></button>          
                
               
@@ -38,11 +55,11 @@
     
              <div class="col-md-4 text-center"> 
                   <ul>
-                      <li><button id="purchaseFarm1" class="btn btn-green btn-outline button-to-buy" disabled>Farms: Unlock after 300</button></li>
+                      <li><a data-tooltip="descripton" data-placement="right"><button id="purchaseFarm1" data-placement="right" class="btn btn-green btn-outline button-to-buy" disabled>Farms: Unlock after 300</button></a></li>
 
-                      <li><button id="purchaseGas1" class="btn btn-blue btn-outline button-to-buy" disabled>Green Gas: Unlock after 500</button></li>
+                      <li><a data-tooltip="descripton" data-placement="right"><button id="purchaseGas1" data-tooltip="descripton" data-placement="right" class="btn btn-blue btn-outline button-to-buy" disabled>Green Gas: Unlock after 500</button></a></li>
 
-                      <li><button id="purchaseCapture1" class="btn btn-purp btn-outline button-to-buy" disabled>Carbon Catcher: Unlock after 1000</button></li>
+                      <li><a data-tooltip="descripton" data-placement="right"><button id="purchaseCapture1" data-tooltip="descripton" data-placement="right" class="btn btn-purp btn-outline button-to-buy" disabled>Carbon Catcher: Unlock after 1000</button></a></li>
                  </ul>
              </div>
 
@@ -59,9 +76,20 @@
                   Inventory
               </div> 
               <ul>
-                  <li><div id="treeInventory">  
-                   <span style="font-size:5.5em" class="treePic glyphicon glyphicon-tree-deciduous treePic">
-                    </span> 
+                  <li><div id="Inventory">
+                      
+                      <span style="font-size:4.5em" class="treePic glyphicon glyphicon-tree-deciduous treePic"> <div id="treeInventoryNum" class="num" style=" text-align: center">0</div></span> 
+                      
+                       <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="carInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="solarInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="farmInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="greengasInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-euro"><div id="carbonCatcherInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                      
                       </div></li>
               </ul>
             </div>
