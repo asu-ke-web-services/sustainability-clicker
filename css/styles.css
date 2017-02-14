@@ -691,10 +691,10 @@ a[data-tooltip][data-placement="right"]:after {
   }
 }
 .fade-in {
-  animation: fadeIn ease 6s;
-  -webkit-animation: fadeIn ease 6s;
-  -moz-animation: fadeIn ease 6s;
-  -o-animation: fadeIn ease 6s;
-  -ms-animation: fadeIn ease 6s;
+  animation: fadeIn ease 7s;
+  -webkit-animation: fadeIn ease 7s;
+  -moz-animation: fadeIn ease 7s;
+  -o-animation: fadeIn ease 7s;
+  -ms-animation: fadeIn ease 7s;
 }
 
