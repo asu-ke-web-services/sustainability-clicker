@@ -5,10 +5,6 @@ var game_state = require("./game_state.js");
 
 
 
-$("#buttonStart").click(function() {
-  game_state.clickFunc();
-});
-
 
 var enter = 0;
 

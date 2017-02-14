@@ -51,10 +51,6 @@
 
 
 
-	$("#buttonStart").click(function() {
-	  game_state.clickFunc();
-	});
-
 
 	var enter = 0;
 
