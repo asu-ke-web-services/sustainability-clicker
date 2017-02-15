@@ -59,6 +59,8 @@
 	var marqueeData= [];
 	var cSentence;
 	var myVar;
+	var audio;
+	var audio2;
 
 	var totalNumberOfCarbons;
 
@@ -345,7 +347,6 @@
 	    {
 	        
 	        purchaseLevel++; //use this as a veriable in timer func
-	        
 	        //update total number of carbons
 	        carbNum =  carbNum - treeBasePrice;
 	        formatCarb = game_state.addCommas(carbNum);
@@ -544,8 +545,16 @@
 	     document.getElementById("c_Sentence").innerHTML= cSentence;  
 	}
 
-
-
+	$( document ).ready(function() {
+		var audio = $("#ChaChing")[0];
+	    var audio2 = $("#ClickSound")[0];
+		$(".button-to-buy").mousedown(function() {
+		  audio.play();
+		});
+	    $(".earth").mousedown(function() {
+		  audio2.play();
+		});
+	});
 
 /***/ },
 /* 1 */
