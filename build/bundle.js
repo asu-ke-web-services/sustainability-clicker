@@ -50,9 +50,15 @@
 	 document.getElementById("game").style.display = "none";
 
 
-
+	$("#buttonStart").click(function() {
+	  game_state.clickFunc();
+	});
 
 	var enter = 0;
+	var allText;
+	var marqueeData= [];
+	var cSentence;
+	var myVar;
 
 	var totalNumberOfCarbons;
 
@@ -518,6 +524,25 @@
 	   
 	};
 
+	$.ajax
+	({
+	    url : "mynews.txt",
+	    dataType: "text",
+	    success : function (allText) 
+	    {
+	        marqueeData= allText.split("\n");
+	        cSentence= marqueeData[Math.floor(Math.random() * 16)];
+	        document.getElementById("c_Sentence").innerHTML= cSentence;
+	        myVar= setInterval(sLoop, 30000);
+	        console.log(cSentence);
+	    }
+	});
+
+	function sLoop ()
+	{
+	     cSentence= marqueeData[Math.floor(Math.random() * 16)];
+	     document.getElementById("c_Sentence").innerHTML= cSentence;  
+	}
 
 
 
