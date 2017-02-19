@@ -16,6 +16,9 @@ $("#playButton").click(function() {
   game_state.startAtInfo();
 });
 
+//chaneg tooltip data 
+//document.getElementById('s').setAttribute('data-tooltip', 'aaa');
+
 var enter = 0;
 
 var totalNumberOfCarbons = 0;
