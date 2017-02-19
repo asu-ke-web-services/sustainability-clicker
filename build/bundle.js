@@ -131,11 +131,28 @@
 	    }
 	    
 	};
+	element.purchaseTree1.onclick = function() {  
+	  
+	    document.getElementById("speech2").style.visibility= "hidden";
+	    
+	    if(auto_adder.tree == 0) 
+	    {
+	        auto_adder.tree = 1/30;
+	        
+	    }
+	    else
+	    {
+	        auto_adder.tree += auto_adder.tree;
+
+	    }
+	    treePriceCalc();
+	    button_check();
+	};
 
 	element.purchaseCar1.onclick = function() { 
 	    if(auto_adder.electric_car == 0) 
 	    {
-	        auto_adder.electric_car = 2;
+	        auto_adder.electric_car = 1/25;
 	        carbPerSec = carbPerSec + 2;
 	    }
 	    else
@@ -150,7 +167,7 @@
 	   
 	    if(auto_adder.solar == 0) 
 	    {
-	        auto_adder.solar = 4;
+	        auto_adder.solar = 1/20;
 	    }
 	    else
 	    {
@@ -162,7 +179,7 @@
 	element.purchaseFarm1.onclick = function() {
 	    if(auto_adder.farm == 0) 
 	    {
-	        auto_adder.farm = 5;
+	        auto_adder.farm = 1/15;
 	    }
 	    else
 	    {
@@ -174,7 +191,7 @@
 	element.purchaseGas1.onclick = function() {
 	    if(auto_adder.gas == 0) 
 	    {
-	        auto_adder.gas = 6;
+	        auto_adder.gas = 1/10;
 	    }
 	    else
 	    {
@@ -186,7 +203,7 @@
 	element.purchaseCapture1.onclick = function() {
 	    if(auto_adder.capture == 0) 
 	    {
-	        auto_adder.capture = 8;
+	        auto_adder.capture = 1/5;
 	    }
 	    else
 	    {
@@ -195,23 +212,7 @@
 	    capturePriceCalc();
 	    button_check();
 	};
-	element.purchaseTree1.onclick = function() {  
-	  
-	    document.getElementById("speech2").style.visibility= "hidden";
-	    
-	    if(auto_adder.tree == 0) 
-	    {
-	        auto_adder.tree = 1;
-	        
-	    }
-	    else
-	    {
-	        auto_adder.tree += auto_adder.tree;
 
-	    }
-	    treePriceCalc();
-	    button_check();
-	};
 
 	element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + treeBasePrice;
 	element.purchaseCar1.innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + carBasePrice;
@@ -227,43 +228,21 @@
 	totalNumberOfCarbons = (totalNumberOfCarbons + 1);
 	 carbNum = carbNum + 1;
 	 carbNumftm = game_state.addCommas(carbNum)
-	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	 element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons;
+	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm.toFixed(0);
+	 element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
 
 	           
 	}
 
 	setInterval(function(){ 
 	    
+	  autoAdd(auto_adder.tree);
+	  autoAdd(auto_adder.electric_car);
+	  autoAdd(auto_adder.solar);
+	  autoAdd(auto_adder.farm);
+	  autoAdd(auto_adder.gas);
+	  autoAdd(auto_adder.capture);
 	    
-	 if(auto_adder.tree > 0)
-	  {
-	     autoTreeCarbNum();
-	  }
-	  if(auto_adder.electric_car > 0) 
-	  {
-	      
-	      autoCarCarbNum();
-	  }
-	  if(auto_adder.solar > 0) 
-	  {
-	      
-	      autoSolarCarbNum();
-	  }
-	 
-	 if(auto_adder.farm > 0) 
-	  {
-	      autoFarmCarbNum();
-	  }
-	  if(auto_adder.gas > 0) 
-	  {
-	      autoGasCarbNum();
-	  }
-	  if(auto_adder.capture > 0) 
-	  {
-	      autoCaptureCarbNum();
-	  } 
-	  
 	  button_check();
 	  cloud_opacity();
 	  timer += 1;
@@ -271,94 +250,22 @@
 	 }, 1000);
 
 
-	function autoTreeCarbNum () //timer for auto adition of the numbers of carbons  
+	function autoAdd (autoadderTool) //timer for auto adition of the numbers of carbons  
 	{   
 	    var carbNumftm;
 	    
-	    if(timer % 3 == 0) 
+	    if(timer % 1 == 0) 
 	    {
 	        
-	       carbNum = carbNum + auto_adder.tree;
+	       carbNum = carbNum + autoadderTool;
 	       carbNumftm = game_state.addCommas(carbNum);
-	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm.toFixed(0);
 	       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.tree;
-	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons;
+	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
 	    }
 	}
 
-	function autoCarCarbNum () //timer for auto adition of the numbers of carbons  
-	{   
-	    var carbNumftm;
-	    
-	    if(timer % 5 == 0) 
-	    {
-	        
-	       carbNum = carbNum + auto_adder.electric_car;
-	       carbNumftm = game_state.addCommas(carbNum);
-	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.electric_car;
-	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons;
-	        
-	    }
-	}
 
-	function autoSolarCarbNum ()   
-	{   
-	    var carbNumftm;
-	    
-	    if(timer % 9 == 0) 
-	    {
-	        
-	       carbNum = carbNum + auto_adder.solar;
-	       carbNumftm = game_state.addCommas(carbNum);
-	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.solar;
-	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons;
-	    }
-	}
-	function autoFarmCarbNum ()   
-	{   
-	    var carbNumftm;
-	    
-	    if(timer % 7 == 0) 
-	    {
-	        
-	       carbNum = carbNum + auto_adder.farm;
-	       carbNumftm = game_state.addCommas(carbNum);
-	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.farm;
-	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons;
-	    
-	    }
-	}
-	function autoGasCarbNum ()   
-	{   
-	    var carbNumftm;
-	    
-	    if(timer % 11 == 0) 
-	    {
-	        
-	       carbNum = carbNum + auto_adder.gas;
-	       carbNumftm = game_state.addCommas(carbNum);
-	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.gas;
-	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons;
-	    }
-	}
-	function autoCaptureCarbNum ()  
-	{   
-	    var carbNumftm;
-	    
-	    if(timer % 13 == 0) 
-	    {
-	        
-	       carbNum = carbNum + auto_adder.capture;
-	       carbNumftm = game_state.addCommas(carbNum);
-	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.capture;
-	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons;
-	    }
-	}
 
 	function treePriceCalc()
 	{
@@ -374,7 +281,7 @@
 	        carbNum =  carbNum - treeBasePrice;
 	        totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + treeBasePrice;
 	        formatCarb = game_state.addCommas(carbNum);
-	        element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	        element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	        
 	        
 	        //update number of carbons needed to buy tree 
@@ -382,7 +289,7 @@
 	        formatPrice = game_state.addCommas(treeBasePrice);
 	        element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + formatPrice;
 	        element.treeInventory.innerHTML = purchaseLevel;
-	        element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
+	        element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold.toFixed(0);
 	       
 	        
 	    }     
@@ -401,7 +308,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + carBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            carBasePrice = game_state.calcPrice(carPurchaseLevel, carBasePrice);
 	            formatPrice = game_state.addCommas(carBasePrice);
@@ -423,7 +330,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + solarBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            solarBasePrice = game_state.calcPrice(solarPurchaseLevel, solarBasePrice);
 	            formatPrice = game_state.addCommas(solarBasePrice);
@@ -445,7 +352,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + farmBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            farmBasePrice = game_state.calcPrice(farmPurchaseLevel, farmBasePrice);
 	            formatPrice = game_state.addCommas(farmBasePrice);
@@ -467,7 +374,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + gasBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            gasBasePrice = game_state.calcPrice(gasPurchaseLevel, gasBasePrice);
 	            formatPrice = game_state.addCommas(gasBasePrice);
@@ -492,7 +399,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + captureBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + formatCarb;
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            captureBasePrice = game_state.calcPrice(capturePurchaseLevel, captureBasePrice);
 	            formatPrice = game_state.addCommas(captureBasePrice);
