@@ -2,13 +2,19 @@ var $ = require("jquery");
 var game_state = require("./game_state.js");
 
  document.getElementById("game").style.display = "none";
-
-
+ document.getElementById("infoPage").style.display = "none";
 
 $("#buttonStart").click(function() {
   game_state.clickFunc();
 });
 
+$("#buttonInfo").click(function() {
+  game_state.infoFunc();
+});
+
+$("#playButton").click(function() {
+  game_state.startAtInfo();
+});
 
 var enter = 0;
 
