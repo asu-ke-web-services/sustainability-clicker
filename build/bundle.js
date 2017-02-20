@@ -138,11 +138,13 @@
 	    if(auto_adder.tree == 0) 
 	    {
 	        auto_adder.tree = 1/30;
+	        carbPerSec = carbPerSec + auto_adder.tree;
 	        
 	    }
 	    else
 	    {
 	        auto_adder.tree += auto_adder.tree;
+	        carbPerSec = carbPerSec + auto_adder.tree;
 
 	    }
 	    treePriceCalc();
@@ -153,7 +155,7 @@
 	    if(auto_adder.electric_car == 0) 
 	    {
 	        auto_adder.electric_car = 1/25;
-	        carbPerSec = carbPerSec + 2;
+	        carbPerSec = carbPerSec + auto_adder.electric_car;
 	    }
 	    else
 	    {
@@ -168,10 +170,12 @@
 	    if(auto_adder.solar == 0) 
 	    {
 	        auto_adder.solar = 1/20;
+	        carbPerSec = carbPerSec + auto_adder.solar;
 	    }
 	    else
 	    {
 	        auto_adder.solar += auto_adder.solar;
+	        carbPerSec = carbPerSec + auto_adder.solar;
 	    }
 	    solarPriceClac();
 	    button_check();
@@ -180,10 +184,12 @@
 	    if(auto_adder.farm == 0) 
 	    {
 	        auto_adder.farm = 1/15;
+	        carbPerSec = carbPerSec + auto_adder.farm;
 	    }
 	    else
 	    {
 	        auto_adder.farm += auto_adder.farm;
+	        carbPerSec = carbPerSec + auto_adder.farm;
 	    }
 	    farmPricCalc();
 	    button_check();
@@ -192,10 +198,12 @@
 	    if(auto_adder.gas == 0) 
 	    {
 	        auto_adder.gas = 1/10;
+	        carbPerSec = carbPerSec + auto_adder.gas;
 	    }
 	    else
 	    {
 	        auto_adder.gas += auto_adder.gas;
+	        carbPerSec = carbPerSec + auto_adder.gas;
 	    }
 	    gasPriceCalc();
 	    button_check();
@@ -204,10 +212,12 @@
 	    if(auto_adder.capture == 0) 
 	    {
 	        auto_adder.capture = 1/5;
+	        carbPerSec = carbPerSec + auto_adder.capture;
 	    }
 	    else
 	    {
 	        auto_adder.capture += auto_adder.capture;
+	        carbPerSec = carbPerSec + auto_adder.capture;
 	    }
 	    capturePriceCalc();
 	    button_check();
@@ -290,6 +300,7 @@
 	        element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + formatPrice;
 	        element.treeInventory.innerHTML = purchaseLevel;
 	        element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold.toFixed(0);
+	        element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
 	       
 	        
 	    }     
@@ -298,7 +309,7 @@
 	function carPriceClac ()
 	{
 	  
-	    var formatPrice;
+	    var formatPrice; 
 	    var formatCarb;
 	    
 	    if (carbNum >= carBasePrice)
@@ -314,6 +325,8 @@
 	            formatPrice = game_state.addCommas(carBasePrice);
 	            document.getElementById("purchaseCar1").innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + formatPrice;
 	            element.carInventory.innerHTML = carPurchaseLevel;
+	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+
 	        }        
 	}
 
@@ -336,6 +349,7 @@
 	            formatPrice = game_state.addCommas(solarBasePrice);
 	            document.getElementById("purchaseSolar1").innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + formatPrice;
 	            element.solarInventory.innerHTML = solarPurchaseLevel;
+	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
 	    }
 	}
 
@@ -358,6 +372,8 @@
 	            formatPrice = game_state.addCommas(farmBasePrice);
 	            document.getElementById("purchaseFarm1").innerHTML = "|" + farmPurchaseLevel + "|" +  " Farm : unlock on " + formatPrice;
 	            element.farmInventory.innerHTML = farmPurchaseLevel;
+	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+	        
 	        }   
 	}
 
@@ -380,6 +396,7 @@
 	            formatPrice = game_state.addCommas(gasBasePrice);
 	            document.getElementById("purchaseGas1").innerHTML ="|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + formatPrice;
 	            element.greengasInventory.innerHTML = gasPurchaseLevel;
+	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
 	            
 	            
 	        }
@@ -405,6 +422,7 @@
 	            formatPrice = game_state.addCommas(captureBasePrice);
 	            document.getElementById("purchaseCapture1").innerHTML = "|" + capturePurchaseLevel + "|" +  " Carbon Catcher : unlock on " + formatPrice;
 	            element.carbonCatcherInventory.innerHTML = capturePurchaseLevel;
+	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
 	        } 
 	} 
 
