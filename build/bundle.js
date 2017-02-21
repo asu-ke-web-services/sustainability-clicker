@@ -48,13 +48,22 @@
 	var game_state = __webpack_require__(2);
 
 	 document.getElementById("game").style.display = "none";
-
-
+	 document.getElementById("infoPage").style.display = "none";
 
 	$("#buttonStart").click(function() {
 	  game_state.clickFunc();
 	});
 
+	$("#buttonInfo").click(function() {
+	  game_state.infoFunc();
+	});
+
+	$("#playButton").click(function() {
+	  game_state.startAtInfo();
+	});
+
+	//chaneg tooltip data 
+	//document.getElementById('s').setAttribute('data-tooltip', 'aaa');
 
 	var enter = 0;
 
@@ -10761,7 +10770,23 @@
 
 	   
 
-	  }
+	  },
+	    
+	    infoFunc: function(){
+	    
+	    document.getElementById("bgimg").style.display = "none";
+	    document.getElementById("infoPage").style.display = "block";
+	    
+	},
+	    
+	    startAtInfo: function(){
+	    
+	    document.getElementById("infoPage").style.display = "none";
+	    document.getElementById("game").style.display = "block";
+	    
+	}
+	    
+	    
 	};
 
 /***/ }
