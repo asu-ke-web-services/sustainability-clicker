@@ -41,5 +41,21 @@ calcPrice: function(nOwned, baseCost)
 
    
 
-  }
+  },
+    
+    infoFunc: function(){
+    
+    document.getElementById("bgimg").style.display = "none";
+    document.getElementById("infoPage").style.display = "block";
+    
+},
+    
+    startAtInfo: function(){
+    
+    document.getElementById("infoPage").style.display = "none";
+    document.getElementById("game").style.display = "block";
+    
+}
+    
+    
 };
