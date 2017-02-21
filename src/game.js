@@ -2,11 +2,14 @@ var $ = require("jquery");
 var game_state = require("./game_state.js");
 
  document.getElementById("game").style.display = "none";
+
  document.getElementById("infoPage").style.display = "none";
+
 
 $("#buttonStart").click(function() {
   game_state.clickFunc();
 });
+
 
 $("#buttonInfo").click(function() {
   game_state.infoFunc();
@@ -19,7 +22,14 @@ $("#playButton").click(function() {
 //chaneg tooltip data 
 //document.getElementById('s').setAttribute('data-tooltip', 'aaa');
 
+
 var enter = 0;
+var allText;
+var marqueeData= [];
+var cSentence;
+var myVar;
+var audio;
+var audio2;
 
 var totalNumberOfCarbons = 0;
 var totalNumberOfCarbonsSold = 0;
@@ -249,7 +259,6 @@ function treePriceCalc()
     {
         
         purchaseLevel++; //use this as a veriable in timer func
-        
         //update total number of carbons
         carbNum =  carbNum - treeBasePrice;
         totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + treeBasePrice;
@@ -447,5 +456,33 @@ function cloud_opacity(){
    
 };
 
+$.ajax
+({
+    url : "mynews.txt",
+    dataType: "text",
+    success : function (allText) 
+    {
+        marqueeData= allText.split("\n");
+        cSentence= marqueeData[Math.floor(Math.random() * 16)];
+        document.getElementById("c_Sentence").innerHTML= cSentence;
+        myVar= setInterval(sLoop, 30000);
+        console.log(cSentence);
+    }
+});
 
+function sLoop ()
+{
+     cSentence= marqueeData[Math.floor(Math.random() * 16)];
+     document.getElementById("c_Sentence").innerHTML= cSentence;  
+}
 
+$( document ).ready(function() {
+	var audio = $("#ChaChing")[0];
+    var audio2 = $("#ClickSound")[0];
+	$(".button-to-buy").mousedown(function() {
+	  audio.play();
+	});
+    $(".earth").mousedown(function() {
+	  audio2.play();
+	});
+});

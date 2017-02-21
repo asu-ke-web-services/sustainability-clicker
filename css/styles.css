@@ -220,15 +220,15 @@ button:focus {outline:0;}
   to { background-position-x: 500px; }
 }
 
-#marqueeEdit
+.scroll
 {
-    color: red;
-    font-size: 20px;
-    font-family: monospace;
-    margin-bottom: 1%;
-    margin-top: -20px;
-    padding-top: 40px;
-}
+  font-size: 18px;
+  width: 100%;
+  overflow: hidden;
+  color: red;
+  margin-bottom: 20px;
+}   
+
 
 #listStats
 {
@@ -551,4 +551,3 @@ a[data-tooltip][data-placement="right"]:after {
   border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
   border-color:transparent lightgoldenrodyellow;
 }
-
