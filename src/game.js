@@ -93,7 +93,8 @@ var element = {
 element.clicker.onclick = function() { 
     mainClicker();
     button_check();
-   
+     
+
     
     if (carbNum >= 10 && enter == 0)
     {
@@ -228,6 +229,8 @@ setInterval(function(){
     
   button_check();
   cloud_opacity();
+  check_achievements();
+
   timer += 1;
     
  }, 1000);
@@ -486,3 +489,13 @@ $( document ).ready(function() {
 	  audio2.play();
 	});
 });
+
+
+function check_achievements(){
+    if(carbNum >= 20 && carbNum < 25 && prize == 0)
+    {
+        setTimeout(function () { element.prize1.classList.toggle('show');}, 3000);
+        element.prize1.classList.toggle('show');
+        prize += 1;
+    }
+}

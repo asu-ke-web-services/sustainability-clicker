@@ -56,6 +56,7 @@
 	  game_state.clickFunc();
 	});
 
+
 	$("#buttonInfo").click(function() {
 	  game_state.infoFunc();
 	});
@@ -66,6 +67,7 @@
 
 	//chaneg tooltip data 
 	//document.getElementById('s').setAttribute('data-tooltip', 'aaa');
+
 
 	var enter = 0;
 	var allText;
@@ -137,7 +139,8 @@
 	element.clicker.onclick = function() { 
 	    mainClicker();
 	    button_check();
-	   
+	     
+
 	    
 	    if (carbNum >= 10 && enter == 0)
 	    {
@@ -272,6 +275,8 @@
 	    
 	  button_check();
 	  cloud_opacity();
+	  check_achievements();
+
 	  timer += 1;
 	    
 	 }, 1000);
@@ -530,6 +535,16 @@
 		  audio2.play();
 		});
 	});
+
+
+	function check_achievements(){
+	    if(carbNum >= 20 && carbNum < 25 && prize == 0)
+	    {
+	        setTimeout(function () { element.prize1.classList.toggle('show');}, 3000);
+	        element.prize1.classList.toggle('show');
+	        prize += 1;
+	    }
+	}
 
 /***/ },
 /* 1 */
