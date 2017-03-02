@@ -19,8 +19,6 @@ $("#playButton").click(function() {
   game_state.startAtInfo();
 });
 
-//chaneg tooltip data 
-//document.getElementById('s').setAttribute('data-tooltip', 'aaa');
 
 
 var enter = 0;
@@ -30,6 +28,13 @@ var cSentence;
 var myVar;
 var audio;
 var audio2;
+
+var treePerSec = 1/30;
+var carPerSec = 1/25;
+var solarPerSec = 1/20;
+var farmPerSec = 1/15;
+var gasPerSec = 1/10;
+var capPerSec = 1/5;
 
 var totalNumberOfCarbons = 0;
 var totalNumberOfCarbonsSold = 0;
@@ -49,7 +54,7 @@ var carBasePrice = 20.00;
 var solarBasePrice = 30.00;
 var farmBasePrice = 40.00;
 var gasBasePrice = 50.00;
-var captureBasePrice = 60.00;
+var captureBasePrice = 10.00;
 
 var goal = 10;
 var opacity_counter = .90;
@@ -85,10 +90,25 @@ var element = {
   farmInventory : document.getElementById("farmInventoryNum"),
   greengasInventory : document.getElementById("greengasInventoryNum"),
   solarInventory : document.getElementById("solarInventoryNum"),
-  carbonCatcherInventory : document.getElementById("carbonCatcherInventoryNum")
+  carbonCatcherInventory : document.getElementById("carbonCatcherInventoryNum"),
+  treeTooltip: document.getElementById("treeToolTip"),
+  carTooltip: document.getElementById("carToolTip"),
+  solarTooltip: document.getElementById("solarToolTip"),
+  gasTooltip: document.getElementById("gasToolTip"),
+  farmTooltip: document.getElementById("farmToolTip"),
+  catcherTooltip: document.getElementById("captureToolTip")
+
 
 
 };
+
+element.treeTooltip.setAttribute('data-tooltip', "Trees capture " + treePerSec.toFixed(3) +' carbons per sec' );
+element.carTooltip.setAttribute('data-tooltip', "Elec Cars capture " + carPerSec.toFixed(3) +' carbons per sec' );
+element.solarTooltip.setAttribute('data-tooltip', "Solar Pan capture " + solarPerSec.toFixed(3) +' carbons per sec' );
+element.gasTooltip.setAttribute('data-tooltip', "Green Gas capture " + gasPerSec.toFixed(3) +' carbons per sec' );
+element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
+element.catcherTooltip.setAttribute('data-tooltip', "Carbon catcher capture " + capPerSec.toFixed(3) +' carbons per sec' );
+
 
 element.clicker.onclick = function() { 
     mainClicker();
@@ -113,12 +133,18 @@ element.purchaseTree1.onclick = function() {
     {
         auto_adder.tree = 1/30;
         carbPerSec = carbPerSec + auto_adder.tree;
+        treePerSec = treePerSec + auto_adder.tree;
+        element.treeTooltip.setAttribute('data-tooltip', "Trees capture " + treePerSec.toFixed(3) +' Carbons per sec!' );
+
         
     }
     else
     {
         auto_adder.tree += auto_adder.tree;
         carbPerSec = carbPerSec + auto_adder.tree;
+        treePerSec = treePerSec + auto_adder.tree;
+        element.treeTooltip.setAttribute('data-tooltip', "Trees capture " + treePerSec.toFixed(3) +' Carbons per sec' );
+
 
     }
     treePriceCalc();
@@ -130,11 +156,18 @@ element.purchaseCar1.onclick = function() {
     {
         auto_adder.electric_car = 1/25;
         carbPerSec = carbPerSec + auto_adder.electric_car;
+        carPerSec = carPerSec + auto_adder.electric_car;
+        element.carTooltip.setAttribute('data-tooltip', "Elec Cars capture " + carPerSec.toFixed(3) +' carbons per sec' );
+
+        
     }
     else
     {
         auto_adder.electric_car += auto_adder.electric_car;
         carbPerSec = carbPerSec + auto_adder.electric_car;
+        carPerSec = carPerSec + auto_adder.electric_car;
+        element.carTooltip.setAttribute('data-tooltip', "Elec Cars capture " + carPerSec.toFixed(3) +' carbons per sec' );
+
     }
     carPriceClac(); 
     button_check();
@@ -145,11 +178,17 @@ element.purchaseSolar1.onclick = function() {
     {
         auto_adder.solar = 1/20;
         carbPerSec = carbPerSec + auto_adder.solar;
+        solarPerSec = solarPerSec + auto_adder.solar;
+        element.solarTooltip.setAttribute('data-tooltip', "Solar Pan capture " + solarPerSec.toFixed(3) +' carbons per sec' );
+
     }
     else
     {
         auto_adder.solar += auto_adder.solar;
         carbPerSec = carbPerSec + auto_adder.solar;
+        solarPerSec = solarPerSec + auto_adder.solar;
+        element.solarTooltip.setAttribute('data-tooltip', "Solar Pan capture " + solarPerSec.toFixed(3) +' carbons per sec' );
+
     }
     solarPriceClac();
     button_check();
@@ -159,11 +198,18 @@ element.purchaseFarm1.onclick = function() {
     {
         auto_adder.farm = 1/15;
         carbPerSec = carbPerSec + auto_adder.farm;
+        farmPerSec = farmPerSec + auto_adder.farm;
+        element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
+
+        
     }
     else
     {
         auto_adder.farm += auto_adder.farm;
         carbPerSec = carbPerSec + auto_adder.farm;
+        farmPerSec = farmPerSec + auto_adder.farm;
+        element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
+
     }
     farmPricCalc();
     button_check();
@@ -173,11 +219,17 @@ element.purchaseGas1.onclick = function() {
     {
         auto_adder.gas = 1/10;
         carbPerSec = carbPerSec + auto_adder.gas;
+        gasPerSec = gasPerSec + auto_adder.gas;
+        element.gasTooltip.setAttribute('data-tooltip', "Green Gas capture " + gasPerSec.toFixed(3) +' carbons per sec' );
+
     }
     else
     {
         auto_adder.gas += auto_adder.gas;
         carbPerSec = carbPerSec + auto_adder.gas;
+        gasPerSec = gasPerSec + auto_adder.gas;
+        element.gasTooltip.setAttribute('data-tooltip', "Green Gas capture " + gasPerSec.toFixed(3) +' carbons per sec' );
+
     }
     gasPriceCalc();
     button_check();
@@ -187,11 +239,17 @@ element.purchaseCapture1.onclick = function() {
     {
         auto_adder.capture = 1/5;
         carbPerSec = carbPerSec + auto_adder.capture;
+        capPerSec = capPerSec = auto_adder.capture;
+        element.catcherTooltip.setAttribute('data-tooltip', "Carbon catcher capture " + capPerSec.toFixed(3) +' carbons per sec' );
+
     }
     else
     {
         auto_adder.capture += auto_adder.capture;
         carbPerSec = carbPerSec + auto_adder.capture;
+        capPerSec = capPerSec = auto_adder.capture;
+        element.catcherTooltip.setAttribute('data-tooltip', "Carbon catcher capture " + capPerSec.toFixed(3) +' carbons per sec' );
+
     }
     capturePriceCalc();
     button_check();
@@ -498,4 +556,4 @@ function check_achievements(){
         element.prize1.classList.toggle('show');
         prize += 1;
     }
-}
+};
