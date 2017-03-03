@@ -29,6 +29,8 @@ var myVar;
 var audio;
 var audio2;
 
+var clicker = 1;
+
 var treePerSec = 1/30;
 var carPerSec = 1/25;
 var solarPerSec = 1/20;
@@ -269,8 +271,8 @@ element.purchaseCapture1.innerHTML = "|" + capturePurchaseLevel + "|" + " Carbon
 function mainClicker()
 {
     var carbNumftm;
-totalNumberOfCarbons = (totalNumberOfCarbons + 1);
- carbNum = carbNum + 1;
+totalNumberOfCarbons = (totalNumberOfCarbons + clicker);
+ carbNum = carbNum + clicker;
  carbNumftm = game_state.addCommas(carbNum)
  element.points.innerHTML = "Number Of Carbons: " + carbNumftm.toFixed(0);
  element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
@@ -552,10 +554,25 @@ $( document ).ready(function() {
 
 
 function check_achievements(){
-    if(carbNum >= 20 && prize == 0)
+    if(carbNum >= 2 && prize == 0)
     {
         setTimeout(function () { element.prize1.classList.toggle('show');}, 3000);
         element.prize1.classList.toggle('show');
+        element.prize1.innerHTML = "achievement unlocked: Captured 2 carbons!" ;
         prize += 1;
+        clicker += 1;
     }
+    
+      if(carbNum >= 4 && prize == 1)
+    {
+        setTimeout(function () { element.prize1.classList.toggle('show');}, 3000);
+        element.prize1.classList.toggle('show');
+        element.prize1.innerHTML = "achievement unlocked: Captured 4 carbons!";
+        prize += 1;
+        clicker += 1;
+
+    }
+    
+
+    
 };
