@@ -69,6 +69,7 @@ var auto_adder = {
 };
 
 var timer = 1;
+var prize = 0;
 
 var element = {  
     
@@ -96,7 +97,8 @@ var element = {
   solarTooltip: document.getElementById("solarToolTip"),
   gasTooltip: document.getElementById("gasToolTip"),
   farmTooltip: document.getElementById("farmToolTip"),
-  catcherTooltip: document.getElementById("captureToolTip")
+  catcherTooltip: document.getElementById("captureToolTip"),
+  prize1 : document.getElementById("prize1")
 
 
 
@@ -550,7 +552,7 @@ $( document ).ready(function() {
 
 
 function check_achievements(){
-    if(carbNum >= 20 && carbNum < 25 && prize == 0)
+    if(carbNum >= 20 && prize == 0)
     {
         setTimeout(function () { element.prize1.classList.toggle('show');}, 3000);
         element.prize1.classList.toggle('show');
