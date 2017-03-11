@@ -265,17 +265,18 @@ function treePriceCalc()
         formatCarb = game_state.addCommas(carbNum);
         element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
         
-        
         //update number of carbons needed to buy tree 
         treeBasePrice = game_state.calcPrice(purchaseLevel, treeBasePrice);
         formatPrice = game_state.addCommas(treeBasePrice);
         element.purchaseTree1.innerHTML = "|" + purchaseLevel + "|" + " Tree : unlock on " + formatPrice;
+        if (carbNum != 0)
+            {
+                element.treeInventory.onchange= theF1();
+            }
         element.treeInventory.innerHTML = purchaseLevel;
         element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold.toFixed(0);
-        element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
-       
-        
-    }     
+        element.carbonsPerSec.innerHTML = "Carbons Collected Per Second: " + carbPerSec.toFixed(3);
+    }  
 }
 
 function carPriceClac ()
@@ -296,8 +297,12 @@ function carPriceClac ()
             carBasePrice = game_state.calcPrice(carPurchaseLevel, carBasePrice);
             formatPrice = game_state.addCommas(carBasePrice);
             document.getElementById("purchaseCar1").innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + formatPrice;
+            if (carbNum != 0)
+            {
+                element.carInventory.onchange= theF2();
+            }
             element.carInventory.innerHTML = carPurchaseLevel;
-            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+            element.carbonsPerSec.innerHTML = "Carbons Collected Per Second: " + carbPerSec.toFixed(3);
 
         }        
 }
@@ -320,8 +325,12 @@ function solarPriceClac ()
             solarBasePrice = game_state.calcPrice(solarPurchaseLevel, solarBasePrice);
             formatPrice = game_state.addCommas(solarBasePrice);
             document.getElementById("purchaseSolar1").innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + formatPrice;
+            if (carbNum != 0)
+            {
+                element.solarInventory.onchange= theF3();
+            }
             element.solarInventory.innerHTML = solarPurchaseLevel;
-            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+            element.carbonsPerSec.innerHTML = "Carbons Collected Per Second: " + carbPerSec.toFixed(3);
     }
 }
 
@@ -343,8 +352,12 @@ function farmPricCalc ()
             farmBasePrice = game_state.calcPrice(farmPurchaseLevel, farmBasePrice);
             formatPrice = game_state.addCommas(farmBasePrice);
             document.getElementById("purchaseFarm1").innerHTML = "|" + farmPurchaseLevel + "|" +  " Farm : unlock on " + formatPrice;
+            if (carbNum != 0)
+            {
+                element.farmInventory.onchange= theF4();
+            }
             element.farmInventory.innerHTML = farmPurchaseLevel;
-            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+            element.carbonsPerSec.innerHTML = "Carbons Collected Per Second: " + carbPerSec.toFixed(3);
         
         }   
 }
@@ -367,10 +380,12 @@ function gasPriceCalc ()
             gasBasePrice = game_state.calcPrice(gasPurchaseLevel, gasBasePrice);
             formatPrice = game_state.addCommas(gasBasePrice);
             document.getElementById("purchaseGas1").innerHTML ="|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + formatPrice;
+            if (carbNum != 0)
+            {
+                element.greengasInventory.onchange= theF5();
+            }
             element.greengasInventory.innerHTML = gasPurchaseLevel;
-            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
-            
-            
+            element.carbonsPerSec.innerHTML = "Carbons Collected Per Second: " + carbPerSec.toFixed(3);            
         }
     
 } 
@@ -393,8 +408,12 @@ function capturePriceCalc()
             captureBasePrice = game_state.calcPrice(capturePurchaseLevel, captureBasePrice);
             formatPrice = game_state.addCommas(captureBasePrice);
             document.getElementById("purchaseCapture1").innerHTML = "|" + capturePurchaseLevel + "|" +  " Carbon Catcher : unlock on " + formatPrice;
+            if (carbNum != 0)
+            {
+                element.carbonCatcherInventory.onchange= theF6();
+            }
             element.carbonCatcherInventory.innerHTML = capturePurchaseLevel;
-            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+            element.carbonsPerSec.innerHTML = "Carbons Collected Per Second: " + carbPerSec.toFixed(3);
         } 
 } 
 
@@ -486,3 +505,70 @@ $( document ).ready(function() {
 	  audio2.play();
 	});
 });
+
+function theF1()
+{
+  element.treeInventory.classList.remove("flash");
+  document.getElementById("treePic").classList.remove("flash");
+  void element.treeInventory.offsetWidth;
+  void document.getElementById("treePic").offsetWidth;
+    
+  document.getElementById("treePic").className = "glyphicon glyphicon-tree-deciduous flash";
+  element.treeInventory.className = "num flash";
+}
+
+function theF2()
+{
+  element.carInventory.classList.remove("flash");
+  document.getElementById("carPic").classList.remove("flash");
+  void element.carInventory.offsetWidth;
+  void document.getElementById("carPic").offsetWidth;
+    
+   document.getElementById("carPic").className = "glyphicon glyphicon-road flash";
+   element.carInventory.className = "num flash";
+}
+
+function theF3()
+{
+  element.solarInventory.classList.remove("flash");
+  document.getElementById("sunPic").classList.remove("flash");
+  void element.solarInventory.offsetWidth;
+  void document.getElementById("sunPic").offsetWidth;
+    
+   document.getElementById("sunPic").className = "glyphicon glyphicon-certificate flash";
+   element.solarInventory.className = "num flash";
+}
+
+function theF4()
+{
+  element.farmInventory.classList.remove("flash");
+  document.getElementById("farmPic").classList.remove("flash");
+  void element.farmInventory.offsetWidth;
+  void document.getElementById("farmPic").offsetWidth;
+    
+   document.getElementById("farmPic").className = "glyphicon glyphicon-grain flash";
+   element.farmInventory.className = "num flash";
+}
+
+function theF5()
+{
+  element.greengasInventory.classList.remove("flash");
+  document.getElementById("gasPic").classList.remove("flash");
+  void element.greengasInventory.offsetWidth;
+  void document.getElementById("gasPic").offsetWidth;
+    
+   document.getElementById("gasPic").className = "glyphicon glyphicon-cloud flash";
+   element.greengasInventoryInventory.className = "num flash";
+}
+
+function theF6()
+{
+    element.carbonCatcherInventory.classList.remove("flash");
+  document.getElementById("catcherPic").classList.remove("flash");
+  void element.carbonCatcherInventory.offsetWidth;
+  void document.getElementById("catcherPic").offsetWidth;
+    
+   document.getElementById("catcherPic").className = "glyphicon glyphicon-screenshot flash";
+   element.carbonCatcherInventory.className = "num flash";
+}
+

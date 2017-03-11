@@ -7,25 +7,32 @@
   <body>
       
      <div id = "bgimg"> 
-         
          <h1 class="game-title">Carbon Clicker</h1>
-        <div id="startEarth" class="startEarth"></div>
+        <div id="startEarth" class="startEarth" ></div>
+         <div class="centerMe">
       <button class ="button" id = "buttonStart"> <span>Start</span></button>
-          
-
-      <button class ="button" id = "buttonInfo"> <span>About Us</span></button>  
+      <button class ="button" id = "buttonInfo"> <span>Info Page</span></button>  
+         </div>
       </div>
 
-           
      <div id = "infoPage"> 
-         <h1 class="game-title">Carbon Clicker</h1>
-         <h2>This is the Info Page</h2>
-               <button class ="button" id = "playButton"> <span>Play Now!</span></button> 
-
-      </div>
-
-    
-      
+         <h3 class="game-title">About "Carbon Clicker"</h3>
+         <div class="col-md-2 text-center"></div>
+         <div class="col-md-8 text-center">
+         <h4 class="info">Carbon Clicker was conceptualized by Ryan Raub & Nathan Rollins of The Julie Ann Wrigley Global
+             Institute of Sustainability, implemented by 3 Computer Science students at Arizona State University during the 2016 - 2017 academic year (Armin Pourdehghan, Luis Carbajal, Lisha Coleman). The vision behind this webgame was to create a fun, interactive way to make students, faculty, and the general public more aware of how to better preserve the environment.</h4>
+          </div>
+      <div class="col-md-2 text-center"></div>
+      <div class="col-md-12 text-center"></div>
+         <div class="col-md-2 text-center"></div>
+         <div class="col-md-8 text-center">
+         <h2 class="info2">Modeled after the popular webgame "Cookie Clicker", Carbon Clicker is a webgame which aims to teach users 
+         about sustainability. Save Earth from being destroyed by collecting carbons and gaining inventory, while learning ways in which you can reduce your carbon footprint.</h2>
+         </div> <div class="col-md-2 text-center"></div>
+        
+         <div class="col-md-12"> <button class ="button2" id = "playButton"> <span>Play Now!</span></button> 
+         </div>
+         </div>
 
     <div class="container-fluid" id="game">
         <div class="row">
@@ -36,19 +43,19 @@
                     <div id="points" >
                     </div>
                 </div>
-
+                    <div id= "carbonsCollecterPerSecond" class="perSec">Carbons Collected Per Second: 0</div>
                 </div>
 
             <div class="col-md-4 text-center"> 
-                <div id="speech2">Purchase a tree!</div>
+               <div id="speech2">Purchase a tree!</div>
 
                 <audio id="ChaChing"><source src="http://www.mediacollege.com/downloads/sound-effects/beep/beep-03.wav"></audio> 
                 <ul>                     
-                  <li><a data-tooltip="descripton" id="treeToolTip" data-placement="right"><button id="purchaseTree1"  class="btn btn-red btn-outline button-to-buy" disabled></button></a></li>
+                  <li><a data-tooltip="descripton" id="treeToolTip" data-placement="right"><button id="purchaseTree1"  class=" btn-red btn-outline button-to-buy marg" disabled></button></a></li>
 
-                    <li><a data-tooltip="descripton" id="carToolTip" data-placement="right"><button id="purchaseCar1"  class="btn btn-orange btn-outline button-to-buy" disabled>Electric Cars: Unlock after 50</button></a></li>
+                    <li><a data-tooltip="descripton" id="carToolTip" data-placement="right"><button id="purchaseCar1"  class="btn-orange btn-outline button-to-buy marg" disabled>Electric Cars: Unlock after 50</button></a></li>
     
-                    <li><a data-tooltip="descripton" id="solarToolTip" data-placement="right"><button id="purchaseSolar1" class="btn btn-yellow btn-outline button-to-buy" disabled>Solar Panels: Unlock after 150</button></a></li>
+                    <li><a data-tooltip="descripton" id="solarToolTip" data-placement="right"><button id="purchaseSolar1" class="btn-yellow btn-outline button-to-buy marg" disabled>Solar Panels: Unlock after 150</button></a></li>
                 </ul>
                 <div id="embed"></div>
             </div>
@@ -57,18 +64,19 @@
             <div class="col-md-4 .img-overlay" id="thisIsTheEarth">   
                 
                   <audio id="ClickSound"><source src="http://www.mediacollege.com/downloads/sound-effects/electronics/computer/mouse-doubleclick-02.wav"></audio>
-                <div id="pollution" class="pollution"><div id="speech"> Capture 10 Carbons!</div>></div>  
+                <div id="pollution" class="pollution centerMe"><div id="speech"> Capture 10 Carbons!</div>></div>  
                 <button id="clicker" class="earth"></button>          
                      
             </div>
     
              <div class="col-md-4 text-center"> 
+                 <div id="speech2"> </div>
                   <ul>
-                      <li><a data-tooltip="descripton" data-placement="left" id = "FarmToolTip"><button id="purchaseFarm1" data-placement="right" class="btn btn-green btn-outline button-to-buy" disabled>Farms: Unlock after 300</button></a></li>
+                      <li><a data-tooltip="descripton" data-placement="left" id = "FarmToolTip"><button id="purchaseFarm1" data-placement="right" class="btn-green btn-outline button-to-buy marg" disabled>Farms: Unlock after 300</button></a></li>
 
-                      <li><a data-tooltip="descripton" data-placement="left" id="gasToolTip"><button id="purchaseGas1" data-tooltip="descripton" data-placement="right" class="btn btn-blue btn-outline button-to-buy" disabled>Green Gas: Unlock after 500</button></a></li>
+                      <li><a data-tooltip="descripton" data-placement="left" id="gasToolTip"><button id="purchaseGas1" data-tooltip="descripton" data-placement="right" class="btn-blue btn-outline button-to-buy marg" disabled>Green Gas: Unlock after 500</button></a></li>
 
-                      <li><a data-tooltip="descripton" data-placement="left" id="captureToolTip"><button id="purchaseCapture1" data-tooltip="descripton" data-placement="right" class="btn btn-purp btn-outline button-to-buy" disabled>Carbon Catcher: Unlock after 1000</button></a></li>
+                      <li><a data-tooltip="descripton" data-placement="left" id="captureToolTip"><button id="purchaseCapture1" data-tooltip="descripton" data-placement="right" class="btn-purp btn-outline button-to-buy marg" disabled>Carbon Catcher: Unlock after 1000</button></a></li>
                  </ul>
              </div>
 
@@ -76,7 +84,6 @@
         <marquee scrollamount="8" id= "c_Sentence"></marquee>
     </div>
 
-            
           <div class="col-md-6"> 
               <div id="bottomHeaders" class= "text-center">
                   Inventory
@@ -84,23 +91,23 @@
               <ul>
                   <li><div id="Inventory">
                       
-                      <span style="font-size:4.5em" class="treePic glyphicon glyphicon-tree-deciduous treePic"> <div id="treeInventoryNum" class="num" style=" text-align: center">0</div></span> 
+                      <span style="font-size:4.5em" class="glyphicon glyphicon-tree-deciduous" id="treePic"> <div id="treeInventoryNum" class="num flash" style=" text-align: center">0</div></span> 
                       
-                       <span style="font-size:4.5em; "  class="glyphicon glyphicon-road"><div id="carInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                       <span style="font-size:4.5em; "  class="glyphicon glyphicon-road" id="carPic"><div id="carInventoryNum" class="num" style=" text-align: center">0</div> </span>
                       
-                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-certificate"><div id="solarInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-certificate" id="sunPic"><div id="solarInventoryNum" class="num" style=" text-align: center">0</div> </span>
                       
-                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-grain"><div id="farmInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-grain" id="farmPic"><div id="farmInventoryNum" class="num" style=" text-align: center">0</div> </span>
                       
-                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-cloud"><div id="greengasInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-cloud" id="gasPic"><div id="greengasInventoryNum" class="num" style=" text-align: center">0</div> </span>
                       
-                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-screenshot"><div id="carbonCatcherInventoryNum" class="num" style=" text-align: center">0</div> </span>
+                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-screenshot" id="catcherPic"><div id="carbonCatcherInventoryNum" class="num" style=" text-align: center">0</div> </span>
                       
                       </div></li>
               </ul>
             </div>
             
-            <div class="col-md-6 text-center"> 
+            <div class="col-md-6 text-center scrollBox" style="height: 170px;overflow:scroll;overflow-x: hidden;"> 
               <div id="bottomHeaders">
                   Stats
               </div> 
@@ -108,14 +115,13 @@
                     <ul style="list-style-type: none;">
                         <li><div id="totalCarbNumStat">Total Carbons Collected (All Time): 0</div></li>
                         <li><div id = "totalCarbonSold"> Total Carbons Sold: 0</div></li>
-                    <li><div id= "carbonsCollecterPerSecond">Carbons Currently Collected per Second: 0</li>
                     </ul>
               </div>
                 
                  <div id="bottomHeaders">
                   Achievements
               </div>
-                 <div id="mustEarn">
+                 <div id="listStyle">
                      <ul style="list-style-type: none;">
                      <li>Bragging Rights (capture 10,000)</li>
                      <li>Free Groceries for a Month (capture 100,000)</li>
