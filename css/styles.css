@@ -308,10 +308,15 @@ button:focus {outline:0;}
   margin-bottom: 20px;
 }   
 
-
 #listStyle
 {
     color: lightgrey;
+    font-size: 18px;
+}
+
+#listStyle2
+{
+    color: #4b4746;
     font-size: 18px;
 }
 

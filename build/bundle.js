@@ -604,7 +604,7 @@
 	  void document.getElementById("gasPic").offsetWidth;
 	    
 	   document.getElementById("gasPic").className = "glyphicon glyphicon-cloud flash";
-	   element.greengasInventoryInventory.className = "num flash";
+	   element.greengasInventory.className = "num flash";
 	}
 
 	function theF6()
