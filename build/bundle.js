@@ -518,9 +518,12 @@
 	 if(carbNum >= treeBasePrice)
 	  {
 	        document.getElementById("purchaseTree1").disabled = false;
+	         
 	  }
 	  else {
 	        document.getElementById("purchaseTree1").disabled = true;
+	        
+	        
 	  }
 	  if(carbNum >= carBasePrice)
 	  {
