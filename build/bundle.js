@@ -184,6 +184,7 @@
 	        auto_adder.tree = 1/30;
 	        carbPerSec = carbPerSec + auto_adder.tree;
 	        treePerSec = treePerSec + auto_adder.tree;
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
 	        element.treeTooltip.setAttribute('data-tooltip', "Trees capture " + treePerSec.toFixed(3) +' Carbons per sec!' );
 
 	        
@@ -194,6 +195,8 @@
 	        carbPerSec = carbPerSec + auto_adder.tree;
 	        treePerSec = treePerSec + auto_adder.tree;
 	        element.treeTooltip.setAttribute('data-tooltip', "Trees capture " + treePerSec.toFixed(3) +' Carbons per sec' );
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
+
 
 
 	    }
@@ -208,6 +211,8 @@
 	        carbPerSec = carbPerSec + auto_adder.electric_car;
 	        carPerSec = carPerSec + auto_adder.electric_car;
 	        element.carTooltip.setAttribute('data-tooltip', "Elec Cars capture " + carPerSec.toFixed(3) +' carbons per sec' );
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
+
 
 	        
 	    }
@@ -217,6 +222,7 @@
 	        carbPerSec = carbPerSec + auto_adder.electric_car;
 	        carPerSec = carPerSec + auto_adder.electric_car;
 	        element.carTooltip.setAttribute('data-tooltip', "Elec Cars capture " + carPerSec.toFixed(3) +' carbons per sec' );
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
 
 	    }
 	    carPriceClac(); 
@@ -230,7 +236,7 @@
 	        carbPerSec = carbPerSec + auto_adder.solar;
 	        solarPerSec = solarPerSec + auto_adder.solar;
 	        element.solarTooltip.setAttribute('data-tooltip', "Solar Pan capture " + solarPerSec.toFixed(3) +' carbons per sec' );
-
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
 	    }
 	    else
 	    {
@@ -238,7 +244,7 @@
 	        carbPerSec = carbPerSec + auto_adder.solar;
 	        solarPerSec = solarPerSec + auto_adder.solar;
 	        element.solarTooltip.setAttribute('data-tooltip', "Solar Pan capture " + solarPerSec.toFixed(3) +' carbons per sec' );
-
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
 	    }
 	    solarPriceClac();
 	    button_check();
@@ -250,7 +256,7 @@
 	        carbPerSec = carbPerSec + auto_adder.farm;
 	        farmPerSec = farmPerSec + auto_adder.farm;
 	        element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
-
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
 	        
 	    }
 	    else
@@ -259,7 +265,7 @@
 	        carbPerSec = carbPerSec + auto_adder.farm;
 	        farmPerSec = farmPerSec + auto_adder.farm;
 	        element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
-
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
 	    }
 	    farmPricCalc();
 	    button_check();
@@ -271,7 +277,7 @@
 	        carbPerSec = carbPerSec + auto_adder.gas;
 	        gasPerSec = gasPerSec + auto_adder.gas;
 	        element.gasTooltip.setAttribute('data-tooltip', "Green Gas capture " + gasPerSec.toFixed(3) +' carbons per sec' );
-
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
 	    }
 	    else
 	    {
@@ -279,7 +285,7 @@
 	        carbPerSec = carbPerSec + auto_adder.gas;
 	        gasPerSec = gasPerSec + auto_adder.gas;
 	        element.gasTooltip.setAttribute('data-tooltip', "Green Gas capture " + gasPerSec.toFixed(3) +' carbons per sec' );
-
+	        totalNumberOfCarbons = totalNumberOfCarbons + carbPerSec;
 	    }
 	    gasPriceCalc();
 	    button_check();
@@ -291,7 +297,7 @@
 	        carbPerSec = carbPerSec + auto_adder.capture;
 	        capPerSec = capPerSec = auto_adder.capture;
 	        element.catcherTooltip.setAttribute('data-tooltip', "Carbon catcher capture " + capPerSec.toFixed(3) +' carbons per sec' );
-
+	        totalNumberOfCarbons = (totalNumberOfCarbons + carbPerSec);
 	    }
 	    else
 	    {
@@ -299,10 +305,13 @@
 	        carbPerSec = carbPerSec + auto_adder.capture;
 	        capPerSec = capPerSec = auto_adder.capture;
 	        element.catcherTooltip.setAttribute('data-tooltip', "Carbon catcher capture " + capPerSec.toFixed(3) +' carbons per sec' );
+	        totalNumberOfCarbons = totalNumberOfCarbons + carbPerSec;
+
 
 	    }
 	    capturePriceCalc();
 	    button_check();
+
 	};
 
 
@@ -314,6 +323,7 @@
 	element.purchaseCapture1.innerHTML = "|" + capturePurchaseLevel + "|" + " Carbon Catcher : unlock on " + captureBasePrice;
 
 
+
 	function mainClicker()
 	{
 	    var carbNumftm;
@@ -322,6 +332,7 @@
 	 carbNumftm = game_state.addCommas(carbNum.toFixed(0))
 	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
 	 element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
+	 
 
 	           
 	}
@@ -354,7 +365,7 @@
 	       carbNum = carbNum + autoadderTool;
 	       carbNumftm = game_state.addCommas(carbNum.toFixed(0));
 	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.tree;
+	       totalNumberOfCarbons = totalNumberOfCarbons + autoadderTool;
 	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
 	    }
 	}
@@ -384,6 +395,8 @@
 	        element.treeInventory.innerHTML = purchaseLevel;
 	        element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold.toFixed(0);
 	        element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+	        element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
+
 	       
 	        
 	    }     
@@ -409,6 +422,8 @@
 	            document.getElementById("purchaseCar1").innerHTML = "|" + carPurchaseLevel + "|" + " Car : unlock on " + formatPrice;
 	            element.carInventory.innerHTML = carPurchaseLevel;
 	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+	            element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
+
 
 	        }        
 	}
@@ -433,6 +448,7 @@
 	            document.getElementById("purchaseSolar1").innerHTML = "|" + solarPurchaseLevel + "|" + " Solar : unlock on " + formatPrice;
 	            element.solarInventory.innerHTML = solarPurchaseLevel;
 	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+	            element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
 	    }
 	}
 
@@ -456,6 +472,7 @@
 	            document.getElementById("purchaseFarm1").innerHTML = "|" + farmPurchaseLevel + "|" +  " Farm : unlock on " + formatPrice;
 	            element.farmInventory.innerHTML = farmPurchaseLevel;
 	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+	            element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
 	        
 	        }   
 	}
@@ -480,8 +497,8 @@
 	            document.getElementById("purchaseGas1").innerHTML ="|" + gasPurchaseLevel + "|" + " Green Gas : unlock on " + formatPrice;
 	            element.greengasInventory.innerHTML = gasPurchaseLevel;
 	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
-	            
-	            
+	            element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
+	              
 	        }
 	    
 	} 
@@ -506,6 +523,7 @@
 	            document.getElementById("purchaseCapture1").innerHTML = "|" + capturePurchaseLevel + "|" +  " Carbon Catcher : unlock on " + formatPrice;
 	            element.carbonCatcherInventory.innerHTML = capturePurchaseLevel;
 	            element.carbonsPerSec.innerHTML = "Carbons Currently Collected per Second: " + carbPerSec.toFixed(3);
+	            element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
 	        } 
 	} 
 
@@ -606,7 +624,7 @@
 	        element.prize1.classList.toggle('show');
 	        element.prize1.innerHTML = "achievement unlocked: Captured 2 carbons!" ;
 	        prize += 1;
-	        clicker += 1;
+	        //clicker += 1;
 	    }
 	    
 	      if(carbNum >= 4 && prize == 1)
@@ -615,7 +633,7 @@
 	        element.prize1.classList.toggle('show');
 	        element.prize1.innerHTML = "achievement unlocked: Captured 4 carbons!";
 	        prize += 1;
-	        clicker += 1;
+	        //clicker += 1;
 
 	    }
 	    
