@@ -320,7 +320,7 @@
 	totalNumberOfCarbons = (totalNumberOfCarbons + clicker);
 	 carbNum = carbNum + clicker;
 	 carbNumftm = game_state.addCommas(carbNum)
-	 element.points.innerHTML = "Number Of Carbons: " + parseFloat(carbNum).toFixed(0);
+	 element.points.innerHTML = "Number Of Carbons: " + carbNumftm.toFixed(0);
 	 element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
 
 	           
@@ -353,7 +353,7 @@
 	        
 	       carbNum = carbNum + autoadderTool;
 	       carbNumftm = game_state.addCommas(carbNum);
-	       element.points.innerHTML = "Number Of Carbons: " + parseFloat(carbNum).toFixed(0);
+	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm.toFixed(0);
 	       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.tree;
 	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
 	    }
@@ -374,7 +374,7 @@
 	        carbNum =  carbNum - treeBasePrice;
 	        totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + treeBasePrice;
 	        formatCarb = game_state.addCommas(carbNum);
-	        element.points.innerHTML = "Number Of Carbons: " + parseFloat(carbNum).toFixed(0);
+	        element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	        
 	        
 	        //update number of carbons needed to buy tree 
@@ -402,7 +402,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + carBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + parseFloat(carbNum).toFixed(0);
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            carBasePrice = game_state.calcPrice(carPurchaseLevel, carBasePrice);
 	            formatPrice = game_state.addCommas(carBasePrice);
@@ -426,7 +426,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + solarBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + parseFloat(carbNum).toFixed(0);
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            solarBasePrice = game_state.calcPrice(solarPurchaseLevel, solarBasePrice);
 	            formatPrice = game_state.addCommas(solarBasePrice);
@@ -449,7 +449,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + farmBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + parseFloat(carbNum).toFixed(0);
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            farmBasePrice = game_state.calcPrice(farmPurchaseLevel, farmBasePrice);
 	            formatPrice = game_state.addCommas(farmBasePrice);
@@ -473,7 +473,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + gasBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + parseFloat(carbNum).toFixed(0);
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            gasBasePrice = game_state.calcPrice(gasPurchaseLevel, gasBasePrice);
 	            formatPrice = game_state.addCommas(gasBasePrice);
@@ -499,7 +499,7 @@
 	            totalNumberOfCarbonsSold = totalNumberOfCarbonsSold + captureBasePrice;
 	            element.totalCarbonSold.innerHTML = "Total Carbons Sold: " + totalNumberOfCarbonsSold;
 	            formatCarb = game_state.addCommas(carbNum);
-	            element.points.innerHTML = "Number Of Carbons: " + parseFloat(carbNum).toFixed(0);
+	            element.points.innerHTML = "Number Of Carbons: " + formatCarb.toFixed(0);
 	            
 	            captureBasePrice = game_state.calcPrice(capturePurchaseLevel, captureBasePrice);
 	            formatPrice = game_state.addCommas(captureBasePrice);
