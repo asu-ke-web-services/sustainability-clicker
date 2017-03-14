@@ -338,6 +338,7 @@
 	  button_check();
 	  cloud_opacity();
 	  check_achievements();
+	    
 
 	  timer += 1;
 	    
@@ -354,8 +355,9 @@
 	       carbNum = carbNum + autoadderTool;
 	       carbNumftm = game_state.addCommas(carbNum.toFixed(0));
 	       element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-	       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.tree;
+	       totalNumberOfCarbons = totalNumberOfCarbons + autoadderTool;
 	       element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
+	  
 	    }
 	}
 

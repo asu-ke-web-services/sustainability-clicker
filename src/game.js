@@ -292,6 +292,7 @@ setInterval(function(){
   button_check();
   cloud_opacity();
   check_achievements();
+    
 
   timer += 1;
     
@@ -308,8 +309,9 @@ function autoAdd (autoadderTool) //timer for auto adition of the numbers of carb
        carbNum = carbNum + autoadderTool;
        carbNumftm = game_state.addCommas(carbNum.toFixed(0));
        element.points.innerHTML = "Number Of Carbons: " + carbNumftm;
-       totalNumberOfCarbons = totalNumberOfCarbons + auto_adder.tree;
+       totalNumberOfCarbons = totalNumberOfCarbons + autoadderTool;
        element.totalCarbNumStat.innerHTML = "Total Carbons Collected (All Time): " + totalNumberOfCarbons.toFixed(0);
+  
     }
 }
 
