@@ -558,30 +558,19 @@ a[data-tooltip][data-placement="right"]:after {
 }
 
 
-.popups {
-    visibility: hidden;
-}
-
-.popups .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-
-
 #prize1 {
  
-    margin: auto auto;
-    right: 50%;
+    margin-top:-10%;
+    margin-left: 80%;
+   
     width: 500px;
-    height: 70px;
-    text-align:center;
+    height: 50px;
+    text-align: center;
     border-radius: 6px;
     background-color: darkslategray;
     opacity: .80;
-    font: 150% 'Trebuchet MS', cursive;
+    font: 120% 'Trebuchet MS', cursive;
     color: #fff;
-     word-wrap: break-word;
     text-shadow: 
     0 0 10px #fff, 
     0 0 30px #fff, 
@@ -594,15 +583,30 @@ a[data-tooltip][data-placement="right"]:after {
 
 
 .images {
-    margin-top: auto;
-    margin-right: 6.6%;
-    width: 50px;
-    height: 50px;
+    margin-top: 1%;
+    width: 40px;
+    height: 40px;
     background: no-repeat;
     background-size: 100%;
     border-radius: 6px;
     position: relative;
-
+}
+.popups {
+    visibility: hidden;
 }
 
+.popups .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: .80;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:.80 ;}
+}
 

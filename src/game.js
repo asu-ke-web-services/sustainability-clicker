@@ -585,25 +585,14 @@ $( document ).ready(function() {
 
 
 function check_achievements(){
-    if(carbNum >= 2 && prize == 0)
+    if(carbNum >= 20 && prize == 0)
     {
-        setTimeout(function () { element.prize1.classList.toggle('show');}, 3000);
+        setTimeout(function () { element.prize1.classList.toggle('show');}, 5000);
         element.prize1.classList.toggle('show');
-        element.prize1.innerHTML = "achievement unlocked: Captured 2 carbons!" ;
         prize += 1;
         clicker += 1;
     }
-    
-      if(carbNum >= 4 && prize == 1)
-    {
-        setTimeout(function () { element.prize1.classList.toggle('show');}, 3000);
-        element.prize1.classList.toggle('show');
-        element.prize1.innerHTML = "achievement unlocked: Captured 4 carbons!";
-        prize += 1;
-        clicker += 1;
 
-    }
-    
 
     
 };
