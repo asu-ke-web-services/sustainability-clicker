@@ -518,19 +518,29 @@
 	 if(carbNum >= treeBasePrice)
 	  {
 	        document.getElementById("purchaseTree1").disabled = false;
-	         
+	    
+	        document.getElementById("purchaseTree1").style.backgroundColor= '#d9534f';
+	        document.getElementById("purchaseTree1").style.color = '#fff';
+	       
 	  }
 	  else {
 	        document.getElementById("purchaseTree1").disabled = true;
+	        document.getElementById("purchaseTree1").style.backgroundColor= '#808080';
+	        document.getElementById("purchaseTree1").style.color = '#000';
 	        
 	        
 	  }
 	  if(carbNum >= carBasePrice)
 	  {
 	        document.getElementById("purchaseCar1").disabled = false;
+	        document.getElementById("purchaseCar1").style.backgroundColor= '#ede12e';
+	        document.getElementById("purchaseCar1").style.color = '#fff';
+	      
 	  }
 	  else{
 	        document.getElementById("purchaseCar1").disabled = true;
+	        document.getElementById("purchaseCar1").style.backgroundColor= '#808080';
+	        document.getElementById("purchaseCar1").style.color = '#000';
 	  } 
 	  if(carbNum >= solarBasePrice)
 	  {
