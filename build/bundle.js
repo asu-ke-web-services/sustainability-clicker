@@ -102,7 +102,7 @@
 	var solarBasePrice = 30.00;
 	var farmBasePrice = 40.00;
 	var gasBasePrice = 50.00;
-	var captureBasePrice = 10.00;
+	var captureBasePrice = 60.00;
 
 	var goal = 10;
 	var opacity_counter = .90;
@@ -533,7 +533,7 @@
 	  if(carbNum >= carBasePrice)
 	  {
 	        document.getElementById("purchaseCar1").disabled = false;
-	        document.getElementById("purchaseCar1").style.backgroundColor= '#ede12e';
+	        document.getElementById("purchaseCar1").style.backgroundColor= '#f0ad4e';
 	        document.getElementById("purchaseCar1").style.color = '#fff';
 	      
 	  }
@@ -545,30 +545,46 @@
 	  if(carbNum >= solarBasePrice)
 	  {
 	        document.getElementById("purchaseSolar1").disabled = false;
+	        document.getElementById("purchaseSolar1").style.backgroundColor= '#ede12e';
+	        document.getElementById("purchaseSolar1").style.color = '#fff';
 	  }
 	  else{
 	        document.getElementById("purchaseSolar1").disabled = true;
+	         document.getElementById("purchaseSolar1").style.backgroundColor= '#808080';
+	        document.getElementById("purchaseSolar1").style.color = '#000';
 	  } 
 	  if(carbNum >= farmBasePrice)
 	  {
 	        document.getElementById("purchaseFarm1").disabled = false;  
+	        document.getElementById("purchaseFarm1").style.backgroundColor= '#5cb85c';
+	        document.getElementById("purchaseFarm1").style.color = '#fff';
 	  }
 	  else {
-	        document.getElementById("purchaseFarm1").disabled = true;          
+	        document.getElementById("purchaseFarm1").disabled = true; 
+	         document.getElementById("purchaseFarm1").style.backgroundColor= '#808080';
+	        document.getElementById("purchaseFarm1").style.color = '#000';
 	  }
 	  if(carbNum >= gasBasePrice)
 	  {
 	       document.getElementById("purchaseGas1").disabled = false;  
+	        document.getElementById("purchaseGas1").style.backgroundColor= '#428bca';
+	        document.getElementById("purchaseGas1").style.color = '#fff';
 	  }
 	  else {
 	       document.getElementById("purchaseGas1").disabled = true;   
+	         document.getElementById("purchaseGas1").style.backgroundColor= '#808080';
+	        document.getElementById("purchaseGas1").style.color = '#000';
 	  }
 	  if(carbNum >= captureBasePrice)
 	  {
 	        document.getElementById("purchaseCapture1").disabled = false;    
+	         document.getElementById("purchaseCapture1").style.backgroundColor= '#bc37e3';
+	        document.getElementById("purchaseCapture1").style.color = '#fff';
 	  }
 	  else {
 	        document.getElementById("purchaseCapture1").disabled = true;  
+	         document.getElementById("purchaseCapture1").style.backgroundColor= '#808080';
+	        document.getElementById("purchaseCapture1").style.color = '#000';
 	  }
 	};
 

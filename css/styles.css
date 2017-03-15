@@ -230,10 +230,15 @@ button:focus {outline:0;}
 }   
 
 
-#listStats
+#listStyle
 {
-    color: white;
-    font-size: 15px;
+    color:#E7E8D2;
+    font-size: 13px;
+}
+#mustearn
+{
+    color:#E7E8D2;
+    font-size: 13px;
 }
 
 #bottomHeaders
@@ -507,7 +512,7 @@ a[data-tooltip][data-placement="right"]:after {
  visibility:hidden;
   position: relative;
   top: 70px;
-  left: 500px;
+  left: 380px;
   width: 150px;
   height: 60px;
   text-align: center;
