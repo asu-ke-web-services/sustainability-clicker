@@ -230,10 +230,15 @@ button:focus {outline:0;}
 }   
 
 
-#listStats
+#listStyle
 {
-    color: white;
-    font-size: 15px;
+    color:#E7E8D2;
+    font-size: 13px;
+}
+#mustearn
+{
+    color:#E7E8D2;
+    font-size: 13px;
 }
 
 #bottomHeaders
@@ -507,7 +512,7 @@ a[data-tooltip][data-placement="right"]:after {
  visibility:hidden;
   position: relative;
   top: 70px;
-  left: 500px;
+  left: 380px;
   width: 150px;
   height: 60px;
   text-align: center;
@@ -551,3 +556,57 @@ a[data-tooltip][data-placement="right"]:after {
   border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
   border-color:transparent lightgoldenrodyellow;
 }
+
+
+#prize1 {
+ 
+    margin-top:-10%;
+    margin-left: 80%;
+   
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    border-radius: 6px;
+    background-color: darkslategray;
+    opacity: .80;
+    font: 120% 'Trebuchet MS', cursive;
+    color: #fff;
+    text-shadow: 
+    0 0 10px #fff, 
+    0 0 30px #fff, 
+    0 0 50px #e3e98e, 
+    0 0 70px #e3e98e,
+    0 0 90px #e3e98e;
+
+     
+}
+
+
+.images {
+    margin-top: 1%;
+    width: 40px;
+    height: 40px;
+    background: no-repeat;
+    background-size: 100%;
+    border-radius: 6px;
+    position: relative;
+}
+.popups {
+    visibility: hidden;
+}
+
+.popups .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: .80;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:.80 ;}
+}
+
