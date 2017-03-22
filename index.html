@@ -2,7 +2,15 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css"/>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css">
+    <!-- Google Analytics -->
+    <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-561868-49', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
   </head>
   <body>
 
@@ -78,7 +86,15 @@
 
                       <li><a data-tooltip="descripton" data-placement="left" id="captureToolTip"><button id="purchaseCapture1" data-tooltip="descripton" data-placement="right" class="btn-purp btn-outline button-to-buy marg" disabled>Carbon Catcher: Unlock after 1000</button></a></li>
                  </ul>
+                
              </div>
+            <div class="col-md-5 text-center" > 
+             <div class="popups">
+                       <div class="achievements">
+            <div id="prize1">achievement unlocked: Captured 20 carbons!<img src="img/-ecology-environment-green-nature-world-icon--1.png" class="images"/></div>
+                       </div>
+                </div></div>
+            
 
     <div class="scroll col-md-12">
         <marquee scrollamount="8" id= "c_Sentence"></marquee>
@@ -113,9 +129,9 @@
               </div> 
                 <div id="listStyle">
                     <ul style="list-style-type: none;">
-                        <li><div id="totalCarbNumStat">Total Carbons Collected (All Time): 0</div></li>
+                        <li><div id="totalCarbNumStat" >Total Carbons Collected (All Time): 0</div></li>
                         <li><div id = "totalCarbonSold"> Total Carbons Sold: 0</div></li>
-                    <li><div id= "carbonsCollecterPerSecond">Carbons Currently Collected per Second: 0</li>
+                        <li><div id= "carbonsCollecterPerSecond">Carbons Currently Collected per Second: 0</div></li>
                     </ul>
               </div>
                 
@@ -143,16 +159,12 @@
             
     </div>
     
-        <div class="popups">
-                       <div class="achievements">
-            <div id="prize1">achievement unlocked: Captured 20 carbons!<img src="img/-ecology-environment-green-nature-world-icon--1.png" class="images"/></div>
-                       </div>
-                </div>
+        
         
           
   </div>
     <script type="text/javascript" src="build/bundle.js" charset="utf-8"></script>
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="./vendor/bootstrap/bootstrap.min.js"></script>
   </body>
 </html>

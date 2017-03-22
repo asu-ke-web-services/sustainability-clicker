@@ -38,6 +38,8 @@
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
+#buttonStart {
+ margin: 200px 0px 10px 450px;/*top right bottom left*/
 }
 
 .centerMe{ text-align: center; }
@@ -130,6 +132,7 @@ body
     width: 250px;
     height: 50px;
     cursor: pointer;
+    margin-top: 10%;
 }
 
 .marg
@@ -316,8 +319,13 @@ button:focus {outline:0;}
 
 #listStyle2
 {
-    color: #4b4746;
-    font-size: 18px;
+    color:#E7E8D2;
+    font-size: 13px;
+}
+#mustearn
+{
+    color:#E7E8D2;
+    font-size: 13px;
 }
 
 #bottomHeaders
@@ -590,7 +598,7 @@ a[data-tooltip][data-placement="right"]:after {
  visibility:hidden;
   position: relative;
   top: 70px;
-  left: 500px;
+  left: 380px;
   width: 150px;
   height: 60px;
   text-align: center;
@@ -680,7 +688,23 @@ a[data-tooltip][data-placement="right"]:after {
     background-size: 100%;
     border-radius: 6px;
     position: relative;
-
+}
+.popups {
+    visibility: hidden;
 }
 
+.popups .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: .80;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:.80 ;}
+}
 
