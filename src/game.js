@@ -597,7 +597,6 @@ function check_achievements(){
 
     
 };
-});
 
 function theF1()
 {
@@ -664,4 +663,3 @@ function theF6()
    document.getElementById("catcherPic").className = "glyphicon glyphicon-screenshot flash";
    element.carbonCatcherInventory.className = "num flash";
 }
-
