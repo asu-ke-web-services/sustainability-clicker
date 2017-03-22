@@ -551,3 +551,53 @@ a[data-tooltip][data-placement="right"]:after {
   border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
   border-color:transparent lightgoldenrodyellow;
 }
+
+
+.popups {
+    visibility: hidden;
+}
+
+.popups .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+
+#prize1 {
+ 
+    margin: auto auto;
+    right: 50%;
+    width: 500px;
+    height: 70px;
+    text-align:center;
+    border-radius: 6px;
+    background-color: darkslategray;
+    opacity: .80;
+    font: 150% 'Trebuchet MS', cursive;
+    color: #fff;
+     word-wrap: break-word;
+    text-shadow: 
+    0 0 10px #fff, 
+    0 0 30px #fff, 
+    0 0 50px #e3e98e, 
+    0 0 70px #e3e98e,
+    0 0 90px #e3e98e;
+
+     
+}
+
+
+.images {
+    margin-top: auto;
+    margin-right: 6.6%;
+    width: 50px;
+    height: 50px;
+    background: no-repeat;
+    background-size: 100%;
+    border-radius: 6px;
+    position: relative;
+
+}
+
+
