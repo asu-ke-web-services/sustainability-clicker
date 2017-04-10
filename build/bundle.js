@@ -156,7 +156,7 @@
 	element.carTooltip.setAttribute('data-tooltip', "Elec Cars capture " + carPerSec.toFixed(3) +' carbons per sec' );
 	element.solarTooltip.setAttribute('data-tooltip', "Solar Pan capture " + solarPerSec.toFixed(3) +' carbons per sec' );
 	element.gasTooltip.setAttribute('data-tooltip', "Green Gas capture " + gasPerSec.toFixed(3) +' carbons per sec' );
-	element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
+	element.farmTooltip.setAttribute('data-tooltip', "Farms capture " + farmPerSec.toFixed(3) +' carbons per sec' );
 	element.catcherTooltip.setAttribute('data-tooltip', "Carbon catcher capture " + capPerSec.toFixed(3) +' carbons per sec' );
 
 
@@ -249,7 +249,7 @@
 	        auto_adder.farm = 1/15;
 	        carbPerSec = carbPerSec + auto_adder.farm;
 	        farmPerSec = farmPerSec + auto_adder.farm;
-	        element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
+	        element.farmTooltip.setAttribute('data-tooltip', "Farms capture " + farmPerSec.toFixed(3) +' carbons per sec' );
 
 	        
 	    }
@@ -258,7 +258,7 @@
 	        auto_adder.farm += auto_adder.farm;
 	        carbPerSec = carbPerSec + auto_adder.farm;
 	        farmPerSec = farmPerSec + auto_adder.farm;
-	        element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
+	        element.farmTooltip.setAttribute('data-tooltip', "Farms capture " + farmPerSec.toFixed(3) +' carbons per sec' );
 
 	    }
 	    farmPricCalc();
@@ -544,7 +544,7 @@
 	  }
 	  else {
 	        document.getElementById("purchaseTree1").disabled = true;
-	        document.getElementById("purchaseTree1").style.backgroundColor= '#808080';
+	        document.getElementById("purchaseTree1").style.backgroundColor= '#d9534f';
 	        document.getElementById("purchaseTree1").style.color = '#000';
 	        
 	        
@@ -558,7 +558,7 @@
 	  }
 	  else{
 	        document.getElementById("purchaseCar1").disabled = true;
-	        document.getElementById("purchaseCar1").style.backgroundColor= '#808080';
+	        document.getElementById("purchaseCar1").style.backgroundColor= '#f0ad4e';
 	        document.getElementById("purchaseCar1").style.color = '#000';
 	  } 
 	  if(carbNum >= solarBasePrice)
@@ -569,7 +569,7 @@
 	  }
 	  else{
 	        document.getElementById("purchaseSolar1").disabled = true;
-	         document.getElementById("purchaseSolar1").style.backgroundColor= '#808080';
+	         document.getElementById("purchaseSolar1").style.backgroundColor= '#ede12e';
 	        document.getElementById("purchaseSolar1").style.color = '#000';
 	  } 
 	  if(carbNum >= farmBasePrice)
@@ -580,7 +580,7 @@
 	  }
 	  else {
 	        document.getElementById("purchaseFarm1").disabled = true; 
-	         document.getElementById("purchaseFarm1").style.backgroundColor= '#808080';
+	         document.getElementById("purchaseFarm1").style.backgroundColor= '#5cb85c';
 	        document.getElementById("purchaseFarm1").style.color = '#000';
 	  }
 	  if(carbNum >= gasBasePrice)
@@ -591,7 +591,7 @@
 	  }
 	  else {
 	       document.getElementById("purchaseGas1").disabled = true;   
-	         document.getElementById("purchaseGas1").style.backgroundColor= '#808080';
+	         document.getElementById("purchaseGas1").style.backgroundColor= '#428bca';
 	        document.getElementById("purchaseGas1").style.color = '#000';
 	  }
 	  if(carbNum >= captureBasePrice)
@@ -602,7 +602,7 @@
 	  }
 	  else {
 	        document.getElementById("purchaseCapture1").disabled = true;  
-	         document.getElementById("purchaseCapture1").style.backgroundColor= '#808080';
+	         document.getElementById("purchaseCapture1").style.backgroundColor= '#bc37e3';
 	        document.getElementById("purchaseCapture1").style.color = '#000';
 	  }
 	};
@@ -650,12 +650,13 @@
 
 
 	function check_achievements(){
-	    if(carbNum >= 20 && prize == 0)
+	    if(totalNumberOfCarbons >= 100 && prize == 0)
 	    {
 	        setTimeout(function () { element.prize1.classList.toggle('show');}, 5000);
 	        element.prize1.classList.toggle('show');
 	        prize += 1;
 	        clicker += 1;
+	        document.getElementById("c1").style.color = 'chartreuse';
 	    }
 
 
