@@ -20,7 +20,7 @@ $("#playButton").click(function() {
 });
 
 
-var base = 10;
+var base = 1;
 var enter = 0;
 var allText;
 var marqueeData= [];
@@ -127,10 +127,8 @@ element.clicker.onclick = function() {
         
         document.getElementById("speech2").style.visibility = "visible";
         enter = 1;
-        document.getElementById("tree").style.visibility = "visible";
-        base = base * 2;
     }
-    popups()
+   
     
    
    
@@ -146,7 +144,6 @@ element.purchaseTree1.onclick = function() {
         carbPerSec = carbPerSec + auto_adder.tree;
         treePerSec = treePerSec + auto_adder.tree;
         element.treeTooltip.setAttribute('data-tooltip', "Trees capture " + treePerSec.toFixed(3) +' Carbons per sec!' );
-
         
     }
     else
@@ -160,6 +157,8 @@ element.purchaseTree1.onclick = function() {
     }
     treePriceCalc();
     button_check();
+    var item = "tree";
+    popups(purchaseLevel, item);
 };
 
 element.purchaseCar1.onclick = function() { 
@@ -690,15 +689,18 @@ function theF6()
    element.carbonCatcherInventory.className = "num flash";
 }
 
-function popups() {
+function popups(numberofitems, item) {
    
-    if(carbNum >= base)
+    if(numberofitems == 1)
     {
-      
-        var itm = document.getElementById("tree");
+        document.getElementById(item).style.visibility = "visible";
+        base = base * 2;
+    }
+    if(numberofitems >= base)
+    {
+        var itm = document.getElementById(item);
         var cln = itm.cloneNode(true);
         document.getElementById("pollution").appendChild(cln); 
         base = base * 2;
-     
     }
 }
