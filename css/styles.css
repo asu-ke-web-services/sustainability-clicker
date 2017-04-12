@@ -570,8 +570,8 @@ a[data-tooltip][data-placement="right"]:after {
   font: 110% 'Trebuchet MS', cursive;
  visibility:hidden;
   position: relative;
-  top: 70px;
-  left: 380px;
+  top:40px;
+  left: 395px;
   width: 150px;
   height: 60px;
   text-align: center;
@@ -590,7 +590,7 @@ a[data-tooltip][data-placement="right"]:after {
 #speech2:after {
   content:"";
   position:absolute;
-  bottom:-30px; /* value = - border-top-width - border-bottom-width */
+  bottom:50px; /* value = - border-top-width - border-bottom-width */
   left:50px; /* controls horizontal position */
   border-width:20px 0 0 20px; /* vary these values to change the angle of the vertex */
   border-style:solid;
@@ -611,7 +611,7 @@ a[data-tooltip][data-placement="right"]:after {
 /* creates the smaller triangle */
 #speech2:after {
   top:30px;
-  left:-30px; /* value = - border-left-width - border-right-width */
+  left:-20px; /* value = - border-left-width - border-right-width */
   bottom:auto;
   border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
   border-color:transparent lightgoldenrodyellow;
@@ -679,3 +679,29 @@ a[data-tooltip][data-placement="right"]:after {
     to {opacity:.80 ;}
 }
 
+#tree {
+    background: url('../img/tree.png') repeat 0 0;
+     height: 50px;
+     width: 50px;
+     background-size: 100%;
+ 
+    visibility: hidden;
+    margin-left: -20%;
+ 
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+   
+}
+@-webkit-keyframes spin {
+    100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    100% { -moz-transform: rotate(360deg); }
+}
+@keyframes spin {
+    100% {
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+        transform:rotate(360deg);
+    }
+}

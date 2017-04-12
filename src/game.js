@@ -20,7 +20,7 @@ $("#playButton").click(function() {
 });
 
 
-
+var base = 10;
 var enter = 0;
 var allText;
 var marqueeData= [];
@@ -117,6 +117,7 @@ element.catcherTooltip.setAttribute('data-tooltip', "Carbon catcher capture " + 
 element.clicker.onclick = function() { 
     mainClicker();
     button_check();
+ 
      
 
     
@@ -126,7 +127,12 @@ element.clicker.onclick = function() {
         
         document.getElementById("speech2").style.visibility = "visible";
         enter = 1;
+        document.getElementById("tree").style.visibility = "visible";
     }
+    popups()
+    
+   
+   
     
 };
 element.purchaseTree1.onclick = function() {  
@@ -681,4 +687,16 @@ function theF6()
     
    document.getElementById("catcherPic").className = "glyphicon glyphicon-screenshot flash";
    element.carbonCatcherInventory.className = "num flash";
+}
+
+function popups() {
+   
+    if(carbNum >= base*2)
+    {
+      
+        var itm = document.getElementById("tree");
+        var cln = itm.cloneNode(true);
+        document.getElementById("pollution").appendChild(cln); 
+     
+    }
 }
