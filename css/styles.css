@@ -679,18 +679,29 @@ a[data-tooltip][data-placement="right"]:after {
     to {opacity:.80 ;}
 }
 
+
 #tree {
     background: url('../img/tree.png') repeat 0 0;
      height: 50px;
      width: 50px;
      background-size: 100%;
- 
-    visibility: hidden;
+  
     margin-left: -20%;
  
      -webkit-animation: spin 2s infinite linear;
     animation: spin 2s infinite linear;
-   
+      visibility: hidden;
+}
+#car {
+    background: url('../img/car.png') repeat 0 0;
+     height: 50px;
+     width: 50px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+    margin-left: -20%;
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    visibility: hidden;
 }
 @-webkit-keyframes spin {
     100% { -webkit-transform: rotate(360deg); }

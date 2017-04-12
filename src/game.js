@@ -20,7 +20,8 @@ $("#playButton").click(function() {
 });
 
 
-var base = 1;
+var treebase = 1;
+var carbase = 1;
 var enter = 0;
 var allText;
 var marqueeData= [];
@@ -157,8 +158,13 @@ element.purchaseTree1.onclick = function() {
     }
     treePriceCalc();
     button_check();
-    var item = "tree";
-    popups(purchaseLevel, item);
+    if(purchaseLevel >= treebase)
+     {
+        var item = "tree";
+        popups(purchaseLevel, item);
+         treebase = treebase * 2;
+    }
+    
 };
 
 element.purchaseCar1.onclick = function() { 
@@ -168,8 +174,6 @@ element.purchaseCar1.onclick = function() {
         carbPerSec = carbPerSec + auto_adder.electric_car;
         carPerSec = carPerSec + auto_adder.electric_car;
         element.carTooltip.setAttribute('data-tooltip', "Elec Cars capture " + carPerSec.toFixed(3) +' carbons per sec' );
-
-        
     }
     else
     {
@@ -181,6 +185,12 @@ element.purchaseCar1.onclick = function() {
     }
     carPriceClac(); 
     button_check();
+    if(carPurchaseLevel >= carbase){
+        var item = "car";
+         popups(carPurchaseLevel, item);
+         carbase = carbase * 2;
+    }
+   
 };
 element.purchaseSolar1.onclick = function() { 
    
@@ -694,13 +704,12 @@ function popups(numberofitems, item) {
     if(numberofitems == 1)
     {
         document.getElementById(item).style.visibility = "visible";
-        base = base * 2;
+       
     }
-    if(numberofitems >= base)
+    else
     {
         var itm = document.getElementById(item);
         var cln = itm.cloneNode(true);
         document.getElementById("pollution").appendChild(cln); 
-        base = base * 2;
     }
 }
