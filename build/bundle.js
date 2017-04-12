@@ -174,6 +174,7 @@
 	        document.getElementById("speech2").style.visibility = "visible";
 	        enter = 1;
 	        document.getElementById("tree").style.visibility = "visible";
+	        base = base * 2;
 	    }
 	    popups()
 	    
@@ -737,12 +738,13 @@
 
 	function popups() {
 	   
-	    if(carbNum >= base*2)
+	    if(carbNum >= base)
 	    {
 	      
 	        var itm = document.getElementById("tree");
 	        var cln = itm.cloneNode(true);
 	        document.getElementById("pollution").appendChild(cln); 
+	        base = base * 2;
 	     
 	    }
 	}
