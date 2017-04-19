@@ -6,21 +6,15 @@ var game_state = require("./game_state.js");
  document.getElementById("infoPage").style.display = "none";
 
 
-$("#buttonStart").click(function() {
-  game_state.clickFunc();
-});
-
-
-$("#buttonInfo").click(function() {
-  game_state.infoFunc();
-});
-
-$("#playButton").click(function() {
-  game_state.startAtInfo();
-});
 
 
 
+var treebase = 1;
+var carbase = 1;
+var solarbase = 1;
+var farmbase = 1;
+var gasbase = 1;
+var catcherbase = 1;
 var enter = 0;
 var allText;
 var marqueeData= [];
@@ -52,11 +46,11 @@ var gasPurchaseLevel = 0;
 var capturePurchaseLevel = 0;
 
 var treeBasePrice = 10.00;
-var carBasePrice = 20.00;
-var solarBasePrice = 30.00;
-var farmBasePrice = 40.00;
-var gasBasePrice = 50.00;
-var captureBasePrice = 60.00;
+var carBasePrice = 50.00;
+var solarBasePrice = 100.00;
+var farmBasePrice = 500.00;
+var gasBasePrice = 1000.00;
+var captureBasePrice = 5000.00;
 
 var goal = 10;
 var opacity_counter = .90;
@@ -110,13 +104,18 @@ element.treeTooltip.setAttribute('data-tooltip', "Trees capture " + treePerSec.t
 element.carTooltip.setAttribute('data-tooltip', "Elec Cars capture " + carPerSec.toFixed(3) +' carbons per sec' );
 element.solarTooltip.setAttribute('data-tooltip', "Solar Pan capture " + solarPerSec.toFixed(3) +' carbons per sec' );
 element.gasTooltip.setAttribute('data-tooltip', "Green Gas capture " + gasPerSec.toFixed(3) +' carbons per sec' );
-element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
+element.farmTooltip.setAttribute('data-tooltip', "Farms capture " + farmPerSec.toFixed(3) +' carbons per sec' );
 element.catcherTooltip.setAttribute('data-tooltip', "Carbon catcher capture " + capPerSec.toFixed(3) +' carbons per sec' );
+
+
+
+
 
 
 element.clicker.onclick = function() { 
     mainClicker();
     button_check();
+ 
      
 
     
@@ -127,6 +126,10 @@ element.clicker.onclick = function() {
         document.getElementById("speech2").style.visibility = "visible";
         enter = 1;
     }
+   
+    
+   
+   
     
 };
 element.purchaseTree1.onclick = function() {  
@@ -139,7 +142,6 @@ element.purchaseTree1.onclick = function() {
         carbPerSec = carbPerSec + auto_adder.tree;
         treePerSec = treePerSec + auto_adder.tree;
         element.treeTooltip.setAttribute('data-tooltip', "Trees capture " + treePerSec.toFixed(3) +' Carbons per sec!' );
-
         
     }
     else
@@ -153,6 +155,14 @@ element.purchaseTree1.onclick = function() {
     }
     treePriceCalc();
     button_check();
+    if(purchaseLevel >= treebase)
+     {
+        var item = "tree";
+         var pos = "left";
+        popups(purchaseLevel, item, pos);
+         treebase = treebase * 2;
+    }
+    
 };
 
 element.purchaseCar1.onclick = function() { 
@@ -162,8 +172,6 @@ element.purchaseCar1.onclick = function() {
         carbPerSec = carbPerSec + auto_adder.electric_car;
         carPerSec = carPerSec + auto_adder.electric_car;
         element.carTooltip.setAttribute('data-tooltip', "Elec Cars capture " + carPerSec.toFixed(3) +' carbons per sec' );
-
-        
     }
     else
     {
@@ -175,6 +183,13 @@ element.purchaseCar1.onclick = function() {
     }
     carPriceClac(); 
     button_check();
+    if(carPurchaseLevel >= carbase){
+        var item = "car";
+        var pos = "left";
+         popups(carPurchaseLevel, item, pos);
+         carbase = carbase * 2;
+    }
+   
 };
 element.purchaseSolar1.onclick = function() { 
    
@@ -196,6 +211,12 @@ element.purchaseSolar1.onclick = function() {
     }
     solarPriceClac();
     button_check();
+      if(solarPurchaseLevel >= solarbase){
+        var item = "solar";
+          var pos = "left";
+         popups(solarPurchaseLevel, item, pos);
+         solarbase = solarbase * 2;
+    }
 };
 element.purchaseFarm1.onclick = function() {
     if(auto_adder.farm == 0) 
@@ -203,7 +224,7 @@ element.purchaseFarm1.onclick = function() {
         auto_adder.farm = 1/15;
         carbPerSec = carbPerSec + auto_adder.farm;
         farmPerSec = farmPerSec + auto_adder.farm;
-        element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
+        element.farmTooltip.setAttribute('data-tooltip', "Farms capture " + farmPerSec.toFixed(3) +' carbons per sec' );
 
         
     }
@@ -212,11 +233,17 @@ element.purchaseFarm1.onclick = function() {
         auto_adder.farm += auto_adder.farm;
         carbPerSec = carbPerSec + auto_adder.farm;
         farmPerSec = farmPerSec + auto_adder.farm;
-        element.farmTooltip.setAttribute('data-tooltip', "Frams capture " + farmPerSec.toFixed(3) +' carbons per sec' );
+        element.farmTooltip.setAttribute('data-tooltip', "Farms capture " + farmPerSec.toFixed(3) +' carbons per sec' );
 
     }
     farmPricCalc();
     button_check();
+    if(farmPurchaseLevel >= farmbase){
+        var item = "farm";
+        var pos = "right";
+         popups(farmPurchaseLevel, item, pos);
+         farmbase = farmbase * 2;
+    }
 };
 element.purchaseGas1.onclick = function() {
     if(auto_adder.gas == 0) 
@@ -237,6 +264,12 @@ element.purchaseGas1.onclick = function() {
     }
     gasPriceCalc();
     button_check();
+    if(gasPurchaseLevel >= gasbase){
+        var item = "gas";
+        var pos = "right";
+         popups(gasPurchaseLevel, item, pos);
+         gasbase = gasbase * 2;
+    }
 };
 element.purchaseCapture1.onclick = function() {
     if(auto_adder.capture == 0) 
@@ -257,6 +290,12 @@ element.purchaseCapture1.onclick = function() {
     }
     capturePriceCalc();
     button_check();
+    if(capturePurchaseLevel >= catcherbase){
+        var item = "catcher";
+        var pos = "right";
+         popups(capturePurchaseLevel, item, pos);
+         catcherbase = catcherbase * 2;
+    }
 };
 
 
@@ -498,7 +537,7 @@ function button_check(){
   }
   else {
         document.getElementById("purchaseTree1").disabled = true;
-        document.getElementById("purchaseTree1").style.backgroundColor= '#808080';
+        document.getElementById("purchaseTree1").style.backgroundColor= '#d9534f';
         document.getElementById("purchaseTree1").style.color = '#000';
         
         
@@ -512,7 +551,7 @@ function button_check(){
   }
   else{
         document.getElementById("purchaseCar1").disabled = true;
-        document.getElementById("purchaseCar1").style.backgroundColor= '#808080';
+        document.getElementById("purchaseCar1").style.backgroundColor= '#f0ad4e';
         document.getElementById("purchaseCar1").style.color = '#000';
   } 
   if(carbNum >= solarBasePrice)
@@ -523,7 +562,7 @@ function button_check(){
   }
   else{
         document.getElementById("purchaseSolar1").disabled = true;
-         document.getElementById("purchaseSolar1").style.backgroundColor= '#808080';
+         document.getElementById("purchaseSolar1").style.backgroundColor= '#ede12e';
         document.getElementById("purchaseSolar1").style.color = '#000';
   } 
   if(carbNum >= farmBasePrice)
@@ -534,7 +573,7 @@ function button_check(){
   }
   else {
         document.getElementById("purchaseFarm1").disabled = true; 
-         document.getElementById("purchaseFarm1").style.backgroundColor= '#808080';
+         document.getElementById("purchaseFarm1").style.backgroundColor= '#5cb85c';
         document.getElementById("purchaseFarm1").style.color = '#000';
   }
   if(carbNum >= gasBasePrice)
@@ -545,7 +584,7 @@ function button_check(){
   }
   else {
        document.getElementById("purchaseGas1").disabled = true;   
-         document.getElementById("purchaseGas1").style.backgroundColor= '#808080';
+         document.getElementById("purchaseGas1").style.backgroundColor= '#428bca';
         document.getElementById("purchaseGas1").style.color = '#000';
   }
   if(carbNum >= captureBasePrice)
@@ -556,7 +595,7 @@ function button_check(){
   }
   else {
         document.getElementById("purchaseCapture1").disabled = true;  
-         document.getElementById("purchaseCapture1").style.backgroundColor= '#808080';
+         document.getElementById("purchaseCapture1").style.backgroundColor= '#bc37e3';
         document.getElementById("purchaseCapture1").style.color = '#000';
   }
 };
@@ -596,20 +635,54 @@ $( document ).ready(function() {
     var audio2 = $("#ClickSound")[0];
 	$(".button-to-buy").mousedown(function() {
 	  audio.play();
+
 	});
     $(".earth").mousedown(function() {
 	  audio2.play();
 	});
+    
+    
+    $("#buttonStart").click(function() {
+  game_state.clickFunc();
+});
+
+
+$("#buttonInfo").click(function() {
+  game_state.infoFunc();
+});
+
+$("#playButton").click(function() {
+  game_state.startAtInfo();
+});
+
+
+$("#sound").click(function() {
+  if (audio.muted == false)
+      {
+          audio.muted = true;
+          audio2.muted = true;
+
+         document.getElementById("soundImage").src = "img/mute.png";
+        
+      }
+    else 
+        {
+            audio.muted = false;
+            audio2.muted = false;
+            document.getElementById("soundImage").src = "img/play.png";
+        }
+});
 });
 
 
 function check_achievements(){
-    if(carbNum >= 20 && prize == 0)
+    if(totalNumberOfCarbons >= 100 && prize == 0)
     {
         setTimeout(function () { element.prize1.classList.toggle('show');}, 5000);
         element.prize1.classList.toggle('show');
         prize += 1;
         clicker += 1;
+        document.getElementById("c1").style.color = 'chartreuse';
     }
 
 
@@ -680,4 +753,20 @@ function theF6()
     
    document.getElementById("catcherPic").className = "glyphicon glyphicon-screenshot flash";
    element.carbonCatcherInventory.className = "num flash";
+}
+
+function popups(numberofitems, item, pos) {
+   
+    if(numberofitems == 1)
+    {
+        document.getElementById(item).style.visibility = "visible";
+       
+    }
+    else
+    {
+        var itm = document.getElementById(item);
+        var cln = itm.cloneNode(true);
+        document.getElementById(pos).appendChild(cln); 
+        
+    }
 }

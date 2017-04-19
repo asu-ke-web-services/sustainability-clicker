@@ -16,45 +16,66 @@
   <body>
 
      <div id = "bgimg"> 
-         <h1 class="game-title">Carbon Clicker</h1>
-        <div id="startEarth" class="startEarth" ></div>
-         <div class="centerMe">
-      <button class ="button" id = "buttonStart"> <span>Start</span></button>
-      <button class ="button" id = "buttonInfo"> <span>Info Page</span></button>  
+         <div class="row">
+            <h1 class="game-title">Carbon Clicker</h1>
+             </div>
+          <div class="row">
+        <div class="col-md-12 text-center">
+        <div id="startEarth" class="startEarth center-block" ></div>
+              </div>
+         </div>
+          <div class="row">
+               <div class="col-md-12 text-center">
+         <button class ="button" id = "buttonStart"> <span>Start</span></button>
+        <button class ="button" id = "buttonInfo"> <span>Info Page</span></button>
+         </div>
          </div>
       </div>
 
      <div id = "infoPage"> 
+          <div class="row">
+              <div class="col-md-12 text-center">
          <h3 class="game-title">About "Carbon Clicker"</h3>
-         <div class="col-md-2 text-center"></div>
+              </div> </div>
+         <div class="row">
+             <div class="col-md-2 text-center"></div>
          <div class="col-md-8 text-center">
          <h4 class="info">Carbon Clicker was conceptualized by Ryan Raub & Nathan Rollins of The Julie Ann Wrigley Global
              Institute of Sustainability, implemented by 3 Computer Science students at Arizona State University during the 2016 - 2017 academic year (Armin Pourdehghan, Luis Carbajal, Lisha Coleman). The vision behind this webgame was to create a fun, interactive way to make students, faculty, and the general public more aware of how to better preserve the environment.</h4>
           </div>
       <div class="col-md-2 text-center"></div>
-      <div class="col-md-12 text-center"></div>
-         <div class="col-md-2 text-center"></div>
+         </div>
+       <div class="row">
+             <div class="col-md-2 text-center"></div>
          <div class="col-md-8 text-center">
          <h2 class="info2">Modeled after the popular webgame "Cookie Clicker", Carbon Clicker is a webgame which aims to teach users 
          about sustainability. Save Earth from being destroyed by collecting carbons and gaining inventory, while learning ways in which you can reduce your carbon footprint.</h2>
-         </div> <div class="col-md-2 text-center"></div>
+         </div> 
+           <div class="col-md-2 text-center"></div>
+         </div>
         
-         <div class="col-md-12"> <button class ="button2" id = "playButton"> <span>Play Now!</span></button> 
+          <div class="row">
+         <div class="col-md-12 text-center"> <button class ="button2" id = "playButton"> <span>Play Now!</span></button> 
          </div>
          </div>
+      </div>
 
     <div class="container-fluid" id="game">
         <div class="row">
                 
                 <div class="col-md-12">
-
                 <div class="points"> 
                     <div id="points" >
                     </div>
                 </div>
+                   
                     <div id= "carbonsCollecterPerSecond" class="perSec">Carbons Collected Per Second: 0</div>
                 </div>
-
+            
+                 <button class ="soundClass" id = "sound" ><img id="soundImage" src="img/play.png" width="60" height="64" alt="Sound Off" /></button> 
+        </div>
+                    
+         <div class="row">
             <div class="col-md-4 text-center"> 
                <div id="speech2">Purchase a tree!</div>
 
@@ -70,12 +91,18 @@
             </div>
             
            
-            <div class="col-md-4 .img-overlay" id="thisIsTheEarth">   
+            <div class="col-md-4 text-center" id="thisIsTheEarth">   
                 
                   <audio id="ClickSound"><source src="http://www.mediacollege.com/downloads/sound-effects/electronics/computer/mouse-doubleclick-02.wav"></audio>
-                <div id="pollution" class="pollution centerMe"><div id="speech"> Capture 10 Carbons!</div>></div>  
-                <button id="clicker" class="earth"></button>          
-                     
+                <div id="pollution" class="pollution center-block"><div id="left"><div id="tree"></div><div id="car"></div><div id="solar"></div></div><div id="right"><div id="farm"></div><div id="gas"></div><div id="catcher"></div></div></div>
+                <button id="clicker" class="earth center-block"></button>
+                
+                 <div id="speech"> Capture 10 Carbons!</div> 
+                 <div class="popups center-block">
+                       <div class="achievements center-block">
+            <div id="prize1" class="center-block">Achievement Unlocked: Learning The Ropes<img src="img/-ecology-environment-green-nature-world-icon--1.png" class="images"/></div>
+                       </div>
+                </div>
             </div>
     
              <div class="col-md-4 text-center"> 
@@ -87,28 +114,22 @@
 
                       <li><a data-tooltip="descripton" data-placement="left" id="captureToolTip"><button id="purchaseCapture1" data-tooltip="descripton" data-placement="right" class="btn-purp btn-outline button-to-buy marg" disabled>Carbon Catcher: Unlock after 1000</button></a></li>
                  </ul>
-                
              </div>
-            <div class="col-md-5 text-center" > 
-             <div class="popups">
-                       <div class="achievements">
-            <div id="prize1">achievement unlocked: Captured 20 carbons!<img src="img/-ecology-environment-green-nature-world-icon--1.png" class="images"/></div>
-                       </div>
-                </div></div>
-            
-
-    <div class="scroll col-md-12">
+        </div>
+       
+         <div class="row scroll">
         <marquee scrollamount="8" id= "c_Sentence"></marquee>
     </div>
-
+        
+         <div class="row">
           <div class="col-md-6"> 
               <div id="bottomHeaders" class= "text-center">
                   Inventory
               </div> 
               <ul>
-                  <li><div id="Inventory">
+                  <li><div id="Inventory" class="text-center">
                       
-                      <span style="font-size:4.5em" class="glyphicon glyphicon-tree-deciduous" id="treePic"> <div id="treeInventoryNum" class="num flash" style=" text-align: center">0</div></span> 
+                      <span style="font-size:4.5em" class="glyphicon glyphicon-tree-deciduous" id="treePic"> <div id="treeInventoryNum" class="num" style=" text-align: center">0</div></span> 
                       
                        <span style="font-size:4.5em; "  class="glyphicon glyphicon-road" id="carPic"><div id="carInventoryNum" class="num" style=" text-align: center">0</div> </span>
                       
@@ -132,17 +153,15 @@
                     <ul style="list-style-type: none;">
                         <li><div id="totalCarbNumStat" >Total Carbons Collected (All Time): 0</div></li>
                         <li><div id = "totalCarbonSold"> Total Carbons Sold: 0</div></li>
-                        <li><div id= "carbonsCollecterPerSecond">Carbons Currently Collected per Second: 0</div></li>
                     </ul>
               </div>
-                
-            
-                
-                 <div id="bottomHeaders">
+ 
+                <div id="bottomHeaders">
                   Achievements
               </div>
                  <div id="listStyle2">
                      <ul style="list-style-type: none;">
+                     <li id= "c1">Learning The Ropes (capture 100)</li>
                      <li>Bragging Rights (capture 10,000)</li>
                      <li>Free Groceries for a Month (capture 100,000)</li>
                      <li>Honarary Degree from Harvard (capture 500,000)</li>
