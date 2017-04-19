@@ -682,25 +682,74 @@ a[data-tooltip][data-placement="right"]:after {
 
 #tree {
     background: url('../img/tree.png') repeat 0 0;
-     height: 50px;
-     width: 50px;
+     height: 25px;
+     width: 25px;
      background-size: 100%;
-  
-    margin-left: -20%;
- 
+      background-repeat: no-repeat;
+     margin-left: -20%;
      -webkit-animation: spin 2s infinite linear;
     animation: spin 2s infinite linear;
       visibility: hidden;
+   
 }
 #car {
     background: url('../img/car.png') repeat 0 0;
-     height: 50px;
-     width: 50px;
+     height: 25px;
+     width: 25px;
      background-size: 100%;
     background-repeat: no-repeat;
     margin-left: -20%;
      -webkit-animation: spin 2s infinite linear;
     animation: spin 2s infinite linear;
+    visibility: hidden;
+}
+#solar {
+    background: url('../img/solar.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+    margin-left: -20%;
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    visibility: hidden;
+}
+#farm {
+    background: url('../img/barn.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+ 
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    margin-left: 350px;
+    visibility: hidden;
+}
+#gas {
+    background: url('../img/gas2.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+    
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    margin-left: 350px;
+     
+    visibility: hidden;
+}
+#catcher {
+    background: url('../img/net.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    margin-left: 350px;
+     
     visibility: hidden;
 }
 @-webkit-keyframes spin {

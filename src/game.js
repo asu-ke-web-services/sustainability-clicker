@@ -22,6 +22,10 @@ $("#playButton").click(function() {
 
 var treebase = 1;
 var carbase = 1;
+var solarbase = 1;
+var farmbase = 1;
+var gasbase = 1;
+var catcherbase = 1;
 var enter = 0;
 var allText;
 var marqueeData= [];
@@ -161,7 +165,8 @@ element.purchaseTree1.onclick = function() {
     if(purchaseLevel >= treebase)
      {
         var item = "tree";
-        popups(purchaseLevel, item);
+         var pos = "left";
+        popups(purchaseLevel, item, pos);
          treebase = treebase * 2;
     }
     
@@ -187,7 +192,8 @@ element.purchaseCar1.onclick = function() {
     button_check();
     if(carPurchaseLevel >= carbase){
         var item = "car";
-         popups(carPurchaseLevel, item);
+        var pos = "left";
+         popups(carPurchaseLevel, item, pos);
          carbase = carbase * 2;
     }
    
@@ -212,6 +218,12 @@ element.purchaseSolar1.onclick = function() {
     }
     solarPriceClac();
     button_check();
+      if(solarPurchaseLevel >= solarbase){
+        var item = "solar";
+          var pos = "left";
+         popups(solarPurchaseLevel, item, pos);
+         solarbase = solarbase * 2;
+    }
 };
 element.purchaseFarm1.onclick = function() {
     if(auto_adder.farm == 0) 
@@ -233,6 +245,12 @@ element.purchaseFarm1.onclick = function() {
     }
     farmPricCalc();
     button_check();
+    if(farmPurchaseLevel >= farmbase){
+        var item = "farm";
+        var pos = "right";
+         popups(farmPurchaseLevel, item, pos);
+         farmbase = farmbase * 2;
+    }
 };
 element.purchaseGas1.onclick = function() {
     if(auto_adder.gas == 0) 
@@ -253,6 +271,12 @@ element.purchaseGas1.onclick = function() {
     }
     gasPriceCalc();
     button_check();
+    if(gasPurchaseLevel >= gasbase){
+        var item = "gas";
+        var pos = "right";
+         popups(gasPurchaseLevel, item, pos);
+         gasbase = gasbase * 2;
+    }
 };
 element.purchaseCapture1.onclick = function() {
     if(auto_adder.capture == 0) 
@@ -273,6 +297,12 @@ element.purchaseCapture1.onclick = function() {
     }
     capturePriceCalc();
     button_check();
+    if(capturePurchaseLevel >= catcherbase){
+        var item = "catcher";
+        var pos = "right";
+         popups(capturePurchaseLevel, item, pos);
+         catcherbase = catcherbase * 2;
+    }
 };
 
 
@@ -699,7 +729,7 @@ function theF6()
    element.carbonCatcherInventory.className = "num flash";
 }
 
-function popups(numberofitems, item) {
+function popups(numberofitems, item, pos) {
    
     if(numberofitems == 1)
     {
@@ -710,6 +740,7 @@ function popups(numberofitems, item) {
     {
         var itm = document.getElementById(item);
         var cln = itm.cloneNode(true);
-        document.getElementById("pollution").appendChild(cln); 
+        document.getElementById(pos).appendChild(cln); 
+        
     }
 }
