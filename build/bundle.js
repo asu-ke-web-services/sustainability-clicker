@@ -52,35 +52,7 @@
 	 document.getElementById("infoPage").style.display = "none";
 
 
-	$("#buttonStart").click(function() {
-	  game_state.clickFunc();
-	});
 
-
-	$("#buttonInfo").click(function() {
-	  game_state.infoFunc();
-	});
-
-	$("#playButton").click(function() {
-	  game_state.startAtInfo();
-	});
-
-	$("#sound").click(function() {
-	  if (audio.muted == false)
-	      {
-	          audio.muted = true;
-	          audio2.muted = true;
-
-	         document.getElementById("soundImage").src = "img/mute.png";
-	        
-	      }
-	    else 
-	        {
-	            audio.muted = false;
-	            audio2.muted = false;
-	            document.getElementById("soundImage").src = "img/play.png";
-	        }
-	});
 
 
 	var treebase = 1;
@@ -120,11 +92,11 @@
 	var capturePurchaseLevel = 0;
 
 	var treeBasePrice = 10.00;
-	var carBasePrice = 20.00;
-	var solarBasePrice = 30.00;
-	var farmBasePrice = 40.00;
-	var gasBasePrice = 50.00;
-	var captureBasePrice = 60.00;
+	var carBasePrice = 50.00;
+	var solarBasePrice = 100.00;
+	var farmBasePrice = 500.00;
+	var gasBasePrice = 1000.00;
+	var captureBasePrice = 5000.00;
 
 	var goal = 10;
 	var opacity_counter = .90;
@@ -180,6 +152,10 @@
 	element.gasTooltip.setAttribute('data-tooltip', "Green Gas capture " + gasPerSec.toFixed(3) +' carbons per sec' );
 	element.farmTooltip.setAttribute('data-tooltip', "Farms capture " + farmPerSec.toFixed(3) +' carbons per sec' );
 	element.catcherTooltip.setAttribute('data-tooltip', "Carbon catcher capture " + capPerSec.toFixed(3) +' carbons per sec' );
+
+
+
+
 
 
 	element.clicker.onclick = function() { 
@@ -705,10 +681,43 @@
 	    var audio2 = $("#ClickSound")[0];
 		$(".button-to-buy").mousedown(function() {
 		  audio.play();
+
 		});
 	    $(".earth").mousedown(function() {
 		  audio2.play();
 		});
+	    
+	    
+	    $("#buttonStart").click(function() {
+	  game_state.clickFunc();
+	});
+
+
+	$("#buttonInfo").click(function() {
+	  game_state.infoFunc();
+	});
+
+	$("#playButton").click(function() {
+	  game_state.startAtInfo();
+	});
+
+
+	$("#sound").click(function() {
+	  if (audio.muted == false)
+	      {
+	          audio.muted = true;
+	          audio2.muted = true;
+
+	         document.getElementById("soundImage").src = "img/mute.png";
+	        
+	      }
+	    else 
+	        {
+	            audio.muted = false;
+	            audio2.muted = false;
+	            document.getElementById("soundImage").src = "img/play.png";
+	        }
+	});
 	});
 
 
