@@ -19,6 +19,23 @@ $("#playButton").click(function() {
   game_state.startAtInfo();
 });
 
+$("#sound").click(function() {
+  if (audio.muted == false)
+      {
+          audio.muted = true;
+          audio2.muted = true;
+
+         document.getElementById("soundImage").src = "img/mute.png";
+        
+      }
+    else 
+        {
+            audio.muted = false;
+            audio2.muted = false;
+            document.getElementById("soundImage").src = "img/play.png";
+        }
+});
+
 
 var treebase = 1;
 var carbase = 1;
