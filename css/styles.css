@@ -13,7 +13,7 @@
   border-radius: 4px;
   background-color: darkgrey;
   border: none;
-  margin-top: 30%;
+  margin-top: 5%;
   color: #FFFFFF;
   text-align: center;
   font-size: 28px;
@@ -30,7 +30,6 @@
   background-color: darkgrey;
   border: none;
   margin-top: 10px;
-  margin-left: 44%;
   color: #FFFFFF;
   text-align: center;
   font-size: 28px;
@@ -39,17 +38,10 @@
   transition: all 0.5s;
   cursor: pointer;
 }
-#buttonStart {
- margin: 200px 0px 10px 450px;/*top right bottom left*/
-}
-
-.centerMe{ text-align: center; }
 
 #startEarth
 {  
   margin-top: 4%;
-  margin-left: 40%;
-  margin-right: 20%;
   width: 300px;
   height: 300px;
   background: url('../img/2.jpg');
@@ -61,7 +53,6 @@
   animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear; 
-  position: absolute;
   z-index: -1; 
 }
 
@@ -134,6 +125,7 @@ body
     height: 50px;
     cursor: pointer;
     margin-top: 10%;
+    z-index: -1;
 }
 
 .marg
@@ -141,34 +133,17 @@ body
   margin-top: 8%;
 }
 
-.img-overlay 
-{
-    position: relative;
-    max-width: 250px; 
-    z-index: inherit;
-}
-
-#inventory
-{
-      margin-left: 11.5%;
-    margin-bottom: 12.5%;
-}
-
-
-
 button:focus {outline:0;}
 #clicker 
 {
   background: url(../img/1.png);
-    margin-top: 9%;
-    margin-left: 9%;
-    margin-right: 50%;
     height: 310px;
     width: 350px;
+    margin-top: -290px;
     background-size: 370px;
     border: none;
     background-repeat: no-repeat;
-  
+    z-index: 1;
 }
 #clicker:hover{
     transform: scale(1.2);
@@ -178,14 +153,11 @@ button:focus {outline:0;}
    
 }
 
-
 #pollution
 {  
-  margin-top: 10%;
-  margin-left: 15%;
-  margin-right: 50%;
   width: 300px;
   height: 300px;
+  margin-top: 10%;
   background: url('../img/2.jpg');
   border-radius: 50%;
   background-size: 600px;
@@ -195,22 +167,15 @@ button:focus {outline:0;}
   animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear; 
-  position: absolute;
   z-index: -1;
- 
- 
 }
 
-.btn-outline 
-{
-    color: black;
-    border-color: inherit;
-}
 
 .btn-blue.btn-outline 
 {
     background-color:#428bca;
     border-color: #428bca;
+    color: black;
 }
 .btn-blue.btn-outline:hover
 {
@@ -221,6 +186,7 @@ button:focus {outline:0;}
 {
     background-color: #5cb85c;
     border-color: #5cb85c;
+    color: black;
 }
 
 .btn-green.btn-outline:hover
@@ -232,6 +198,7 @@ button:focus {outline:0;}
 {
     background-color: darkorange;
     border-color: #f0ad4e;
+    color: black;
 }
 .btn-orange.btn-outline:hover
 {
@@ -242,16 +209,15 @@ button:focus {outline:0;}
 {
     background-color: firebrick;
     border-color: #d9534f;
+    color: black;
 }
-.btn-red.btn-outline:hover
-{
-    color: #fff;
-}
+
 
 .btn-purp.btn-outline 
 {
     background-color: #bc37e3;
     border-color: #bc37e3;
+    color: black;
 }
 .btn-purp.btn-outline:hover
 {
@@ -262,7 +228,9 @@ button:focus {outline:0;}
 {
     background-color: #ede12e;
     border-color: #ede12e;
+    color: black;
 }
+
 .btn-yellow.btn-outline:hover
 {
     color: #fff;
@@ -270,9 +238,10 @@ button:focus {outline:0;}
 
 .btn-outline:disabled
 {
-    color:black;
+    background-color: inherit;
+    color: black;
     cursor: not-allowed;
-    opacity: 0.30;
+    opacity: 0.20;
 }
 
 .flash
@@ -310,6 +279,7 @@ button:focus {outline:0;}
   overflow: hidden;
   color: red;
   margin-bottom: 20px;
+    margin-top: 35px;
 }   
 
 #listStyle
@@ -320,8 +290,8 @@ button:focus {outline:0;}
 
 #listStyle2
 {
-    color:#E7E8D2;
-    font-size: 13px;
+    color:dimgray;
+    font-size: 18px;
 }
 #mustearn
 {
@@ -545,13 +515,15 @@ a[data-tooltip][data-placement="right"]:after {
   font-size: 0;
   line-height: 0;
 }
+
 #speech {
   font: 110% 'Trebuchet MS', cursive;
   position: relative;
-  top: -10px;
-  left: 300px;
-  width: 300px;
+  left: 380px;
+  top: -300px;
+  width: 250px;
   height: 60px;
+  z-index:1;
   text-align:center;
   line-height: 50px;
   background-color: lightgoldenrodyellow;
@@ -598,8 +570,8 @@ a[data-tooltip][data-placement="right"]:after {
   font: 110% 'Trebuchet MS', cursive;
  visibility:hidden;
   position: relative;
-  top: 70px;
-  left: 380px;
+  top:40px;
+  left: 395px;
   width: 150px;
   height: 60px;
   text-align: center;
@@ -612,12 +584,13 @@ a[data-tooltip][data-placement="right"]:after {
   -webkit-box-shadow: 2px 2px 4px #888;
   -moz-box-shadow: 2px 2px 4px #888;
   box-shadow: 2px 2px 4px #888;
+    z-index: 1;
 }
 
 #speech2:after {
   content:"";
   position:absolute;
-  bottom:-30px; /* value = - border-top-width - border-bottom-width */
+  bottom:50px; /* value = - border-top-width - border-bottom-width */
   left:50px; /* controls horizontal position */
   border-width:20px 0 0 20px; /* vary these values to change the angle of the vertex */
   border-style:solid;
@@ -638,7 +611,7 @@ a[data-tooltip][data-placement="right"]:after {
 /* creates the smaller triangle */
 #speech2:after {
   top:30px;
-  left:-30px; /* value = - border-left-width - border-right-width */
+  left:-20px; /* value = - border-left-width - border-right-width */
   bottom:auto;
   border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
   border-color:transparent lightgoldenrodyellow;
@@ -658,31 +631,28 @@ a[data-tooltip][data-placement="right"]:after {
 
 #prize1 {
  
-    margin: auto auto;
-    right: 50%;
-    width: 500px;
+    width: 450px;
     height: 70px;
+    margin-top: -250px;
     text-align:center;
     border-radius: 6px;
     background-color: darkslategray;
     opacity: .80;
     font: 150% 'Trebuchet MS', cursive;
     color: #fff;
-     word-wrap: break-word;
+    word-wrap: break-word;
     text-shadow: 
     0 0 10px #fff, 
     0 0 30px #fff, 
     0 0 50px #e3e98e, 
     0 0 70px #e3e98e,
     0 0 90px #e3e98e;
-
-     
+    position: relative;
 }
 
 
 .images {
     margin-top: auto;
-    margin-right: 6.6%;
     width: 50px;
     height: 50px;
     background: no-repeat;
@@ -709,3 +679,95 @@ a[data-tooltip][data-placement="right"]:after {
     to {opacity:.80 ;}
 }
 
+
+#tree {
+    background: url('../img/tree.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+      background-repeat: no-repeat;
+     margin-left: -20%;
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+      visibility: hidden;
+   
+}
+#car {
+    background: url('../img/car.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+    margin-left: -20%;
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    visibility: hidden;
+}
+#solar {
+    background: url('../img/solar.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+    margin-left: -20%;
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    visibility: hidden;
+}
+#farm {
+    background: url('../img/barn.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+ 
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    margin-left: 350px;
+    visibility: hidden;
+}
+#gas {
+    background: url('../img/gas2.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+    
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    margin-left: 350px;
+     
+    visibility: hidden;
+}
+#catcher {
+    background: url('../img/net.png') repeat 0 0;
+     height: 25px;
+     width: 25px;
+     background-size: 100%;
+    background-repeat: no-repeat;
+
+     -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    margin-left: 350px;
+     
+    visibility: hidden;
+}
+@-webkit-keyframes spin {
+    100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    100% { -moz-transform: rotate(360deg); }
+}
+@keyframes spin {
+    100% {
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+        transform:rotate(360deg);
+    }
+}
+
+#sound 
+{
+    color: white;
+    background-color: transparent;
+}
